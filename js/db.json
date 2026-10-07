@@ -1,0 +1,56 @@
+{
+  "ediciones": [
+    {
+      "id": "PLM-042",
+      "titulo": "Viento de Levante & Silencios",
+      "artista": "Orquesta Modular de Toledo & Sofía Alarcón",
+      "matriz": "PLM-042-DLX",
+      "formato": "LP 12\" DELUXE",
+      "gramaje": "180g Virgin",
+      "velocidad": "33 ⅓ RPM",
+      "precio": 34.50,
+      "tiradaTotal": 500,
+      "stockRestante": 84,
+      "estado": "En distribución"
+    },
+    {
+      "id": "PLM-089",
+      "titulo": "Llanura Modular & Eco Solar",
+      "artista": "Ensemble de Sintetizadores de La Mancha",
+      "matriz": "PLM-089-STD",
+      "formato": "1ª TIRADA STANDARD",
+      "gramaje": "200g Ultra-HD",
+      "velocidad": "33 ⅓ RPM",
+      "precio": 28.00,
+      "tiradaTotal": 1000,
+      "stockRestante": 310,
+      "estado": "Stock regular"
+    },
+    {
+      "id": "PLM-114",
+      "titulo": "Canto Rodado & Cencerradas",
+      "artista": "Dúo de Percusión Ibérica & Microfónico Rural",
+      "matriz": "PLM-114-BOX",
+      "formato": "BOXSET ESPECIAL & CASSETTE",
+      "gramaje": "Cinta Type II + Vinilo 7\"",
+      "velocidad": "45 RPM",
+      "precio": 42.00,
+      "tiradaTotal": 300,
+      "stockRestante": 0,
+      "estado": "Sold Out"
+    },
+    {
+      "id": "PLM-205",
+      "titulo": "Surcos de Esparto & Cuerda",
+      "artista": "Cuarteto de Cuerda Manchego & Sintetizador Buchla",
+      "matriz": "PLM-205-TP",
+      "formato": "TEST PRESSING OFICIAL (TP)",
+      "gramaje": "180g Virgin",
+      "velocidad": "33 ⅓ RPM",
+      "precio": 120.00,
+      "tiradaTotal": 50,
+      "stockRestante": 12,
+      "estado": "Archivo histórico"
+    }
+  ]
+}
