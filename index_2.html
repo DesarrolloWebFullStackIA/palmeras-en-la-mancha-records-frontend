@@ -1,698 +1,554 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Palmeras en la Mancha Records</title>
-
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@500;600&display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    rel="stylesheet" />
-
-  <!-- Estilos CSS -->
-  <link rel="stylesheet" href="css/styles2.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
-
 <body>
 
-  <!-- Encabezado -->
+  <!-- Header principal -->
   <header class="main-header">
     <div class="header-container">
       <div class="brand-group">
-        <div class="brand-logo-container">
-          <img alt="Emblema oficial de Palmeras en la Mancha Records" class="brand-logo" src="images/logo.png" />
-          <div class="brand-titles">
-            <span class="brand-name">Palmeras en la Mancha Records</span>
+        <div class="brand-logo-wrapper">
+          <img alt="Emblema oficial de Palmeras en la Mancha Records" class="brand-logo" src="https://lh3.googleusercontent.com/aida/AEtjO1WHaX89NkhYw0BS5ScZg5lCZHurpnTYaAh99ucFrQqLkVJxOneK0x2cY-bgCDyUn-AKAgsiDKMmE85uRMhg91hKoHeWq73sumqPDLuIUHOvJg79fuDrRKPDlvW__75JLtQTzKAVZYZlF_5a3I2FcMVfPs4dLFE--lXlJHVe5G-E146i-z15_FtTppxySR9jePvQclKbpN7H2sa-uOy6-7uVHM__qZ3mZwlwqMCwWoZ2IA"/>
+          <div class="brand-text">
+            <span class="brand-title">Palmeras en la Mancha Records</span>
+            <span class="brand-subtitle">Vinyl Archive & Console</span>
           </div>
         </div>
         <nav class="main-nav">
-          <a class="nav-link active" href="#">Catálogo de Álbumes</a>
-          <a class="nav-link" href="#">Gestión de Filiales</a>
-          <a class="nav-link" href="#">Discográficas & Productoras</a>
-          <a class="nav-link" href="#">Ediciones de Álbumes</a>
+          <button class="nav-tab-btn active" data-target="view-dashboard">
+            <span class="material-symbols-outlined">space_dashboard</span>
+            <span>Gestión de Filiales</span>
+          </button>
+          <button class="nav-tab-btn" data-target="view-editor">
+            <span class="material-symbols-outlined">edit_note</span>
+            <span>Edición de Sede</span>
+          </button>
+          <button class="nav-tab-btn" data-target="view-transfer">
+            <span class="material-symbols-outlined">sync_alt</span>
+            <span>Transferencia de Stock</span>
+          </button>
         </nav>
       </div>
       <div class="header-actions">
-        <div class="header-search">
+        <div class="search-box">
           <span class="material-symbols-outlined search-icon">search</span>
-          <input class="header-search-input" placeholder="Buscar catálogo, matriz, RPM..." type="search" />
+          <input class="search-input" placeholder="Buscar catálogo, matriz, RPM..." type="search"/>
         </div>
         <div class="branch-badge">
-          <span class="material-symbols-outlined text-primary">store</span>
+          <span class="material-symbols-outlined">store</span>
           <span>Sucursal Central - Toledo</span>
         </div>
-        <button class="btn btn-primary" type="button">
-          <span class="material-symbols-outlined">add</span>
-          <span>Nuevo Lanzamiento</span>
-        </button>
+        <div class="user-avatar">
+          <span class="material-symbols-outlined">person</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Contenido Principal -->
   <main class="main-content">
-
-    <!-- Banner de Notificación -->
-    <div class="top-banner">
-      <div class="banner-container">
-        <div class="banner-info">
-          <span class="pulse-dot"></span>
-          <span class="banner-title">PLANTA DE PRENSADO MADRID / GUADALAJARA:</span>
-          <span>Lote #PLM-2025-Q1 en inspección acústica estocástica (corte DMM Neumann VMS 80).</span>
-        </div>
-        <div class="banner-specs">
-          <span class="spec-tag">Tolerancia RIAA ±0.12dB</span>
-          <span class="spec-time">Horario de corte: 08:00 - 20:00 CET</span>
+    <div class="content-wrapper">
+      
+      <!-- Sub-header informativo -->
+      <div class="operational-strip">
+        <div class="strip-container">
+          <div class="strip-info">
+            <span class="pulse-dot"></span>
+            <span class="highlight-text">Red de Almacenes Regionales</span>
+            <span>/</span>
+            <span>Castilla-La Mancha Hub</span>
+            <span>/</span>
+            <span class="dark-text">Gestión Activa v2.4</span>
+          </div>
+          <div class="strip-metrics">
+            <span>Sincronización P2P: <strong>0.084s</strong></span>
+            <span>Protocolo: <strong>VINYL-REST-EU</strong></span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="content-wrapper">
+      <div class="main-container">
 
-      <!-- Sección Encabezado del Archivo -->
-      <section class="section-hero">
-        <div class="hero-text">
-          <div class="hero-meta">
-            <span class="hero-badge">Archivo Técnico & Manufactura</span>
-            <span class="hero-rev">REV. 2025.04.12</span>
-          </div>
-          <h1 class="hero-title">Gestión de Ediciones & Tiradas Físicas</h1>
-          <p class="hero-description">
-            Control meticuloso de prensados de vinilo 180g virgin vinyl, formulaciones de color exclusivo, inserts
-            numerados a mano, boxsets de archivo y reediciones masterizadas desde cinta analógica original.
-          </p>
-        </div>
-        <div class="hero-actions">
-          <button class="btn btn-secondary" type="button">
-            <span class="material-symbols-outlined text-primary">download</span>
-            <span>Exportar Matriz RIAA (CSV)</span>
-          </button>
-          <button class="btn btn-primary" id="open-new-edition-tab" type="button">
-            <span class="material-symbols-outlined">add_circle</span>
-            <span>
-              <a href="new_edition_tab.html" target="_blank" rel="noopener noreferrer" class="text-link">Registrar Nueva Edición</a>
-            </span>
-          </button>
-        </div>
-      </section>
-
-      <!-- Métricas (Bento Tiles) -->
-      <section class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-header">
-            <span class="metric-label">Catálogo Físico Activo</span>
-            <div class="metric-icon-wrapper"><span class="material-symbols-outlined">album</span></div>
-          </div>
-          <div class="metric-body">
-            <div class="metric-value">48</div>
-            <div class="metric-subtext">Ediciones en circulación oficial</div>
-          </div>
-          <div class="metric-footer text-primary">
-            <strong>+4</strong> <span>lanzadas durante el último trimestre fiscal</span>
-          </div>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-header">
-            <span class="metric-label">Tiradas Limitadas</span>
-            <div class="metric-icon-wrapper bg-secondary"><span class="material-symbols-outlined">lock_clock</span>
+        <!-- ========================================== -->
+        <!-- PESTAÑA 1: PANEL PRINCIPAL (DASHBOARD)     -->
+        <!-- ========================================== -->
+        <section class="view-section active" id="view-dashboard">
+          <div class="page-title-section">
+            <div class="title-block">
+              <div class="meta-tag">
+                <span class="tag">Infraestructura FÍSICA</span>
+                <span class="bullet">•</span>
+                <span class="meta-text">Auditoría en Curso</span>
+              </div>
+              <h1 class="page-title">Gestión de Filiales & Sedes Regionales</h1>
+              <p class="page-subtitle">Control de stock físico, almacenes y sincronización en tiempo real entre tiendas de Castilla-La Mancha.</p>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-secondary nav-trigger" data-target="view-transfer">
+                <span class="material-symbols-outlined">sync_alt</span>
+                <span>Ir a Transferencias</span>
+              </button>
+              <button class="btn btn-primary nav-trigger" data-target="view-editor" id="btn-new-branch">
+                <span class="material-symbols-outlined">add_circle</span>
+                <span>+ Nueva Filial</span>
+              </button>
             </div>
           </div>
-          <div class="metric-body">
-            <div class="metric-value">12</div>
-            <div class="metric-subtext">Tiradas limitadas activas & numeradas</div>
-          </div>
-          <div class="metric-footer text-tertiary">
-            <span class="material-symbols-outlined icon-sm">local_fire_department</span>
-            <span>3 con menos de 100 copias en almacén</span>
-          </div>
-        </div>
 
-        <div class="metric-card">
-          <div class="metric-header">
-            <span class="metric-label">Índice Acústico RIAA</span>
-            <div class="metric-icon-wrapper bg-primary-fixed"><span class="material-symbols-outlined">graphic_eq</span>
+          <!-- Tarjetas de Métricas -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Sedes Registradas</span>
+                <span class="metric-icon-box"><span class="material-symbols-outlined">storefront</span></span>
+              </div>
+              <div class="metric-body">
+                <span class="metric-value">3</span>
+                <span class="badge badge-success">100% Operativas</span>
+              </div>
+              <div class="metric-footer">
+                <span>Toledo • Albacete • Ciudad Real</span>
+                <span class="status-ok">Consistente</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Volumen Consolidado</span>
+                <span class="metric-icon-box"><span class="material-symbols-outlined">album</span></span>
+              </div>
+              <div class="metric-body">
+                <span class="metric-value">1.180</span>
+                <span class="subtext">LPs & Formatos Físicos</span>
+              </div>
+              <div class="metric-footer">
+                <span>Capacidad total: 2.500 unids.</span>
+                <span class="status-ok">47.2% Ocupación</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: 47.2%"></div>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-label">Disponibilidad en Red</span>
+                <span class="metric-icon-box"><span class="material-symbols-outlined">check_circle</span></span>
+              </div>
+              <div class="metric-body">
+                <span class="metric-value">99.8%</span>
+                <span class="badge badge-success">SLA Óptimo</span>
+              </div>
+              <div class="metric-footer">
+                <span>Latencia de catalogación</span>
+                <span class="status-dark">&lt; 12ms</span>
+              </div>
             </div>
           </div>
-          <div class="metric-body flex-between">
+
+          <!-- Gráfico de distribución -->
+          <div class="distribution-card">
+            <div class="distribution-info">
+              <span class="section-label">Balance Intermodal de Existencias</span>
+              <h2 class="section-title">Distribución Frecuencial del Almacén</h2>
+              <p class="section-description">Proporción de prensajes audiófilos de 180g y ediciones especiales centralizadas en la red castellano-manchega.</p>
+            </div>
+            <div class="gauge-group">
+              <div class="gauge-item">
+                <svg class="gauge-svg" viewBox="0 0 36 36">
+                  <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-fill fill-primary" stroke-dasharray="52.5, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                </svg>
+                <div class="gauge-details">
+                  <span class="gauge-val">52.5%</span>
+                  <span class="gauge-lbl">Toledo Central</span>
+                </div>
+              </div>
+              <div class="gauge-item">
+                <svg class="gauge-svg" viewBox="0 0 36 36">
+                  <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-fill fill-secondary" stroke-dasharray="28.8, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                </svg>
+                <div class="gauge-details">
+                  <span class="gauge-val">28.8%</span>
+                  <span class="gauge-lbl">Albacete</span>
+                </div>
+              </div>
+              <div class="gauge-item">
+                <svg class="gauge-svg" viewBox="0 0 36 36">
+                  <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-fill fill-accent" stroke-dasharray="18.7, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                </svg>
+                <div class="gauge-details">
+                  <span class="gauge-val">18.7%</span>
+                  <span class="gauge-lbl">Ciudad Real</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Encabezado de tarjetas de Filiales -->
+          <div class="section-header">
             <div>
-              <div class="metric-value">98.5%</div>
-              <div class="metric-subtext">Calidad prensado & fondo silencioso</div>
-            </div>
-            <div class="gauge-chart">
-              <svg viewBox="0 0 36 36" class="gauge-svg">
-                <path class="gauge-bg"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                <path class="gauge-fill"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-              </svg>
-              <span class="gauge-text">RIAA</span>
+              <h2 class="section-heading">Detalle de Sedes y Almacenes</h2>
+              <p class="section-subheading">Inspección física de terminales, gerencias y niveles de existencias por formato sonoro.</p>
             </div>
           </div>
-          <div class="metric-footer text-outline font-mono">Ruido de fondo medio: &lt; -64 dBv</div>
-        </div>
 
-        <div class="metric-card">
-          <div class="metric-header">
-            <span class="metric-label">Cola de Prensado</span>
-            <div class="metric-icon-wrapper"><span class="material-symbols-outlined">precision_manufacturing</span>
-            </div>
-          </div>
-          <div class="metric-body">
-            <div class="metric-value">3</div>
-            <div class="metric-subtext">Re-prensados programados en cola</div>
-          </div>
-          <div class="metric-footer text-subtle">
-            <span class="dot-indicator"></span>
-            <span>PLM-114, PLM-072 y PLM-015 en galvanoplastia</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Barra de Filtros -->
-      <section class="filter-console">
-        <div class="filter-search-group">
-          <div class="search-input-container">
-            <span class="material-symbols-outlined search-icon">filter_list</span>
-            <input class="search-input" id="edition-search-input"
-              placeholder="Filtrar por título, matriz (PLM-...), formato..." type="text" />
-          </div>
-          <div class="format-controls">
-            <button class="filter-pill active" type="button">Todos (48)</button>
-            <button class="filter-pill" type="button">LP 12"</button>
-            <button class="filter-pill" type="button">Single 7"</button>
-            <button class="filter-pill" type="button">Boxset</button>
-            <button class="filter-pill" type="button">Cassette</button>
-            <button class="filter-pill" type="button">Test Pressing</button>
-          </div>
-        </div>
-        <div class="filter-selects-group">
-          <div class="select-wrapper">
-            <span class="select-label">Gramaje:</span>
-            <select class="custom-select">
-              <option>Todos los pesos</option>
-              <option>140g Standard</option>
-              <option selected>180g Virgin Audiophile</option>
-              <option>200g Ultra-Heavy</option>
-              <option>Cinta Magnética CrO2</option>
-            </select>
-          </div>
-          <div class="select-wrapper">
-            <span class="select-label">Disponibilidad:</span>
-            <select class="custom-select">
-              <option>Cualquier estado</option>
-              <option>En Distribución</option>
-              <option>Stock Regular</option>
-              <option>Sold Out / En Espera</option>
-              <option>Archivo / Subasta</option>
-            </select>
-          </div>
-          <button class="btn-icon" title="Restablecer filtros" type="button">
-            <span class="material-symbols-outlined">restart_alt</span>
-          </button>
-        </div>
-      </section>
-
-      <!-- Lista de Ediciones -->
-      <section class="editions-section">
-        <div class="section-header">
-          <div class="section-title-group">
-            <h2 class="section-title">Catálogo Maestro de Ediciones</h2>
-            <span class="catalog-badge">4 VARIANTES PRINCIPALES DESTACADAS</span>
-          </div>
-          <span class="sort-info">Ordenado por: Última modificación de inventario ↓</span>
-        </div>
-
-        <div class="editions-list" id="editions-container">
-          <!-- Item 1 -->
-          <article class="edition-card">
-            <div class="visual-container">
-              <div class="sleeve-mockup">
-                <img alt="Portada Viento de Levante"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyzcviHfFhJDxoAifUnW0CiJyAu_jv-hUMdpBFmxGgOlaU0tYKStznP9eoASOqTLMeZBJfnJtaE1b0jXGQgq9f7OwPhoXIsQK4YnqWta6w1QZYUGnJg2EBhMpcj_-FBtVit8yUdDiCfydPFLQWIA3QQnMQPbtihxpqHSebRcXPFHQ04FUDWSwfE-EB2UoCK5cu0zh7F1HWmZazo0TGV9tSnUX8JVb1JJnz282CtfpU" />
-                <span class="badge-overlay">180g DLX</span>
-              </div>
-              <div class="vinyl-disc">
-                <div class="vinyl-marble"></div>
-                <div class="vinyl-groove-outer">
-                  <div class="vinyl-groove-inner">
-                    <div class="vinyl-label bg-primary">
-                      <span class="material-symbols-outlined icon-xs">spa</span>
-                      <span class="label-code">PLM-042</span>
+          <!-- Rejilla de tarjetas de Filiales -->
+          <div class="branches-grid">
+            <!-- Sucursal Toledo -->
+            <div class="branch-card">
+              <div class="branch-card-content">
+                <div class="branch-header">
+                  <div>
+                    <div class="tag-group">
+                      <span class="tag-primary">Sede Matriz</span>
+                      <span class="status-online"><span class="dot-ping"></span> Online</span>
+                    </div>
+                    <h3 class="branch-title">Sucursal Central Toledo</h3>
+                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Calle Comercio 14, 45001 Toledo</p>
+                  </div>
+                  <div class="branch-icon"><span class="material-symbols-outlined">domain</span></div>
+                </div>
+                <div class="branch-image-wrapper">
+                  <img class="branch-image" alt="Interior Toledo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjqihgznYhjyWuEoekTUEYfoNVOeeLmlCSxYLhCodBa1LSD5p0tpR7ypLcxHAGh70KYN24YCu4NnaERCmDB1ThIFOJ-vQ2F2WHxCx6RaWn6jAbrjqbw72S5vw_oNhqkQp2d730nSDuHgGS0xIChWgWwsCmUAdyKqmcj186jstFOo-OdtBUwvYgjq9VWrVRTxrwUzjl94uB4QXTe1wzMzTOqr56OAkoKXDYtvNbcIvf"/>
+                  <div class="image-overlay"></div>
+                  <div class="image-caption"><span class="material-symbols-outlined">headphones</span> <span>Almacén principal y sala de escucha Hi-Fi</span></div>
+                </div>
+                <div class="manager-strip">
+                  <div class="manager-info">
+                    <div class="avatar-initials">CM</div>
+                    <div class="manager-meta">
+                      <span class="meta-label">Gerente de Sede</span>
+                      <span class="manager-name">Carlos M.</span>
                     </div>
                   </div>
+                  <div class="sync-info">
+                    <span class="meta-label">Sincronización</span>
+                    <span class="sync-status">Tiempo Real</span>
+                  </div>
+                </div>
+                <div class="stock-total-row">
+                  <span class="stock-label">Stock Total en Tienda</span>
+                  <span class="stock-value">620 <small>LPs</small></span>
+                </div>
+                <div class="format-list">
+                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span> Vinilos 12" LP (Audiófilo)</span><strong>410 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" & Maxi 45 RPM</span><strong>115 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones Especiales & Boxsets</span><strong>65 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span> Cassettes & Archivo Analógico</span><strong>30 u.</strong></div>
                 </div>
               </div>
-              <div class="visual-footer text-primary">
-                <span class="material-symbols-outlined icon-sm">palette</span>
-                <span>Mármol Azul & Blanco Opaque</span>
+              <div class="branch-card-footer">
+                <button class="btn btn-muted btn-edit-tab" data-name="Sucursal Central Toledo" data-address="Calle Comercio 14, 45001 Toledo" data-manager="Carlos M." data-capacity="620" data-notes="Almacén principal y sala de escucha">
+                  <span class="material-symbols-outlined">edit_note</span> <span>Editar en Pestaña</span>
+                </button>
+                <button class="btn btn-action-full btn-transfer-tab" data-origin="Sucursal Central Toledo">
+                  <span class="material-symbols-outlined">move_up</span> <span>Transferencia de Stock</span>
+                </button>
               </div>
             </div>
 
-            <div class="edition-details">
-              <div class="details-header">
-                <div class="meta-tags">
-                  <span class="tag tag-primary">LP 12" DELUXE</span>
-                  <span class="meta-code">MATRIZ: PLM-042-DLX</span>
-                  <span class="bullet">•</span>
-                  <span class="meta-engineer">LACQUER CUT: BERNIE G.</span>
-                </div>
-                <div class="status-pill status-active">
-                  <span class="status-dot"></span>
-                  <span>En distribución (84 copias restantes)</span>
-                </div>
-              </div>
-
-              <div class="album-info">
-                <h2 class="album-title">Viento de Levante & Silencios</h2>
-                <p class="album-artist">Orquesta Modular de Toledo & Sofía Alarcón</p>
-              </div>
-
-              <div class="specs-grid">
-                <div class="spec-item">
-                  <span class="spec-title">Tirada Oficial</span>
-                  <span class="spec-value">500 copias</span>
-                  <span class="spec-sub">Numeradas a mano en oro</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Gramaje & Material</span>
-                  <span class="spec-value">180g Virgin</span>
-                  <span class="spec-sub">Compuesto Neo-Pellet UE</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Velocidad / RPM</span>
-                  <span class="spec-value">33 ⅓ RPM</span>
-                  <span class="spec-sub">Mastering a medio corte</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">PVP Recomendado</span>
-                  <span class="spec-value text-primary">34,50 €</span>
-                  <span class="spec-sub">Margen distrib.: 32%</span>
-                </div>
-              </div>
-
-              <div class="extras-list">
-                <span class="extras-label">Contenido de la Edición:</span>
-                <span class="extra-chip"><span class="material-symbols-outlined icon-sm text-primary">menu_book</span>
-                  Libreto 24 págs. papel munken</span>
-                <span class="extra-chip"><span class="material-symbols-outlined icon-sm text-primary">download</span>
-                  Tarjeta descarga WAV 24-bit / 96kHz</span>
-                <span class="extra-chip"><span class="material-symbols-outlined icon-sm text-primary">mail</span>
-                  Inserto fotográfico firmado</span>
-              </div>
-
-              <div class="edition-footer">
-                <div class="stock-progress">
-                  <div class="progress-labels">
-                    <span>Progreso de venta de la tirada:</span>
-                    <span class="progress-value">83.2% (416 / 500)</span>
+            <!-- Sucursal Albacete -->
+            <div class="branch-card">
+              <div class="branch-card-content">
+                <div class="branch-header">
+                  <div>
+                    <div class="tag-group">
+                      <span class="tag-secondary">Sucursal Este</span>
+                      <span class="status-online"><span class="dot-static"></span> Online</span>
+                    </div>
+                    <h3 class="branch-title">Filial Albacete - Pasaje Lodares</h3>
+                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Calle Mayor 22, 02001 Albacete</p>
                   </div>
-                  <div class="progress-bar">
-                    <div class="progress-fill" style="width: 83.2%;"></div>
-                  </div>
+                  <div class="branch-icon"><span class="material-symbols-outlined">store</span></div>
                 </div>
-                <div class="card-actions">
-                  <button class="btn btn-secondary btn-sm btn-adjust-stock" type="button">
-                    <span class="material-symbols-outlined icon-sm">tune</span> Adjustar Stock
-                  </button>
-                  <button class="btn btn-secondary btn-sm btn-factory-sheet" type="button">
-                    <span class="material-symbols-outlined icon-sm">factory</span> Ficha de Fábrica
-                  </button>
-                  <button class="btn-icon text-primary" title="Editar Edición" type="button">
-                    <span class="material-symbols-outlined">edit_note</span>
-                  </button>
+                <div class="branch-image-wrapper">
+                  <img class="branch-image" alt="Interior Albacete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVcQFHwXjcO1zQLfYA8ehPQlLdJ1EV0lctVpsdOyh4mwb2pHUMl3n1KWPr4S0XEJYDO-D06rQyI1W65leYWTQl9bLshLn-S20RO_r08f1AQU14038Ru2n2QgzySIFNnasF5Nyta0WavvQBCONyr_tTGj20u-dQdPjtvv7TXUgOwdFtIIMvUOEJYz_0CrmAtgPag34DhQtz2ajt7EFRZB7kWKFH5Y_vxEmjBN1Gxjl4"/>
+                  <div class="image-overlay"></div>
+                  <div class="image-caption"><span class="material-symbols-outlined">point_of_sale</span> <span>Punto de venta directo & eventos</span></div>
                 </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Item 2 -->
-          <article class="edition-card">
-            <div class="visual-container">
-              <div class="sleeve-mockup">
-                <img alt="Portada Llanura Modular"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBCuVqO_JEbpxiLY1cO0MlQmAFmSjjwGxhdL-9pRLrSo6kDV2_77O6hujXmpDpyNL36gv9OSvREmkzBCqXwbfsaos1SXiOZkTPTsNxhFg-ofaO_Bmc6DcRr9LqVfSnWRDe_wsJLl0KBJOzwMdj-yHxgem1NJhD_WW6Q7NTtRO9B1AM-oklaicKi3iSntAMJLVx051aGlbqR7z_-EImsImYQdmF7ronx4zpJSqCCTwk" />
-                <span class="badge-overlay">200g HEAVY</span>
-              </div>
-              <div class="vinyl-disc vinyl-black">
-                <div class="vinyl-groove-outer">
-                  <div class="vinyl-groove-inner">
-                    <div class="vinyl-label bg-surface-highest">
-                      <span class="material-symbols-outlined icon-xs text-primary">grid_4x4</span>
-                      <span class="label-code text-primary">PLM-089</span>
+                <div class="manager-strip">
+                  <div class="manager-info">
+                    <div class="avatar-initials">LG</div>
+                    <div class="manager-meta">
+                      <span class="meta-label">Gerente de Sede</span>
+                      <span class="manager-name">Lucía G.</span>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="visual-footer text-subtle">
-                <span class="material-symbols-outlined icon-sm">radio_button_checked</span>
-                <span>Negro Carbón Audiófilo Prensado Pesado</span>
-              </div>
-            </div>
-
-            <div class="edition-details">
-              <div class="details-header">
-                <div class="meta-tags">
-                  <span class="tag tag-neutral">1ª TIRADA STANDARD</span>
-                  <span class="meta-code">MATRIZ: PLM-089-STD</span>
-                  <span class="bullet">•</span>
-                  <span class="meta-engineer">PRENSADO: MADRID VINYL CO.</span>
-                </div>
-                <div class="status-pill status-secondary">
-                  <span class="status-dot bg-secondary"></span>
-                  <span>Stock regular (310 copias)</span>
-                </div>
-              </div>
-
-              <div class="album-info">
-                <h2 class="album-title">Llanura Modular & Eco Solar</h2>
-                <p class="album-artist">Ensemble de Sintetizadores de La Mancha</p>
-              </div>
-
-              <div class="specs-grid">
-                <div class="spec-item">
-                  <span class="spec-title">Tirada Fabricada</span>
-                  <span class="spec-value">1.000 copias</span>
-                  <span class="spec-sub">1ª Edición Comercial</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Gramaje & Densidad</span>
-                  <span class="spec-value">200g Ultra-HD</span>
-                  <span class="spec-sub">Reducción de vibración armónica</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Velocidad / RPM</span>
-                  <span class="spec-value">33 ⅓ RPM</span>
-                  <span class="spec-sub">Grabación de surco ensanchado</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">PVP Venta</span>
-                  <span class="spec-value text-primary">28,00 €</span>
-                  <span class="spec-sub">Margen distrib.: 28%</span>
-                </div>
-              </div>
-
-              <div class="extras-list">
-                <span class="extras-label">Especificaciones Pack:</span>
-                <span class="extra-chip"><span class="material-symbols-outlined icon-sm text-primary">folder_open</span>
-                  Carpeta Gatefold laminada mate</span>
-                <span class="extra-chip"><span class="material-symbols-outlined icon-sm text-primary">security</span>
-                  Funda interior antiestática de polietileno</span>
-              </div>
-
-              <div class="edition-footer">
-                <div class="stock-progress">
-                  <div class="progress-labels">
-                    <span>Progreso de distribución:</span>
-                    <span class="progress-value">69.0% (690 / 1.000)</span>
-                  </div>
-                  <div class="progress-bar">
-                    <div class="progress-fill bg-secondary" style="width: 69%;"></div>
+                  <div class="sync-info">
+                    <span class="meta-label">Sincronización</span>
+                    <span class="sync-status">Hace 4 min</span>
                   </div>
                 </div>
-                <div class="card-actions">
-                  <button class="btn btn-secondary btn-sm btn-adjust-stock" type="button">
-                    <span class="material-symbols-outlined icon-sm">tune</span> Ajustar Stock
-                  </button>
-                  <button class="btn btn-secondary btn-sm btn-factory-sheet" type="button">
-                    <span class="material-symbols-outlined icon-sm">factory</span> Ficha de Fábrica
-                  </button>
-                  <button class="btn-icon text-primary" title="Editar Edición" type="button">
-                    <span class="material-symbols-outlined">edit_note</span>
-                  </button>
+                <div class="stock-total-row">
+                  <span class="stock-label">Stock Total en Tienda</span>
+                  <span class="stock-value">340 <small>LPs</small></span>
+                </div>
+                <div class="format-list">
+                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span> Vinilos 12" LP (Audiófilo)</span><strong>220 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" & Maxi 45 RPM</span><strong>70 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones Especiales & Boxsets</span><strong>32 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span> Cassettes & Archivo Analógico</span><strong>18 u.</strong></div>
                 </div>
               </div>
-            </div>
-          </article>
-
-          <!-- Item 3 -->
-          <article class="edition-card">
-            <div class="visual-container">
-              <div class="sleeve-mockup">
-                <img alt="Portada Canto Rodado"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3jNqZ5UEYti_CmFDB9I8BX9gmbyo0Pvbn6tapf1u90hM8-7aotWI3uCgiyiW_TY9grLTU7xuJjfS8qErvq3BuN-863cZ4htYg5C2h5HpqmQoJis5A0q5O4IPDh9hiAXrMHeewymV-Jctv7B0nF7e9_HNnxGl_SB3MDpoliVB5e_yv2i4C3p15hOcchmPI3cY7xZD7i2yILsVw9RdvKmWVGHCyAl_6Ct8YtRXFOck9" />
-                <span class="badge-overlay bg-error">SOLD OUT</span>
-              </div>
-              <div class="vinyl-disc vinyl-single">
-                <div class="vinyl-label bg-primary">
-                  <span class="label-code">45 RPM</span>
-                </div>
-              </div>
-              <div class="visual-footer text-error">
-                <span class="material-symbols-outlined icon-sm">history</span>
-                <span>Agotado / 2º prensado en galvanoplastia</span>
+              <div class="branch-card-footer">
+                <button class="btn btn-muted btn-edit-tab" data-name="Filial Albacete - Pasaje Lodares" data-address="Calle Mayor 22, 02001 Albacete" data-manager="Lucía G." data-capacity="340" data-notes="Punto de venta y eventos">
+                  <span class="material-symbols-outlined">edit_note</span> <span>Editar en Pestaña</span>
+                </button>
+                <button class="btn btn-action-full btn-transfer-tab" data-origin="Filial Albacete - Pasaje Lodares">
+                  <span class="material-symbols-outlined">move_up</span> <span>Transferencia de Stock</span>
+                </button>
               </div>
             </div>
 
-            <div class="edition-details">
-              <div class="details-header">
-                <div class="meta-tags">
-                  <span class="tag tag-error">BOXSET ESPECIAL & CASSETTE</span>
-                  <span class="meta-code">MATRIZ: PLM-114-BOX</span>
-                  <span class="bullet">•</span>
-                  <span class="meta-engineer">CINTA: CrO2 TYPE II</span>
-                </div>
-                <div class="status-pill status-error">
-                  <span class="status-dot bg-error"></span>
-                  <span>Sold out / En espera de 2º prensado</span>
-                </div>
-              </div>
-
-              <div class="album-info">
-                <h2 class="album-title">Canto Rodado & Cencerradas</h2>
-                <p class="album-artist">Dúo de Percusión Ibérica & Microfónico Rural</p>
-              </div>
-
-              <div class="specs-grid">
-                <div class="spec-item">
-                  <span class="spec-title">Tirada Agotada</span>
-                  <span class="spec-value">300 unidades</span>
-                  <span class="spec-sub text-error">0 disponibles en almacén</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Formato Físico</span>
-                  <span class="spec-value">Cassette + 7"</span>
-                  <span class="spec-sub">Single 45 RPM vinilo translúcido</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Próxima Tirada (2ª)</span>
-                  <span class="spec-value text-primary">500 uds.</span>
-                  <span class="spec-sub">Entrega est.: Mayo 2025</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Precio de Caja</span>
-                  <span class="spec-value text-primary">42,00 €</span>
-                  <span class="spec-sub">Caja rígida entelada</span>
-                </div>
-              </div>
-
-              <div class="extras-list">
-                <span class="extras-label">Extras del Boxset:</span>
-                <span class="extra-chip"><span
-                    class="material-symbols-outlined icon-sm text-primary">mobile_share_stack</span> Cinta cromada con
-                  carátula serigrafiada</span>
-                <span class="extra-chip"><span
-                    class="material-symbols-outlined icon-sm text-primary">radio_button_checked</span> Vinilo 7" con
-                  pista inédita excluida del máster</span>
-              </div>
-
-              <div class="edition-footer">
-                <div class="stock-progress">
-                  <div class="progress-labels">
-                    <span>Estado de la reimpresión:</span>
-                    <span class="progress-value text-primary">Paso 2 de 4 (Corte de lacas)</span>
+            <!-- Sucursal Ciudad Real -->
+            <div class="branch-card">
+              <div class="branch-card-content">
+                <div class="branch-header">
+                  <div>
+                    <div class="tag-group">
+                      <span class="tag-secondary">Sucursal Suroeste</span>
+                      <span class="status-online"><span class="dot-static"></span> Online</span>
+                    </div>
+                    <h3 class="branch-title">Filial Ciudad Real - Puerta de Toledo</h3>
+                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Plaza Mayor 8, 13001 Ciudad Real</p>
                   </div>
-                  <div class="progress-bar">
-                    <div class="progress-fill" style="width: 45%;"></div>
+                  <div class="branch-icon"><span class="material-symbols-outlined">store</span></div>
+                </div>
+                <div class="branch-image-wrapper">
+                  <img class="branch-image" alt="Interior Ciudad Real" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEqSVw6ku6GzfMETESmTarnaUXPbeTZSrW9oFNncJ62UOaDa_m4UoPdaOn8QmRSAabT_E4m7jEAwbCbvrzsqj062F1h-yyQY1_JK8ofudoNcD2O-EgOLMCiWs1yjzh9rSbpaFGwyqEC9Gjaz4Wr7glfa_YJcOKgBmVQHoUoM7EMBXIerr4XfckjUC5X39DZRwtC8EPC5Zs4v7lU-4Yp7Ryo2PnIWLDWhLTBWmOvnOq"/>
+                  <div class="image-overlay"></div>
+                  <div class="image-caption"><span class="material-symbols-outlined">local_shipping</span> <span>Distribución express y click & collect</span></div>
+                </div>
+                <div class="manager-strip">
+                  <div class="manager-info">
+                    <div class="avatar-initials">AS</div>
+                    <div class="manager-meta">
+                      <span class="meta-label">Gerente de Sede</span>
+                      <span class="manager-name">Andrés S.</span>
+                    </div>
+                  </div>
+                  <div class="sync-info">
+                    <span class="meta-label">Sincronización</span>
+                    <span class="sync-status">Hace 1 min</span>
                   </div>
                 </div>
-                <div class="card-actions">
-                  <button class="btn btn-primary btn-sm" type="button">
-                    <span class="material-symbols-outlined icon-sm">priority_high</span> Aprobar 2ª Tirada
-                  </button>
-                  <button class="btn btn-secondary btn-sm btn-factory-sheet" type="button">
-                    <span class="material-symbols-outlined icon-sm">factory</span> Ficha de Fábrica
-                  </button>
+                <div class="stock-total-row">
+                  <span class="stock-label">Stock Total en Tienda</span>
+                  <span class="stock-value">220 <small>LPs</small></span>
                 </div>
+                <div class="format-list">
+                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span> Vinilos 12" LP (Audiófilo)</span><strong>140 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" & Maxi 45 RPM</span><strong>45 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones Especiales & Boxsets</span><strong>20 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span> Cassettes & Archivo Analógico</span><strong>15 u.</strong></div>
+                </div>
+              </div>
+              <div class="branch-card-footer">
+                <button class="btn btn-muted btn-edit-tab" data-name="Filial Ciudad Real - Puerta de Toledo" data-address="Plaza Mayor 8, 13001 Ciudad Real" data-manager="Andrés S." data-capacity="220" data-notes="Distribución express">
+                  <span class="material-symbols-outlined">edit_note</span> <span>Editar en Pestaña</span>
+                </button>
+                <button class="btn btn-action-full btn-transfer-tab" data-origin="Filial Ciudad Real - Puerta de Toledo">
+                  <span class="material-symbols-outlined">move_up</span> <span>Transferencia de Stock</span>
+                </button>
               </div>
             </div>
-          </article>
+          </div>
 
-          <!-- Item 4 -->
-          <article class="edition-card">
-            <div class="visual-container">
-              <div class="sleeve-mockup sleeve-white">
-                <div class="sleeve-top font-mono">
-                  <span>PLANT TEST / NOT FOR SALE</span>
-                  <span class="material-symbols-outlined icon-sm">verified</span>
-                </div>
-                <div class="sleeve-center">
-                  <span class="title-tp">TEST PRESSING</span>
-                  <span class="code-tp">PLM-205-TP #14/50</span>
-                </div>
-                <div class="sleeve-bottom font-mono">
-                  <span>DATE: 2024-11-04</span>
-                  <span>ENGINEER: V.M.</span>
-                </div>
-              </div>
-              <div class="vinyl-disc">
-                <div class="vinyl-label bg-white text-dark">
-                  <span class="label-code">WHITE LABEL</span>
-                </div>
-              </div>
-              <div class="visual-footer text-tertiary">
-                <span class="material-symbols-outlined icon-sm">stars</span>
-                <span>Galleta blanca firmada por ingeniero</span>
+          <!-- Tabla de bitácora -->
+          <div class="table-card">
+            <div class="table-card-header">
+              <div>
+                <span class="section-label">Bitácora Logística en Curso</span>
+                <h3 class="section-title">Transferencias Recientes entre Tiendas</h3>
               </div>
             </div>
-
-            <div class="edition-details">
-              <div class="details-header">
-                <div class="meta-tags">
-                  <span class="tag tag-tertiary">TEST PRESSING OFICIAL (TP)</span>
-                  <span class="meta-code">MATRIZ: PLM-205-TP</span>
-                  <span class="bullet">•</span>
-                  <span class="meta-engineer">RUN-OUT: "PALMERAS-205-A1"</span>
-                </div>
-                <div class="status-pill status-neutral">
-                  <span class="status-dot bg-tertiary"></span>
-                  <span>Archivo histórico / Subasta benéfica</span>
-                </div>
-              </div>
-
-              <div class="album-info">
-                <h2 class="album-title">Surcos de Esparto & Cuerda</h2>
-                <p class="album-artist">Cuarteto de Cuerda Manchego & Sintetizador Buchla</p>
-              </div>
-
-              <div class="specs-grid">
-                <div class="spec-item">
-                  <span class="spec-title">Tirada Estricta</span>
-                  <span class="spec-value">50 copias</span>
-                  <span class="spec-sub">No re-prensable</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Gramaje & Matriz</span>
-                  <span class="spec-value">180g Virgin</span>
-                  <span class="spec-sub">Primer prensado directo</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Certificado</span>
-                  <span class="spec-value text-primary">COA Holográfico</span>
-                  <span class="spec-sub">Firmado por masterizador</span>
-                </div>
-                <div class="spec-item">
-                  <span class="spec-title">Valor Catálogo</span>
-                  <span class="spec-value text-primary">120,00 €</span>
-                  <span class="spec-sub">Índice Discogs: ↑ 14%</span>
-                </div>
-              </div>
-
-              <div class="extras-list">
-                <span class="extras-label">Condición de Archivo:</span>
-                <span class="extra-chip"><span class="material-symbols-outlined icon-sm text-primary">description</span>
-                  Hoja de aprobación técnica de corte firmada</span>
-                <span class="extra-chip"><span class="material-symbols-outlined icon-sm text-primary">lock</span> Copias
-                  #01 a #10 resguardadas en caja fuerte</span>
-              </div>
-
-              <div class="edition-footer">
-                <div class="archive-note">
-                  <span class="material-symbols-outlined icon-sm text-primary">info</span>
-                  <span>12 copias asignadas a subasta anual. 8 copias en archivo institucional.</span>
-                </div>
-                <div class="card-actions">
-                  <button class="btn btn-secondary btn-sm" type="button">
-                    <span class="material-symbols-outlined icon-sm">inventory_2</span> Asignar a Bóveda
-                  </button>
-                  <button class="btn btn-secondary btn-sm btn-factory-sheet" type="button">
-                    <span class="material-symbols-outlined icon-sm">factory</span> Ficha de Fábrica
-                  </button>
-                  <button class="btn-icon text-primary" title="Editar Edición" type="button">
-                    <span class="material-symbols-outlined">edit_note</span>
-                  </button>
-                </div>
-              </div>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Código Orden</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Contenido</th>
+                    <th>Unidades</th>
+                    <th>Estado</th>
+                    <th class="text-right">Hora Sincronía</th>
+                  </tr>
+                </thead>
+                <tbody id="transfer-table-body">
+                  <tr>
+                    <td class="col-code">TRF-2025-089</td>
+                    <td class="col-highlight">Sucursal Central Toledo</td>
+                    <td>Filial Albacete</td>
+                    <td class="col-muted">LPs Flamenco Fusion & Krautrock (180g)</td>
+                    <td class="col-bold">35 LPs</td>
+                    <td><span class="badge badge-info"><span class="material-symbols-outlined">local_shipping</span> En Tránsito</span></td>
+                    <td class="text-right col-muted">Hoy 11:42</td>
+                  </tr>
+                  <tr>
+                    <td class="col-code">TRF-2025-088</td>
+                    <td class="col-highlight">Sucursal Central Toledo</td>
+                    <td>Ciudad Real</td>
+                    <td class="col-muted">Boxset Conmemorativo "Mancha Cósmica"</td>
+                    <td class="col-bold">12 Boxsets</td>
+                    <td><span class="badge badge-success"><span class="material-symbols-outlined">check_circle</span> Recibido & Indexado</span></td>
+                    <td class="text-right col-muted">Ayer 18:20</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </article>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <!-- Bloques Informativos de Fábrica -->
-      <section class="factory-specs-grid">
-        <div class="factory-card">
-          <div>
-            <div class="factory-card-header">
-              <span class="spec-tag-title text-primary">Estándar de Prensado</span>
-              <span class="material-symbols-outlined text-primary">equalizer</span>
+        <!-- ========================================== -->
+        <!-- PESTAÑA 2: FORMULARIO EDICIÓN DE SEDE     -->
+        <!-- ========================================== -->
+        <section class="view-section" id="view-editor">
+          <div class="tab-page-header">
+            <button class="btn btn-muted nav-trigger" data-target="view-dashboard">
+              <span class="material-symbols-outlined">arrow_back</span>
+              <span>Volver al Panel Principal</span>
+            </button>
+            <div class="title-block">
+              <span class="meta-tag"><span class="tag">Formulario Integrado</span></span>
+              <h1 class="page-title" id="editor-page-title">Edición / Registro de Filial</h1>
+              <p class="page-subtitle">Modifica la información operativa o añade una nueva sede a la red central.</p>
             </div>
-            <h3 class="factory-title">Normativa RIAA & DMM Neumann</h3>
-            <p class="factory-desc">
-              Todas las lacas maestras de Palmeras en la Mancha se cortan en cobre puro mediante Direct Metal Mastering
-              (DMM) para preservar agudos hasta 22.000 Hz sin efecto memoria de vinilo reciclado.
-            </p>
           </div>
-          <div class="factory-footer">
-            <span>Tolerancia de surco: 0.002 mm</span>
-            <span class="text-primary font-semibold">Certificado ISO-9001 Acústico</span>
-          </div>
-        </div>
 
-        <div class="factory-card">
-          <div>
-            <div class="factory-card-header">
-              <span class="spec-tag-title text-secondary">Monitoreo de Planta</span>
-              <span class="material-symbols-outlined text-secondary">sensors</span>
-            </div>
-            <h3 class="factory-title">Turnos de Galvanoplastia</h3>
-            <p class="factory-desc">
-              Baño galvánico de níquel a 42°C para matriz padre (Father) e hijos (Mother / Stampers). Capacidad máxima
-              diaria: 6 pares de stampers por prensa hidráulica Toolex Alpha.
-            </p>
+          <div class="form-card">
+            <form id="branch-edit-form">
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label for="form-branch-name">Nombre Oficial de la Filial</label>
+                  <input class="form-input" id="form-branch-name" placeholder="Ej: Filial Cuenca - Casas Colgadas" required type="text"/>
+                </div>
+                <div class="form-group full-width">
+                  <label for="form-branch-address">Dirección Física</label>
+                  <input class="form-input" id="form-branch-address" placeholder="Ej: Calle Alfonso VIII 12, Cuenca" required type="text"/>
+                </div>
+                <div class="form-group">
+                  <label for="form-branch-manager">Gerente Asignado</label>
+                  <input class="form-input" id="form-branch-manager" placeholder="Ej: Elena R." required type="text"/>
+                </div>
+                <div class="form-group">
+                  <label for="form-branch-capacity">Capacidad Estimada LPs Almacén</label>
+                  <input class="form-input" id="form-branch-capacity" placeholder="400" required type="number"/>
+                </div>
+                <div class="form-group full-width">
+                  <label for="form-branch-notes">Notas / Descripción de la Unidad</label>
+                  <textarea class="form-input" id="form-branch-notes" rows="3" placeholder="Punto de venta y almacén técnico"></textarea>
+                </div>
+                <div class="form-group full-width">
+                  <label for="form-branch-status">Estado Operativo</label>
+                  <select class="form-input" id="form-branch-status">
+                    <option value="online">Online / Sincronización Automática P2P</option>
+                    <option value="audit">En Auditoría Física de Inventario</option>
+                    <option value="maintenance">Mantenimiento de Servidor Local</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-muted nav-trigger" data-target="view-dashboard" type="button">Cancelar</button>
+                <button class="btn btn-primary" type="submit">Guardar Cambios y Conectar</button>
+              </div>
+            </form>
           </div>
-          <div class="factory-footer">
-            <span>Stamper lifespan: 1.000 presiones</span>
-            <span class="text-secondary font-semibold">Estado: Operativo 100%</span>
-          </div>
-        </div>
+        </section>
 
-        <div class="factory-card card-highlight">
-          <div>
-            <div class="factory-card-header">
-              <span class="spec-tag-title font-mono uppercase">Despacho Logístico</span>
-              <span class="material-symbols-outlined">local_shipping</span>
+        <!-- ========================================== -->
+        <!-- PESTAÑA 3: TRANSFERENCIA DE STOCK         -->
+        <!-- ========================================== -->
+        <section class="view-section" id="view-transfer">
+          <div class="tab-page-header">
+            <button class="btn btn-muted nav-trigger" data-target="view-dashboard">
+              <span class="material-symbols-outlined">arrow_back</span>
+              <span>Volver al Panel Principal</span>
+            </button>
+            <div class="title-block">
+              <span class="meta-tag"><span class="tag">Protocolo Intermodal</span></span>
+              <h1 class="page-title">Emitir Orden de Transferencia de Stock</h1>
+              <p class="page-subtitle">Sincronización directa de unidades físicas entre los almacenes de la red.</p>
             </div>
-            <h3 class="factory-title">Embalaje Especial Palmeras</h3>
-            <p class="factory-desc">
-              Cajas reforzadas de cartón corrugado triple canal con esquineras de alta densidad para evitar 'seam
-              splits' durante el envío a filiales y coleccionistas suscriptores.
-            </p>
           </div>
-          <div class="factory-footer border-transparent">
-            <span>Envío certificado UE</span>
-            <button class="btn btn-light btn-sm" type="button">Guía de Embalaje</button>
+
+          <div class="form-card">
+            <form id="transfer-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="transfer-origin">Sede Origen</label>
+                  <select class="form-input" id="transfer-origin">
+                    <option value="Sucursal Central Toledo">Sucursal Central Toledo</option>
+                    <option value="Filial Albacete - Pasaje Lodares">Filial Albacete - Pasaje Lodares</option>
+                    <option value="Filial Ciudad Real - Puerta de Toledo">Filial Ciudad Real - Puerta de Toledo</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="transfer-target">Sede Destino</label>
+                  <select class="form-input" id="transfer-target">
+                    <option value="Filial Albacete - Pasaje Lodares">Filial Albacete - Pasaje Lodares</option>
+                    <option value="Sucursal Central Toledo">Sucursal Central Toledo</option>
+                    <option value="Filial Ciudad Real - Puerta de Toledo">Filial Ciudad Real - Puerta de Toledo</option>
+                  </select>
+                </div>
+                <div class="form-group full-width">
+                  <label for="transfer-format">Formato / Categoría a mover</label>
+                  <select class="form-input" id="transfer-format">
+                    <option value="LPs Flamenco Fusion & Krautrock (180g)">Vinilo 12" LP (Estándar 180g)</option>
+                    <option value="Singles 7&quot; &amp; Maxi 45 RPM">Singles 7" & Maxi 45 RPM</option>
+                    <option value="Boxset Conmemorativo &quot;Mancha Cósmica&quot;">Boxset / Deluxe Editions</option>
+                    <option value="Cassettes / Archivo Histórico">Cassettes / Archivo Histórico</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="transfer-amount">Cantidad de Unidades</label>
+                  <input class="form-input" id="transfer-amount" max="200" min="1" required type="number" value="20"/>
+                </div>
+                <div class="form-group">
+                  <label for="transfer-urgency">Urgencia Logística</label>
+                  <select class="form-input" id="transfer-urgency">
+                    <option value="Ordinaria">Ordinaria (Próxima ruta semanal)</option>
+                    <option value="Express">Express 24h (Sincronía Urgente)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="info-box margin-top-md">
+                <span class="material-symbols-outlined">info</span>
+                <p>Al confirmar, se añadirá la orden a la bitácora del panel principal y se actualizarán las existencias de la red.</p>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn btn-muted nav-trigger" data-target="view-dashboard" type="button">Descartar</button>
+                <button class="btn btn-primary" type="submit">Emitir y Registrar en Bitácora</button>
+              </div>
+            </form>
           </div>
-        </div>
-      </section>
+        </section>
+
+      </div>
     </div>
   </main>
 
-  <!-- Pie de Página -->
   <footer class="main-footer">
     <div class="footer-container">
       <div class="footer-brand">
         <span class="footer-title">Palmeras en la Mancha</span>
         <span class="footer-divider">|</span>
-        <span class="footer-sub">Sistema de Inventario & Gestión Musical</span>
+        <span class="footer-subtitle">Sistema de Inventario & Gestión Musical</span>
       </div>
-      <div class="status-indicator">
+      <div class="footer-sync">
         <span class="pulse-dot"></span>
         <span>Cloudinary CDN Sync Active</span>
       </div>
@@ -700,12 +556,15 @@
     </div>
   </footer>
 
-  <!-- Scripts JS independientes -->
-  <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/api.js"></script>
-  <script type="module" src="js/search.js"></script>
-  <script type="module" src="js/stock.js"></script>
-  <script type="module" src="./new_edition_tab.js" ></script>
-</body>
+  <!-- Toast Notificaciones -->
+  <div class="toast hidden" id="toast-feedback">
+    <span class="material-symbols-outlined">check_circle</span>
+    <span id="toast-message">Operación completada exitosamente</span>
+  </div>
 
+  <!-- Carga de módulos de JavaScript -->
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
 </html>
