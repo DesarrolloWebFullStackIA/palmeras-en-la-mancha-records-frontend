@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palmeras en la Mancha Records - Discográficas</title>
+    <link rel="stylesheet" href="css/styles3.css">
+    <link rel="js" href="disk3.js">
+    <!-- Iconos opcionales (FontAwesome o Lucide) para los botones -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <!-- HEADER PRINCIPAL -->
+        <header class="main-header">
+            <div class="header-left">
+                <span class="brand-subtitle">Palmeras en la Mancha Records - Gestión de Catálogo y Vinilos</span>
+                <h1 class="main-title">Discográficas, Sellos & Productoras Asociadas</h1>
+                <p class="main-description">Directorio oficial de sellos independientes, majors aliadas y consorcios de prensado bajo convenio de distribución y archivo físico de vinilo.</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-secondary"><i class="fa-solid fa-file-export"></i> Exportar Matriz</button>
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Añadir Discográfica</button>
+            </div>
+        </header>
+
+        <!-- SECCIÓN DE MÉTRICAS / KPI CARDS -->
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">CONVENIOS ACTIVOS</span>
+                    <i class="fa-regular fa-handshake metric-icon"></i>
+                </div>
+                <div class="metric-value">24 <span class="metric-unit">Sellos Adscritos</span></div>
+                <div class="metric-footer">18 Nacionales / 6 Int. <span class="badge badge-green">100% Auditados</span></div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">BOVEDA DE MASTERS</span>
+                    <i class="fa-solid fa-compact-disc metric-icon"></i>
+                </div>
+                <div class="metric-value">850 <span class="metric-unit">Matrices LACQUER</span></div>
+                <div class="metric-footer">Histórico Preservado <span class="badge badge-blue">99.4% OK</span></div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">PRENSADO TRIMESTRAL</span>
+                    <i class="fa-solid fa-layer-group metric-icon"></i>
+                </div>
+                <div class="metric-value">12 <span class="metric-unit">Lanzamientos Q1</span></div>
+                <div class="metric-footer">En torno de corte <span class="badge badge-orange">En Trámite</span></div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">EFICIENCIA DE CADENA</span>
+                    <i class="fa-solid fa-chart-line metric-icon"></i>
+                </div>
+                <div class="metric-value">99.4% <span class="metric-unit">RIAA Compliant</span></div>
+                <div class="metric-footer">Despacho de fábrica directo <span class="badge badge-green">0.02% error</span></div>
+            </div>
+        </section>
+
+        <!-- BARRA DE FILTROS -->
+        <section class="filters-bar">
+            <div class="search-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" placeholder="Filtrar por nombre de discográfica, código matriz, ciudad sede o género...">
+            </div>
+            <div class="select-group">
+                <select id="filter-sede">
+                    <option value="">Sede: Todas</option>
+                    <option value="madrid">Madrid</option>
+                    <option value="cuenca">Cuenca</option>
+                    <option value="toledo">Toledo</option>
+                </select>
+                <select id="filter-acuerdo">
+                    <option value="">Acuerdo: Todos</option>
+                </select>
+                <select id="filter-catalogo">
+                    <option value="">Catálogo: Todo</option>
+                </select>
+                <button class="btn-icon-reset" title="Limpiar filtros"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+            </div>
+        </section>
+
+        <!-- GRILLA DE TARJETAS DE DISCOGRÁFICAS -->
+        <main class="companies-grid" id="companies-container">
+            
+            <!-- TARJETA 1: LA MANCHA FONOGRÁFICA -->
+            <article class="company-card" data-name="la mancha fonografica" data-sede="madrid">
+                <div class="card-top-banner banner-blue">
+                    <span class="banner-badge">La Mancha Fonográfica</span>
+                    <div class="banner-logo">
+                        <img src="images/logo.png" alt="Logo" class="w-full h-full object-cover">
+                        <span>Viento de Levante & Silencios</span>
+                    </div>
+                    <span class="matrix-code">LMF-REC</span>
+                </div>
+                <div class="card-body">
+                    <h2 class="company-name">Viento de Levante & Silencios</h2>
+                    <p class="company-desc">Corazón editorial y buque insignia de Palmeras en la Mancha. Custodia y producción íntegra de reediciones...</p>
+                    
+                    <div class="company-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">CATÁLOGO ACTIVO</span>
+                            <span class="stat-val">45 referencias</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">PARTICIPACIÓN</span>
+                            <span class="stat-val">100% Propio</span>
+                        </div>
+                    </div>
+                    <div class="technical-spec">
+                        <strong>ESTÁNDAR PRENSADO:</strong> 180g Virgin Black Vinyl / Lacquer Master
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-blue-action" onclick="viewReleases('La Mancha Fonográfica')">
+                        <i class="fa-solid fa-music"></i> Lanzamientos (45)
+                    </button>
+                    <button class="btn-action btn-outline-action">
+                        <i class="fa-solid fa-file-contract"></i> Convenio
+                    </button>
+                </div>
+            </article>
+
+            <!-- TARJETA 2: IBERIA SONIDERA RECORDS -->
+            <article class="company-card" data-name="Llanura Modular & Eco Solar" data-sede="madrid">
+                <div class="card-top-banner banner-darkblue">
+                    <span class="banner-badge">Iberia Sonidera</span>
+                    <div class="banner-logo">
+                        <img src="images/logo.png" alt="Logo" class="w-full h-full object-cover">
+                        <span>Llanura Modular & Eco Solar</span>
+                    </div>
+                    <span class="matrix-code">ISR-VIN</span>
+                </div>
+                <div class="card-body">
+                    <h2 class="company-name">Llanura Modular & Eco Solar</h2>
+                    <p class="company-desc">Pioneros del folk psicodélico peninsular y el neotradicionalismo ibérico contemporáneo...</p>
+                    
+                    <div class="company-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">LANZAMIENTOS</span>
+                            <span class="stat-val">18 activos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">MODELO REGALÍAS</span>
+                            <span class="stat-val">70/30 Fijo</span>
+                        </div>
+                    </div>
+                    <div class="technical-spec">
+                        <strong>ACUERDO VIGENTE:</strong> Exclusividad Peninsular 2024-2027
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-blue-action" onclick="viewReleases('Iberia Sonidera Records')">
+                        <i class="fa-solid fa-music"></i> Lanzamientos (18)
+                    </button>
+                    <button class="btn-action btn-outline-action">
+                        <i class="fa-solid fa-gear"></i> Gestionar Contrato
+                    </button>
+                </div>
+            </article>
+
+            <!-- TARJETA 3: ALCARRIA ANALOG RECORDINGS -->
+            <article class="company-card" data-name="alcarria analog recordings" data-sede="cuenca">
+                <div class="card-top-banner banner-purple">
+                    <span class="banner-badge">COEDICIÓN PREFERENTE</span>
+                    <div class="banner-logo">
+                        <img src="images/logo.png" alt="Logo" class="w-full h-full object-cover">
+                        <span>Alcarria Analog</span>
+                    </div>
+                    <span class="matrix-code">AAR-MES</span>
+                </div>
+                <div class="card-body">
+                    <h2 class="company-name">Alcarria Analog Recordings</h2>
+                    <p class="company-desc">Sello boutique especializado en electrónica orgánica, paisajes sonoros pastorales y minimalismo drone...</p>
+                    
+                    <div class="company-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">LANZAMIENTOS</span>
+                            <span class="stat-val">12 obras</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">MODELO REGALÍAS</span>
+                            <span class="stat-val">70/30 Fijo</span>
+                        </div>
+                    </div>
+                    <div class="technical-spec">
+                        <strong>ACUERDO VIGENTE:</strong> Exclusividad Peninsular 2024-2027
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-action btn-blue-action" onclick="viewReleases('Iberia Sonidera Records')">
+                        <i class="fa-solid fa-music"></i> Lanzamientos (18)
+                    </button>
+                    <button class="btn-action btn-outline-action">
+                        <i class="fa-solid fa-gear"></i> Gestionar Contrato
+                    </button>
+                </div>
+            </article>

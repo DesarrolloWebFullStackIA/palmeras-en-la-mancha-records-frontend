@@ -7,7 +7,7 @@
 body {
   background-color: #faf8ff;
   color: #131b2e;
-  font-family: 'Manrope', sans-serif;
+  font-family: "Hanken Grotesk", sans-serif;
   font-size: 14px;
   line-height: 22px;
   -webkit-font-smoothing: antialiased;
@@ -20,10 +20,28 @@ body {
 .section-heading,
 .branch-title,
 .footer-title {
-  font-family: 'EB Garamond', serif;
+  font-family: "Hanken Grotesk", sans-serif;;
 }
 
 /* Navegación por Pestañas principales */
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  padding-bottom: 0.5rem;
+}
+
+.nav-link {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
 .nav-tab-btn {
   background: none;
   border: none;
@@ -50,7 +68,7 @@ body {
 
 /* Secciones / Pestañas SPA */
 .view-section {
-  display: none;
+  display: flex;
   animation: fadeIn 0.25s ease-in-out;
 }
 
@@ -151,31 +169,40 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 80px;
+  width: 100%;
   z-index: 50;
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(196, 197, 215, 0.3);
-  box-shadow: 0 1px 8px rgba(15, 43, 110, 0.04);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 1px 6px rgba(30, 58, 138, 0.05);
+  height: auto; 
+  display: flex;
+  flex-direction: column; 
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .header-container {
-  max-width: 1440px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 0 32px;
+  height: 80px;
+  width: 100%;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1rem;
+}
+
+header h1, header .title {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: clamp(1.2rem, 4vw, 2rem);
 }
 
 .header-divider {
   height: 32px;
   width: 1px;
   background-color: #e2e8f0;
-  display: none;
+  display: flex;
 }
 
 .brand-group {
@@ -252,6 +279,8 @@ body {
   border-radius: 8px;
   font-size: 11px;
   color: #131b2e;
+  display: inline-block;
+  flex-direction: column;
 }
 
 .branch-badge {
@@ -632,7 +661,7 @@ body {
 .gauge-val {
   font-size: 20px;
   font-weight: 600;
-  font-family: 'EB Garamond', serif;
+  font-family: "Hanken Grotesk", sans-serif;
 }
 
 .gauge-lbl {
@@ -861,7 +890,7 @@ body {
   font-size: 36px;
   font-weight: bold;
   color: #0037b0;
-  font-family: 'EB Garamond', serif;
+  font-family: "Hanken Grotesk", sans-serif;
 }
 
 .stock-value small {

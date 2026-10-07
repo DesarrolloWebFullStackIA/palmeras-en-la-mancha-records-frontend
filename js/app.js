@@ -85,3 +85,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+/**
+ * Módulo Principal / Inicializador de la Aplicación
+ */
+
+function switchView(viewName) {
+  console.log(`Navegando hacia la vista: ${viewName}`);
+  // Lógica para alternar vistas en SPAs o redirecciones
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Inicializar cálculo de stock en carga inicial
+  if (typeof recalcTotalStock === 'function') {
+    recalcTotalStock();
+  }
+
+  // Escuchadores dinámicos
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
