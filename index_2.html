@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestión de Filiales</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/styles2.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles2.css" />
 </head>
+
 <body>
 
   <!-- Header principal -->
@@ -17,7 +23,7 @@
     <div class="header-container">
       <div class="brand-group">
         <div class="brand-logo-wrapper">
-          <img alt="Emblema oficial de Palmeras en la Mancha Records" class="brand-logo" src="images/logo.png"/>
+          <img alt="Emblema oficial de Palmeras en la Mancha Records" class="brand-logo" src="images/logo.png" />
           <div class="brand-text">
             <span class="brand-title">Palmeras en la Mancha Records</span>
             <span class="brand-subtitle">Vinyl Archive & Console</span>
@@ -32,23 +38,16 @@
             <span class="material-symbols-outlined">edit_note</span>
             <span>Edición de Sede</span>
           </button>
-          <button class="nav-tab-btn" data-target="view-transfer">
-            <span class="material-symbols-outlined">sync_alt</span>
-            <span>Transferencia de Stock</span>
-          </button>
         </nav>
       </div>
       <div class="header-actions">
         <div class="search-box">
           <span class="material-symbols-outlined search-icon">search</span>
-          <input class="search-input" placeholder="Buscar catálogo, matriz, RPM..." type="search"/>
+          <input class="search-input" placeholder="Buscar catálogo, matriz, RPM..." type="search" />
         </div>
         <div class="branch-badge">
           <span class="material-symbols-outlined">store</span>
           <span>Sucursal Central - Toledo</span>
-        </div>
-        <div class="user-avatar">
-          <span class="material-symbols-outlined">person</span>
         </div>
       </div>
     </div>
@@ -56,7 +55,7 @@
 
   <main class="main-content">
     <div class="content-wrapper">
-      
+
       <!-- Sub-header informativo -->
       <div class="operational-strip">
         <div class="strip-container">
@@ -89,16 +88,13 @@
                 <span class="meta-text">Auditoría en Curso</span>
               </div>
               <h1 class="page-title">Gestión de Filiales & Sedes Regionales</h1>
-              <p class="page-subtitle">Control de stock físico, almacenes y sincronización en tiempo real entre tiendas de Castilla-La Mancha.</p>
+              <p class="page-subtitle">Control de stock físico, almacenes y sincronización en tiempo real entre tiendas
+                de Castilla-La Mancha.</p>
             </div>
             <div class="action-buttons">
-              <button class="btn btn-secondary nav-trigger" data-target="view-transfer">
-                <span class="material-symbols-outlined">sync_alt</span>
-                <span>Ir a Transferencias</span>
-              </button>
               <button class="btn btn-primary nav-trigger" data-target="view-editor" id="btn-new-branch">
                 <span class="material-symbols-outlined">add_circle</span>
-                <span>+ Nueva Filial</span>
+                <span>Nueva Filial</span>
               </button>
             </div>
           </div>
@@ -159,13 +155,16 @@
             <div class="distribution-info">
               <span class="section-label">Balance Intermodal de Existencias</span>
               <h2 class="section-title">Distribución Frecuencial del Almacén</h2>
-              <p class="section-description">Proporción de prensajes audiófilos de 180g y ediciones especiales centralizadas en la red castellano-manchega.</p>
+              <p class="section-description">Proporción de prensajes audiófilos de 180g y ediciones especiales
+                centralizadas en la red castellano-manchega.</p>
             </div>
             <div class="gauge-group">
               <div class="gauge-item">
                 <svg class="gauge-svg" viewBox="0 0 36 36">
-                  <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                  <path class="gauge-fill fill-primary" stroke-dasharray="52.5, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-bg"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-fill fill-primary" stroke-dasharray="52.5, 100"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                 </svg>
                 <div class="gauge-details">
                   <span class="gauge-val">52.5%</span>
@@ -174,8 +173,10 @@
               </div>
               <div class="gauge-item">
                 <svg class="gauge-svg" viewBox="0 0 36 36">
-                  <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                  <path class="gauge-fill fill-secondary" stroke-dasharray="28.8, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-bg"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-fill fill-secondary" stroke-dasharray="28.8, 100"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                 </svg>
                 <div class="gauge-details">
                   <span class="gauge-val">28.8%</span>
@@ -184,8 +185,10 @@
               </div>
               <div class="gauge-item">
                 <svg class="gauge-svg" viewBox="0 0 36 36">
-                  <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-                  <path class="gauge-fill fill-accent" stroke-dasharray="18.7, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-bg"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                  <path class="gauge-fill fill-accent" stroke-dasharray="18.7, 100"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                 </svg>
                 <div class="gauge-details">
                   <span class="gauge-val">18.7%</span>
@@ -199,7 +202,8 @@
           <div class="section-header">
             <div>
               <h2 class="section-heading">Detalle de Sedes y Almacenes</h2>
-              <p class="section-subheading">Inspección física de terminales, gerencias y niveles de existencias por formato sonoro.</p>
+              <p class="section-subheading">Inspección física de terminales, gerencias y niveles de existencias por
+                formato sonoro.</p>
             </div>
           </div>
 
@@ -215,14 +219,17 @@
                       <span class="status-online"><span class="dot-ping"></span> Online</span>
                     </div>
                     <h3 class="branch-title">Sucursal Central Toledo</h3>
-                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Calle Comercio 14, 45001 Toledo</p>
+                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Calle Comercio
+                      14, 45001 Toledo</p>
                   </div>
                   <div class="branch-icon"><span class="material-symbols-outlined">domain</span></div>
                 </div>
                 <div class="branch-image-wrapper">
-                  <img class="branch-image" alt="Interior Toledo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjqihgznYhjyWuEoekTUEYfoNVOeeLmlCSxYLhCodBa1LSD5p0tpR7ypLcxHAGh70KYN24YCu4NnaERCmDB1ThIFOJ-vQ2F2WHxCx6RaWn6jAbrjqbw72S5vw_oNhqkQp2d730nSDuHgGS0xIChWgWwsCmUAdyKqmcj186jstFOo-OdtBUwvYgjq9VWrVRTxrwUzjl94uB4QXTe1wzMzTOqr56OAkoKXDYtvNbcIvf"/>
+                  <img class="branch-image" alt="Interior Toledo"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjqihgznYhjyWuEoekTUEYfoNVOeeLmlCSxYLhCodBa1LSD5p0tpR7ypLcxHAGh70KYN24YCu4NnaERCmDB1ThIFOJ-vQ2F2WHxCx6RaWn6jAbrjqbw72S5vw_oNhqkQp2d730nSDuHgGS0xIChWgWwsCmUAdyKqmcj186jstFOo-OdtBUwvYgjq9VWrVRTxrwUzjl94uB4QXTe1wzMzTOqr56OAkoKXDYtvNbcIvf" />
                   <div class="image-overlay"></div>
-                  <div class="image-caption"><span class="material-symbols-outlined">headphones</span> <span>Almacén principal y sala de escucha Hi-Fi</span></div>
+                  <div class="image-caption"><span class="material-symbols-outlined">headphones</span> <span>Almacén
+                      principal y sala de escucha Hi-Fi</span></div>
                 </div>
                 <div class="manager-strip">
                   <div class="manager-info">
@@ -242,18 +249,21 @@
                   <span class="stock-value">620 <small>LPs</small></span>
                 </div>
                 <div class="format-list">
-                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span> Vinilos 12" LP (Audiófilo)</span><strong>410 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" & Maxi 45 RPM</span><strong>115 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones Especiales & Boxsets</span><strong>65 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span> Cassettes & Archivo Analógico</span><strong>30 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span>
+                      Vinilos 12" LP (Audiófilo)</span><strong>410 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" &
+                      Maxi 45 RPM</span><strong>115 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones
+                      Especiales & Boxsets</span><strong>65 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span>
+                      Cassettes & Archivo Analógico</span><strong>30 u.</strong></div>
                 </div>
               </div>
               <div class="branch-card-footer">
-                <button class="btn btn-muted btn-edit-tab" data-name="Sucursal Central Toledo" data-address="Calle Comercio 14, 45001 Toledo" data-manager="Carlos M." data-capacity="620" data-notes="Almacén principal y sala de escucha">
+                <button class="btn btn-muted btn-edit-tab" data-name="Sucursal Central Toledo"
+                  data-address="Calle Comercio 14, 45001 Toledo" data-manager="Carlos M." data-capacity="620"
+                  data-notes="Almacén principal y sala de escucha">
                   <span class="material-symbols-outlined">edit_note</span> <span>Editar en Pestaña</span>
-                </button>
-                <button class="btn btn-action-full btn-transfer-tab" data-origin="Sucursal Central Toledo">
-                  <span class="material-symbols-outlined">move_up</span> <span>Transferencia de Stock</span>
                 </button>
               </div>
             </div>
@@ -268,14 +278,17 @@
                       <span class="status-online"><span class="dot-static"></span> Online</span>
                     </div>
                     <h3 class="branch-title">Filial Albacete - Pasaje Lodares</h3>
-                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Calle Mayor 22, 02001 Albacete</p>
+                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Calle Mayor 22,
+                      02001 Albacete</p>
                   </div>
                   <div class="branch-icon"><span class="material-symbols-outlined">store</span></div>
                 </div>
                 <div class="branch-image-wrapper">
-                  <img class="branch-image" alt="Interior Albacete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVcQFHwXjcO1zQLfYA8ehPQlLdJ1EV0lctVpsdOyh4mwb2pHUMl3n1KWPr4S0XEJYDO-D06rQyI1W65leYWTQl9bLshLn-S20RO_r08f1AQU14038Ru2n2QgzySIFNnasF5Nyta0WavvQBCONyr_tTGj20u-dQdPjtvv7TXUgOwdFtIIMvUOEJYz_0CrmAtgPag34DhQtz2ajt7EFRZB7kWKFH5Y_vxEmjBN1Gxjl4"/>
+                  <img class="branch-image" alt="Interior Albacete"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVcQFHwXjcO1zQLfYA8ehPQlLdJ1EV0lctVpsdOyh4mwb2pHUMl3n1KWPr4S0XEJYDO-D06rQyI1W65leYWTQl9bLshLn-S20RO_r08f1AQU14038Ru2n2QgzySIFNnasF5Nyta0WavvQBCONyr_tTGj20u-dQdPjtvv7TXUgOwdFtIIMvUOEJYz_0CrmAtgPag34DhQtz2ajt7EFRZB7kWKFH5Y_vxEmjBN1Gxjl4" />
                   <div class="image-overlay"></div>
-                  <div class="image-caption"><span class="material-symbols-outlined">point_of_sale</span> <span>Punto de venta directo & eventos</span></div>
+                  <div class="image-caption"><span class="material-symbols-outlined">point_of_sale</span> <span>Punto de
+                      venta directo & eventos</span></div>
                 </div>
                 <div class="manager-strip">
                   <div class="manager-info">
@@ -295,18 +308,21 @@
                   <span class="stock-value">340 <small>LPs</small></span>
                 </div>
                 <div class="format-list">
-                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span> Vinilos 12" LP (Audiófilo)</span><strong>220 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" & Maxi 45 RPM</span><strong>70 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones Especiales & Boxsets</span><strong>32 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span> Cassettes & Archivo Analógico</span><strong>18 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span>
+                      Vinilos 12" LP (Audiófilo)</span><strong>220 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" &
+                      Maxi 45 RPM</span><strong>70 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones
+                      Especiales & Boxsets</span><strong>32 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span>
+                      Cassettes & Archivo Analógico</span><strong>18 u.</strong></div>
                 </div>
               </div>
               <div class="branch-card-footer">
-                <button class="btn btn-muted btn-edit-tab" data-name="Filial Albacete - Pasaje Lodares" data-address="Calle Mayor 22, 02001 Albacete" data-manager="Lucía G." data-capacity="340" data-notes="Punto de venta y eventos">
+                <button class="btn btn-muted btn-edit-tab" data-name="Filial Albacete - Pasaje Lodares"
+                  data-address="Calle Mayor 22, 02001 Albacete" data-manager="Lucía G." data-capacity="340"
+                  data-notes="Punto de venta y eventos">
                   <span class="material-symbols-outlined">edit_note</span> <span>Editar en Pestaña</span>
-                </button>
-                <button class="btn btn-action-full btn-transfer-tab" data-origin="Filial Albacete - Pasaje Lodares">
-                  <span class="material-symbols-outlined">move_up</span> <span>Transferencia de Stock</span>
                 </button>
               </div>
             </div>
@@ -321,14 +337,17 @@
                       <span class="status-online"><span class="dot-static"></span> Online</span>
                     </div>
                     <h3 class="branch-title">Filial Ciudad Real - Puerta de Toledo</h3>
-                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Plaza Mayor 8, 13001 Ciudad Real</p>
+                    <p class="branch-address"><span class="material-symbols-outlined">location_on</span> Plaza Mayor 8,
+                      13001 Ciudad Real</p>
                   </div>
                   <div class="branch-icon"><span class="material-symbols-outlined">store</span></div>
                 </div>
                 <div class="branch-image-wrapper">
-                  <img class="branch-image" alt="Interior Ciudad Real" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEqSVw6ku6GzfMETESmTarnaUXPbeTZSrW9oFNncJ62UOaDa_m4UoPdaOn8QmRSAabT_E4m7jEAwbCbvrzsqj062F1h-yyQY1_JK8ofudoNcD2O-EgOLMCiWs1yjzh9rSbpaFGwyqEC9Gjaz4Wr7glfa_YJcOKgBmVQHoUoM7EMBXIerr4XfckjUC5X39DZRwtC8EPC5Zs4v7lU-4Yp7Ryo2PnIWLDWhLTBWmOvnOq"/>
+                  <img class="branch-image" alt="Interior Ciudad Real"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEqSVw6ku6GzfMETESmTarnaUXPbeTZSrW9oFNncJ62UOaDa_m4UoPdaOn8QmRSAabT_E4m7jEAwbCbvrzsqj062F1h-yyQY1_JK8ofudoNcD2O-EgOLMCiWs1yjzh9rSbpaFGwyqEC9Gjaz4Wr7glfa_YJcOKgBmVQHoUoM7EMBXIerr4XfckjUC5X39DZRwtC8EPC5Zs4v7lU-4Yp7Ryo2PnIWLDWhLTBWmOvnOq" />
                   <div class="image-overlay"></div>
-                  <div class="image-caption"><span class="material-symbols-outlined">local_shipping</span> <span>Distribución express y click & collect</span></div>
+                  <div class="image-caption"><span class="material-symbols-outlined">local_shipping</span>
+                    <span>Distribución express y click & collect</span></div>
                 </div>
                 <div class="manager-strip">
                   <div class="manager-info">
@@ -348,69 +367,26 @@
                   <span class="stock-value">220 <small>LPs</small></span>
                 </div>
                 <div class="format-list">
-                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span> Vinilos 12" LP (Audiófilo)</span><strong>140 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" & Maxi 45 RPM</span><strong>45 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones Especiales & Boxsets</span><strong>20 u.</strong></div>
-                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span> Cassettes & Archivo Analógico</span><strong>15 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">radio_button_checked</span>
+                      Vinilos 12" LP (Audiófilo)</span><strong>140 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">trip_origin</span> Singles 7" &
+                      Maxi 45 RPM</span><strong>45 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">star</span> Ediciones
+                      Especiales & Boxsets</span><strong>20 u.</strong></div>
+                  <div class="format-item"><span><span class="material-symbols-outlined">mobile_share_stack</span>
+                      Cassettes & Archivo Analógico</span><strong>15 u.</strong></div>
                 </div>
               </div>
               <div class="branch-card-footer">
-                <button class="btn btn-muted btn-edit-tab" data-name="Filial Ciudad Real - Puerta de Toledo" data-address="Plaza Mayor 8, 13001 Ciudad Real" data-manager="Andrés S." data-capacity="220" data-notes="Distribución express">
+                <button class="btn btn-muted btn-edit-tab" data-name="Filial Ciudad Real - Puerta de Toledo"
+                  data-address="Plaza Mayor 8, 13001 Ciudad Real" data-manager="Andrés S." data-capacity="220"
+                  data-notes="Distribución express">
                   <span class="material-symbols-outlined">edit_note</span> <span>Editar en Pestaña</span>
                 </button>
-                <button class="btn btn-action-full btn-transfer-tab" data-origin="Filial Ciudad Real - Puerta de Toledo">
-                  <span class="material-symbols-outlined">move_up</span> <span>Transferencia de Stock</span>
-                </button>
               </div>
-            </div>
-          </div>
-
-          <!-- Tabla de bitácora -->
-          <div class="table-card">
-            <div class="table-card-header">
-              <div>
-                <span class="section-label">Bitácora Logística en Curso</span>
-                <h3 class="section-title">Transferencias Recientes entre Tiendas</h3>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Código Orden</th>
-                    <th>Origen</th>
-                    <th>Destino</th>
-                    <th>Contenido</th>
-                    <th>Unidades</th>
-                    <th>Estado</th>
-                    <th class="text-right">Hora Sincronía</th>
-                  </tr>
-                </thead>
-                <tbody id="transfer-table-body">
-                  <tr>
-                    <td class="col-code">TRF-2025-089</td>
-                    <td class="col-highlight">Sucursal Central Toledo</td>
-                    <td>Filial Albacete</td>
-                    <td class="col-muted">LPs Flamenco Fusion & Krautrock (180g)</td>
-                    <td class="col-bold">35 LPs</td>
-                    <td><span class="badge badge-info"><span class="material-symbols-outlined">local_shipping</span> En Tránsito</span></td>
-                    <td class="text-right col-muted">Hoy 11:42</td>
-                  </tr>
-                  <tr>
-                    <td class="col-code">TRF-2025-088</td>
-                    <td class="col-highlight">Sucursal Central Toledo</td>
-                    <td>Ciudad Real</td>
-                    <td class="col-muted">Boxset Conmemorativo "Mancha Cósmica"</td>
-                    <td class="col-bold">12 Boxsets</td>
-                    <td><span class="badge badge-success"><span class="material-symbols-outlined">check_circle</span> Recibido & Indexado</span></td>
-                    <td class="text-right col-muted">Ayer 18:20</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
           </div>
         </section>
-
         <!-- ========================================== -->
         <!-- PESTAÑA 2: FORMULARIO EDICIÓN DE SEDE     -->
         <!-- ========================================== -->
@@ -431,32 +407,18 @@
             <form id="branch-edit-form">
               <div class="form-grid">
                 <div class="form-group full-width">
-                  <label for="form-branch-name">Nombre Oficial de la Filial</label>
-                  <input class="form-input" id="form-branch-name" placeholder="Ej: Filial Cuenca - Casas Colgadas" required type="text"/>
+                  <label for="form-branch-name">Nombre de la Filial</label>
+                  <input class="form-input" id="form-branch-name" placeholder="Ej: Filial Cuenca - Casas Colgadas"
+                    required type="text" />
                 </div>
                 <div class="form-group full-width">
-                  <label for="form-branch-address">Dirección Física</label>
-                  <input class="form-input" id="form-branch-address" placeholder="Ej: Calle Alfonso VIII 12, Cuenca" required type="text"/>
+                  <label for="form-branch-address">Dirección</label>
+                  <input class="form-input" id="form-branch-address" placeholder="Ej: Calle Alfonso VIII 12, Cuenca"
+                    required type="text" />
                 </div>
                 <div class="form-group">
                   <label for="form-branch-manager">Gerente Asignado</label>
-                  <input class="form-input" id="form-branch-manager" placeholder="Ej: Elena R." required type="text"/>
-                </div>
-                <div class="form-group">
-                  <label for="form-branch-capacity">Capacidad Estimada LPs Almacén</label>
-                  <input class="form-input" id="form-branch-capacity" placeholder="400" required type="number"/>
-                </div>
-                <div class="form-group full-width">
-                  <label for="form-branch-notes">Notas / Descripción de la Unidad</label>
-                  <textarea class="form-input" id="form-branch-notes" rows="3" placeholder="Punto de venta y almacén técnico"></textarea>
-                </div>
-                <div class="form-group full-width">
-                  <label for="form-branch-status">Estado Operativo</label>
-                  <select class="form-input" id="form-branch-status">
-                    <option value="online">Online / Sincronización Automática P2P</option>
-                    <option value="audit">En Auditoría Física de Inventario</option>
-                    <option value="maintenance">Mantenimiento de Servidor Local</option>
-                  </select>
+                  <input class="form-input" id="form-branch-manager" placeholder="Ej: Elena R." required type="text" />
                 </div>
               </div>
               <div class="form-actions">
@@ -466,77 +428,6 @@
             </form>
           </div>
         </section>
-
-        <!-- ========================================== -->
-        <!-- PESTAÑA 3: TRANSFERENCIA DE STOCK         -->
-        <!-- ========================================== -->
-        <section class="view-section" id="view-transfer">
-          <div class="tab-page-header">
-            <button class="btn btn-muted nav-trigger" data-target="view-dashboard">
-              <span class="material-symbols-outlined">arrow_back</span>
-              <span>Volver al Panel Principal</span>
-            </button>
-            <div class="title-block">
-              <span class="meta-tag"><span class="tag">Protocolo Intermodal</span></span>
-              <h1 class="page-title">Emitir Orden de Transferencia de Stock</h1>
-              <p class="page-subtitle">Sincronización directa de unidades físicas entre los almacenes de la red.</p>
-            </div>
-          </div>
-
-          <div class="form-card">
-            <form id="transfer-form">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="transfer-origin">Sede Origen</label>
-                  <select class="form-input" id="transfer-origin">
-                    <option value="Sucursal Central Toledo">Sucursal Central Toledo</option>
-                    <option value="Filial Albacete - Pasaje Lodares">Filial Albacete - Pasaje Lodares</option>
-                    <option value="Filial Ciudad Real - Puerta de Toledo">Filial Ciudad Real - Puerta de Toledo</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="transfer-target">Sede Destino</label>
-                  <select class="form-input" id="transfer-target">
-                    <option value="Filial Albacete - Pasaje Lodares">Filial Albacete - Pasaje Lodares</option>
-                    <option value="Sucursal Central Toledo">Sucursal Central Toledo</option>
-                    <option value="Filial Ciudad Real - Puerta de Toledo">Filial Ciudad Real - Puerta de Toledo</option>
-                  </select>
-                </div>
-                <div class="form-group full-width">
-                  <label for="transfer-format">Formato / Categoría a mover</label>
-                  <select class="form-input" id="transfer-format">
-                    <option value="LPs Flamenco Fusion & Krautrock (180g)">Vinilo 12" LP (Estándar 180g)</option>
-                    <option value="Singles 7&quot; &amp; Maxi 45 RPM">Singles 7" & Maxi 45 RPM</option>
-                    <option value="Boxset Conmemorativo &quot;Mancha Cósmica&quot;">Boxset / Deluxe Editions</option>
-                    <option value="Cassettes / Archivo Histórico">Cassettes / Archivo Histórico</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="transfer-amount">Cantidad de Unidades</label>
-                  <input class="form-input" id="transfer-amount" max="200" min="1" required type="number" value="20"/>
-                </div>
-                <div class="form-group">
-                  <label for="transfer-urgency">Urgencia Logística</label>
-                  <select class="form-input" id="transfer-urgency">
-                    <option value="Ordinaria">Ordinaria (Próxima ruta semanal)</option>
-                    <option value="Express">Express 24h (Sincronía Urgente)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="info-box margin-top-md">
-                <span class="material-symbols-outlined">info</span>
-                <p>Al confirmar, se añadirá la orden a la bitácora del panel principal y se actualizarán las existencias de la red.</p>
-              </div>
-
-              <div class="form-actions">
-                <button class="btn btn-muted nav-trigger" data-target="view-dashboard" type="button">Descartar</button>
-                <button class="btn btn-primary" type="submit">Emitir y Registrar en Bitácora</button>
-              </div>
-            </form>
-          </div>
-        </section>
-
       </div>
     </div>
   </main>
@@ -567,4 +458,5 @@
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
 </body>
+
 </html>
