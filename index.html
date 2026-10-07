@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="h-full" lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="web_standard" name="shell-type">
+  <title>Palmeras en la Mancha — Vinyl Records &amp; Archive Console</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = { 
+      darkMode: "class", 
+      theme: { 
+        extend: { 
+          colors: { 
+            "surface-variant": "#e2e8f0", "inverse-surface": "#0f172a", "on-secondary-fixed": "#00174c", "on-background": "#0f172a", "surface": "#ffffff", "outline-variant": "#cbd5e1", "secondary-container": "#dbeafe", "on-error-container": "#93000a", "inverse-primary": "#93c5fd", "error-container": "#fee2e2", "on-error": "#ffffff", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#1e3a8a", "surface-container-low": "#f8fafc", "tertiary-container": "#1d4ed8", "secondary": "#2563eb", "on-secondary-container": "#1e40af", "on-surface-variant": "#475569", "secondary-fixed-dim": "#bfdbfe", "primary-container": "#1d4ed8", "primary": "#2563eb", "primary-fixed-dim": "#93c5fd", "surface-tint": "#2563eb", "on-primary-container": "#ffffff", "on-tertiary-fixed": "#0f2b6e", "tertiary-fixed-dim": "#93c5fd", "on-primary-fixed-variant": "#1e40af", "tertiary-fixed": "#dbeafe", "tertiary": "#1e40af", "outline": "#64748b", "surface-container-lowest": "#ffffff", "error": "#dc2626", "primary-fixed": "#dbeafe", "surface-bright": "#ffffff", "surface-container": "#f1f5f9", "background": "#f8fafc", "surface-container-highest": "#e2e8f0", "on-surface": "#0f172a", "surface-container-high": "#e2e8f0", "inverse-on-surface": "#f8fafc", "secondary-fixed": "#dbeafe", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "on-primary-fixed": "#001551", "on-secondary-fixed-variant": "#1e3a8a", "surface-dim": "#cbd5e1", "on-tertiary-container": "#ffffff" 
+          } 
+        } 
+      } 
+    }
+  </script>
+</head>
+
+<body class="bg-slate-50 font-body-md text-slate-800 antialiased min-h-screen flex flex-col">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_1px_6px_rgba(30,58,138,0.05)]">
+    <div class="h-20 w-full px-6 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="switchView('catalog')">
+          <div class="w-10 h-10 rounded-full overflow-hidden shrink-0 shadow-sm flex items-center justify-center bg-[#090b0e] border border-blue-600/40 text-white font-mono text-xs">
+            PLM
+          </div>
+          <div class="flex flex-col">
+            <span class="text-lg text-slate-900 font-bold tracking-tight leading-none">Palmeras en la Mancha</span>
+            <span class="text-[10px] text-blue-600 font-bold uppercase tracking-wider mt-1 font-mono">Vinyl Records &amp; Archive Console</span>
+          </div>
+        </div>
+        <div class="h-8 w-px bg-slate-200 hidden lg:block"></div>
+        <nav class="hidden xl:flex items-center gap-1 p-1 bg-slate-100 rounded-xl" id="navTabs">
+          <a class="px-4 py-1.5 text-sm font-semibold text-blue-700 bg-white rounded-lg shadow-sm transition-colors" href="#" onclick="switchView('catalog'); return false;">Catálogo de Álbumes</a>
+          <a class="px-4 py-1.5 text-sm text-slate-600 hover:text-slate-900 hover:bg-white/60 rounded-lg transition-colors" href="#" onclick="return false;">Gestión de Filiales</a>
+          <a class="px-4 py-1.5 text-sm text-slate-600 hover:text-slate-900 hover:bg-white/60 rounded-lg transition-colors" href="#" onclick="return false;">Discográficas &amp; Productoras</a>
+          <a class="px-4 py-1.5 text-sm text-slate-600 hover:text-slate-900 hover:bg-white/60 rounded-lg transition-colors" href="#" onclick="return false;">Ediciones de Álbumes</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-4 flex-1 justify-end max-w-2xl">
+        <div class="relative hidden lg:block">
+          <select class="appearance-none bg-slate-100 border border-slate-200 py-1.5 pl-3 pr-8 text-xs text-slate-700 rounded-lg cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-600 font-mono">
+            <option value="toledo">Sucursal Central - Toledo</option>
+            <option value="albacete">Filial Albacete</option>
+            <option value="ciudad-real">Filial Ciudad Real</option>
+          </select>
+          <span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500 text-[16px]">expand_more</span>
+        </div>
+        <button class="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-sm shrink-0" onclick="goToCreatePage()">
+          <span class="material-symbols-outlined text-[18px]">add_circle</span>
+          <span>Nuevo Lanzamiento</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full pt-20 bg-slate-50 min-h-screen flex-1 flex flex-col">
+    <div class="flex flex-col w-full flex-1">
+      
+      <!-- VISTA 1: CATÁLOGO DE ÁLBUMES -->
+      <div class="flex flex-col w-full transition-opacity duration-300" id="viewCatalog">
+        <section class="w-full bg-white px-6 py-4 shadow-sm sticky top-20 z-40 border-b border-slate-200">
+          <div class="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+            <div class="relative flex-1 max-w-xl">
+              <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+              <input class="w-full h-11 bg-slate-50 border border-slate-200 pl-11 pr-16 text-sm text-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all placeholder:text-slate-400" id="catalogSearchInput" placeholder="Buscar por título, artista, código PLM o discográfica..." type="text">
+              <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] bg-slate-200 text-slate-600 px-1.5 py-0.5 rounded font-mono">⌘K</span>
+            </div>
+            <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
+              <button class="h-11 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm rounded-lg flex items-center gap-2 border border-slate-200 transition-colors shrink-0">
+                <span class="material-symbols-outlined text-[18px] text-blue-600">tune</span>
+                <span>Filtros</span>
+                <span class="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold">3</span>
+              </button>
+              <button class="h-11 px-4 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg flex items-center gap-1.5 shadow-sm transition-colors shrink-0" onclick="goToCreatePage()">
+                <span class="material-symbols-outlined text-[18px]">library_add</span>
+                <span>+ Nuevo Álbum</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- CUADRÍCULA DE DISCOS -->
+        <div class="w-full px-6 py-10 flex-1 max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="albumsCatalogGrid">
+            
+            <!-- DISCO 1 -->
+            <article class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group" data-album-id="PLM-LP-042">
+              <div>
+                <div class="relative w-full aspect-square mx-auto cursor-pointer overflow-hidden p-2 bg-slate-100 rounded-xl mb-4" onclick="goToEditPage('PLM-LP-042')">
+                  <div class="absolute top-2 right-2 w-[85%] h-[85%] rounded-full bg-[#0a0d14] flex items-center justify-center shadow-lg transform translate-x-4 group-hover:translate-x-12 transition-transform duration-500 ease-out z-0 border border-blue-900/30">
+                    <div class="w-full h-full rounded-full flex items-center justify-center vinyl-grooves">
+                      <div class="w-20 h-20 rounded-full bg-blue-600 flex flex-col items-center justify-center text-center p-1 text-white shadow-inner">
+                        <span class="text-[8px] uppercase tracking-widest font-bold font-mono">PLM-042</span>
+                        <span class="material-symbols-outlined text-[16px]">album</span>
+                        <span class="text-[7px] uppercase font-mono">33⅓ RPM</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative w-[92%] h-[92%] z-10 shadow-md rounded-lg overflow-hidden bg-slate-200">
+                    <img alt="Viento de Levante" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsR210di33rfHgEd5UTEcSHjMhH1VCubv3xnjavkoUpw5LOnEPZYT9pJnvyzsxTXkb2rakCDPl-hgnR5nU6RvBN7XRvmkv7SYjt02KJELGlbwaDeG-JRyuPU6O520MbO9uLQijJwxvr3ybubrlubjXLQUiRDK2hq1SmnRJcq2BxNpNmwHNkpfJ3fujtVj7evq-OHNzwXSP3ef3Qnr_EwpLXPtyCF7nvOzWBLg4PjGsvzdt1MY_aWXAXA">
+                    <div class="absolute bottom-2 left-2 bg-blue-950/80 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded font-mono">PLM-LP-042</div>
+                  </div>
+                </div>
+                <div class="flex flex-col mb-4">
+                  <div class="flex items-center justify-between text-slate-400 text-xs mb-1 font-mono">
+                    <span>La Mancha Fonográfica</span>
+                    <span class="text-blue-600 font-bold">28,00€</span>
+                  </div>
+                  <h3 class="text-[18px] text-slate-900 font-bold leading-snug group-hover:text-blue-600 transition-colors">Viento de Levante &amp; Silencios</h3>
+                  <p class="text-xs text-slate-500 font-medium mt-0.5">Aurelio y La Cuadrilla de San Juan</p>
+                </div>
+              </div>
+              <button class="w-full h-11 px-4 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 hover:border-blue-600 text-sm font-semibold rounded-lg flex items-center justify-center gap-2 shadow-sm transition-all duration-200" onclick="goToEditPage('PLM-LP-042')">
+                <span class="material-symbols-outlined text-[18px]">edit_note</span>
+                <span>Editar Álbum</span>
+              </button>
+            </article>
+
+            <!-- DISCO 2 -->
+            <article class="bg-white border border-slate-200/90 rounded-xl p-4 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group" data-album-id="PLM-LP-089">
+              <div>
+                <div class="relative w-full aspect-square mx-auto cursor-pointer overflow-hidden p-2 bg-slate-100 rounded-xl mb-4" onclick="goToEditPage('PLM-LP-089')">
+                  <div class="absolute top-2 right-2 w-[85%] h-[85%] rounded-full bg-[#0a0d14] flex items-center justify-center shadow-lg transform translate-x-4 group-hover:translate-x-12 transition-transform duration-500 ease-out z-0 border border-blue-900/30">
+                    <div class="w-full h-full rounded-full flex items-center justify-center vinyl-grooves">
+                      <div class="w-20 h-20 rounded-full bg-blue-800 flex flex-col items-center justify-center text-center p-1 text-white shadow-inner">
+                        <span class="text-[8px] uppercase tracking-widest font-bold font-mono">PLM-089</span>
+                        <span class="material-symbols-outlined text-[16px]">album</span>
+                        <span class="text-[7px] uppercase font-mono">45 RPM</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative w-[92%] h-[92%] z-10 shadow-md rounded-lg overflow-hidden bg-slate-200">
+                    <img alt="Llanura Modular" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJO9T01kayvYbSYAbg02lYXfHz-TPH3b7tzvE7YZQhwWMG0KmOlklX4wXMe4zbPLS7mtQ62AYoBMhUjEkCDym839jfZvLOmh6xTI6aXVDmNNIa4DmhAC9r1BpJrLrAVE4liU_HCwku-uUEfYzFCxEM23ADu9QC5_XanrDoisQzlzBIO4kEaapZiKP3SA620SYSfTzsRNFy6aMgw2W-w1TNyb-ZIe-JQRgJbVe3VkXKyz_OjRftPQlHWg">
+                    <div class="absolute bottom-2 left-2 bg-blue-950/80 backdrop-blur-sm text-white text-[10px] px-2 py-0.5 rounded font-mono">PLM-LP-089</div>
+                  </div>
+                </div>
+                <div class="flex flex-col mb-4">
+                  <div class="flex items-center justify-between text-slate-400 text-xs mb-1 font-mono">
+                    <span>Iberia Sonidera</span>
+                    <span class="text-blue-600 font-bold">34,00€</span>
+                  </div>
+                  <h3 class="text-[18px] text-slate-900 font-bold leading-snug group-hover:text-blue-600 transition-colors">Llanura Modular &amp; Eco Solar</h3>
+                  <p class="text-xs text-slate-500 font-medium mt-0.5">Sintetizadores de La Alcarria</p>
+                </div>
+              </div>
+              <button class="w-full h-11 px-4 bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white border border-blue-200 hover:border-blue-600 text-sm font-semibold rounded-lg flex items-center justify-center gap-2 shadow-sm transition-all duration-200" onclick="goToEditPage('PLM-LP-089')">
+                <span class="material-symbols-outlined text-[18px]">edit_note</span>
+                <span>Editar Álbum</span>
+              </button>
+            </article>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- VISTA 2: EDICIÓN / REGISTRO DE ÁLBUM -->
+      <div class="flex flex-col w-full transition-opacity duration-300 pb-10 hidden" id="viewEditAlbum">
+        <div class="w-full bg-white border-b border-slate-200 sticky top-20 z-40 shadow-sm">
+          <div class="w-full max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <button class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-sm font-bold rounded-lg flex items-center gap-2 border border-blue-200 hover:border-blue-300 transition-all shadow-sm group" onclick="switchView('catalog')">
+                <span class="material-symbols-outlined text-[20px] group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
+                <span>← Volver al Catálogo</span>
+              </button>
+              <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] text-blue-600 uppercase font-bold tracking-wider font-mono">Edición Fonográfica Oficial</span>
+                  <span class="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Cloudinary CDN Live</span>
+                  </span>
+                </div>
+                <h2 class="text-2xl text-slate-900 font-bold flex items-center gap-2 mt-0.5">Editar Álbum Seleccionado</h2>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 self-stretch md:self-auto justify-end">
+              <button class="px-4 py-2.5 text-slate-600 hover:text-slate-900 text-sm font-semibold rounded-lg hover:bg-slate-100 transition-colors" onclick="switchView('catalog')" type="button">
+                Cancelar / Volver
+              </button>
+              <button class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg shadow-sm flex items-center gap-2 transition-colors" onclick="saveAlbumChanges()" type="button">
+                <span class="material-symbols-outlined text-[18px]">save</span>
+                <span>Guardar Cambios</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full max-w-7xl mx-auto px-6 py-6 flex-1">
+          <form class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="fullAlbumEditForm" onsubmit="event.preventDefault(); saveAlbumChanges();">
+            
+            <!-- COLUMNA IZQUIERDA -->
+            <div class="lg:col-span-4 flex flex-col gap-4">
+              <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-base font-bold text-slate-900 flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-blue-600 text-[20px]">art_track</span>
+                    <span>Carátula del Disco (Artwork)</span>
+                  </span>
+                  <span class="text-[10px] text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded font-mono font-bold">Cloudinary CDN</span>
+                </div>
+                <p class="text-xs text-slate-500">Visualización de funda gatefold y vinilo prensado para el catálogo comercial.</p>
+                <div class="relative w-full aspect-square rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 border border-slate-200 p-4 flex items-center justify-center overflow-hidden group">
+                  <div class="absolute right-3 w-[78%] h-[78%] rounded-full bg-[#0a0d14] flex items-center justify-center shadow-2xl transform translate-x-5 group-hover:translate-x-10 transition-transform duration-500 ease-out z-0 border border-blue-900/40 vinyl-grooves">
+                    <div class="w-20 h-20 rounded-full bg-blue-800 flex flex-col items-center justify-center text-center p-1 text-white shadow-inner">
+                      <span class="text-[8px] uppercase tracking-widest font-bold font-mono">PLM-089</span>
+                      <span class="material-symbols-outlined text-[16px]">album</span>
+                      <span class="text-[7px] uppercase font-mono">45 RPM</span>
+                    </div>
+                  </div>
+                  <div class="relative w-[92%] h-[92%] z-10 shadow-xl rounded-lg overflow-hidden bg-slate-200">
+                    <img alt="Llanura Modular" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJO9T01kayvYbSYAbg02lYXfHz-TPH3b7tzvE7YZQhwWMG0KmOlklX4wXMe4zbPLS7mtQ62AYoBMhUjEkCDym839jfZvLOmh6xTI6aXVDmNNIa4DmhAC9r1BpJrLrAVE4liU_HCwku-uUEfYzFCxEM23ADu9QC5_XanrDoisQzlzBIO4kEaapZiKP3SA620SYSfTzsRNFy6aMgw2W-w1TNyb-ZIe-JQRgJbVe3VkXKyz_OjRftPQlHWg">
+                  </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="text-xs font-bold text-slate-700">URL de Imagen (Cloudinary CDN)</label>
+                  <div class="flex gap-2">
+                    <input class="w-full h-10 bg-slate-50 border border-slate-200 px-3 font-mono text-xs text-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="editCoverUrl" type="text" value="https://lh3.googleusercontent.com/aida-public/AB6AXuBJO9T01kayvYbSYAbg02lYXfHz-TPH3b7tzvE7YZQhwWMG0KmOlklX4wXMe4zbPLS7mtQ62AYoBMhUjEkCDym839jfZvLOmh6xTI6aXVDmNNIa4DmhAC9r1BpJrLrAVE4liU_HCwku-uUEfYzFCxEM23ADu9QC5_XanrDoisQzlzBIO4kEaapZiKP3SA620SYSfTzsRNFy6aMgw2W-w1TNyb-ZIe-JQRgJbVe3VkXKyz_OjRftPQlHWg">
+                    <button class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg border border-slate-200 text-xs font-semibold shrink-0 transition-colors" type="button">Probar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLUMNA DERECHA -->
+            <div class="lg:col-span-8 flex flex-col gap-4">
+              <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm flex flex-col gap-4">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <span class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-blue-600">info</span>
+                    <span>Información Fonográfica y Artistas</span>
+                  </span>
+                  <span class="font-mono text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded">PLM-LP-089</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="flex flex-col gap-2">
+                    <label class="text-xs font-bold text-slate-700">Título del Álbum *</label>
+                    <input class="w-full h-11 bg-slate-50 border border-slate-200 px-3 text-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all" id="editAlbumTitle" type="text" value="Llanura Modular &amp; Eco Solar">
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <label class="text-xs font-bold text-slate-700">Artista / Grupo / Cuadrilla *</label>
+                    <input class="w-full h-11 bg-slate-50 border border-slate-200 px-3 text-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all" id="editAlbumArtist" type="text" value="Sintetizadores de La Alcarria">
+                  </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class="text-xs font-bold text-slate-700">Notas Editoriales / Descripción del Prensado</label>
+                  <textarea class="w-full h-24 bg-slate-50 border border-slate-200 p-3 text-slate-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none">Grabación analógica directa en los estudios de Alcarria Norte utilizando sintetizadores modulares autogenerados con energía solar y pasajes de folclore experimental manchego.</textarea>
+                </div>
+              </div>
+              <div class="flex items-center justify-end gap-3 pt-2">
+                <button class="px-5 py-3 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 text-sm font-semibold rounded-lg transition-colors shadow-sm" onclick="switchView('catalog')" type="button">
+                  Cancelar
+                </button>
+                <button class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg shadow-sm flex items-center gap-2 transition-colors" onclick="saveAlbumChanges()" type="button">
+                  <span class="material-symbols-outlined text-[18px]">save</span>
+                  <span>Guardar Cambios del Álbum</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
