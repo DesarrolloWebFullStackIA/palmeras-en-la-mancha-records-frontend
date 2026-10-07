@@ -171,6 +171,13 @@ body {
   gap: 16px;
 }
 
+.header-divider {
+  height: 32px;
+  width: 1px;
+  background-color: #e2e8f0;
+  display: none;
+}
+
 .brand-group {
   display: flex;
   align-items: center;

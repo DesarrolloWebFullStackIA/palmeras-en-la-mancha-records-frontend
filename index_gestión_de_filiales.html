@@ -26,19 +26,17 @@
           <img alt="Emblema oficial de Palmeras en la Mancha Records" class="brand-logo" src="images/logo.png" />
           <div class="brand-text">
             <span class="brand-title">Palmeras en la Mancha Records</span>
-            <span class="brand-subtitle">Vinyl Archive & Console</span>
+          </div>
+          <div class="header-divider">
+            <nav class="nav-tabs" id="navTabs">
+              <a class="nav-link" data-path="catalogo-de-albumes" href="#">Catálogo de Álbumes</a>
+              <a class="nav-link active" data-path="gestion-de-filiales" href="#"
+                onclick="switchView('branches'); return false;">Gestión de Filiales</a>
+              <a class="nav-link" data-path="discograficas-productoras" href="#">Discográficas &amp; Productoras</a>
+              <a class="nav-link" data-path="ediciones-de-albumes" href="#">Ediciones de Álbumes</a>
+            </nav>
           </div>
         </div>
-        <nav class="main-nav">
-          <button class="nav-tab-btn active" data-target="view-dashboard">
-            <span class="material-symbols-outlined">space_dashboard</span>
-            <span>Gestión de Filiales</span>
-          </button>
-          <button class="nav-tab-btn" data-target="view-editor">
-            <span class="material-symbols-outlined">edit_note</span>
-            <span>Edición de Sede</span>
-          </button>
-        </nav>
       </div>
       <div class="header-actions">
         <div class="search-box">
@@ -76,9 +74,7 @@
 
       <div class="main-container">
 
-        <!-- ========================================== -->
-        <!-- PESTAÑA 1: PANEL PRINCIPAL (DASHBOARD)     -->
-        <!-- ========================================== -->
+        <!-- PANEL PRINCIPAL (DASHBOARD)     -->
         <section class="view-section active" id="view-dashboard">
           <div class="page-title-section">
             <div class="title-block">
@@ -96,6 +92,12 @@
                 <span class="material-symbols-outlined">add_circle</span>
                 <span>Nueva Filial</span>
               </button>
+              <nav class="main-nav">
+                <button class="nav-tab-btn" data-target="view-editor">
+                  <span class="material-symbols-outlined">edit_note</span>
+                  <span>Edición de Sede</span>
+                </button>
+              </nav>
             </div>
           </div>
 
@@ -347,7 +349,8 @@
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEqSVw6ku6GzfMETESmTarnaUXPbeTZSrW9oFNncJ62UOaDa_m4UoPdaOn8QmRSAabT_E4m7jEAwbCbvrzsqj062F1h-yyQY1_JK8ofudoNcD2O-EgOLMCiWs1yjzh9rSbpaFGwyqEC9Gjaz4Wr7glfa_YJcOKgBmVQHoUoM7EMBXIerr4XfckjUC5X39DZRwtC8EPC5Zs4v7lU-4Yp7Ryo2PnIWLDWhLTBWmOvnOq" />
                   <div class="image-overlay"></div>
                   <div class="image-caption"><span class="material-symbols-outlined">local_shipping</span>
-                    <span>Distribución express y click & collect</span></div>
+                    <span>Distribución express y click & collect</span>
+                  </div>
                 </div>
                 <div class="manager-strip">
                   <div class="manager-info">
