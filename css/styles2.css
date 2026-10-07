@@ -260,17 +260,6 @@ body {
   white-space: nowrap;
 }
 
-.user-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #0037b0;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Botones general */
 .btn {
   display: inline-flex;
