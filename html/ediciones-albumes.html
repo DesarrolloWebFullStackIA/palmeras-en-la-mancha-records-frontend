@@ -13,50 +13,14 @@
     href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Manrope:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet" />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
 
   <link rel="stylesheet" href="../css/styles4.css" />
 </head>
 
 <body>
-
-  <header class="main-header">
-    <div class="header-container">
-
-      <div class="brand-group">
-        <div class="bg-slate-900 text-white p-1 rounded-lg w-10 h-10 flex items-center justify-center overflow-hidden shrink-0 shadow-sm">
-          <img src="/img/logo.png" alt="Palmeras en la Mancha Records logo, a circular emblem featuring a stylized palm tree and the words Palmeras en la Mancha Records in a classic label style, displayed on a dark background with a polished, professional tone." class="brand-logo"/>
-          <div class="brand-text">
-            <span class="brand-title">Palmeras en la Mancha Records</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="header-divider">
-        <nav class="nav-tabs" id="navTabs">
-          <a class="nav-link" href="../index.html">Catálogo</a>
-          <a class="nav-link" href="filiales.html">Filiales</a>
-          <a class="nav-link" href="discograficas.html">Discográficas &amp; Productoras</a>
-          <a class="nav-link active" href="ediciones-albumes.html">Ediciones de Álbumes</a>
-        </nav>
-      </div>
-
-      <div class="header-actions">
-        <div class="select-wrapper">
-          <select class="branch-select">
-            <option value="toledo">Sucursal Central - Toledo</option>
-            <option value="albacete">Filial Albacete</option>
-            <option value="ciudad-real">Filial Ciudad Real</option>
-          </select>
-
-          <span class="material-symbols-outlined select-arrow">expand_more</span>
-        </div>
-      </div>
-
-    </div>
-  </header>
+  <header-component></header-component>
 
   <main class="main-content">
 
@@ -178,11 +142,9 @@
 
               <div class="vinyl-cover">
 
-                <img
-                  id="coverPreview"
+                <img id="coverPreview"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlcz0ImBoy2zy89-viVJEp4_WQyqsy0_KSd2IYbtMU6JM-FyVtlShoB7v9cilGnTbGV-0SzPv2L_uFeNYcAnD6XnXjJlYFCRfrOyfchhGzw4uP0rKY0l9mYYIE89TG7bcnbOsvoXBNRBY29-ZXZtoVqLuMV7FsOYRqGrYKWCBALlIIhXwZrOZMcFpj4Okqmeyt_QVXRNGJm82t3PR9qMJfeL1wsSXXD0vBDtQ8qL8f"
-                  alt="Cover artwork"
-                />
+                  alt="Cover artwork" />
 
                 <div class="vinyl-cover-overlay">
                   <span class="cover-album-title">Viento de Levante</span>
@@ -203,21 +165,12 @@
                   <span class="material-symbols-outlined">cloud_upload</span>
                   <span>Subir Nueva Carátula</span>
 
-                  <input
-                    accept="image/*"
-                    class="hidden"
-                    id="coverFileInput"
-                    onchange="handleCoverChange(event)"
-                    type="file"
-                  />
+                  <input accept="image/*" class="hidden" id="coverFileInput" onchange="handleCoverChange(event)"
+                    type="file" />
                 </label>
 
-                <button
-                  class="btn-icon-danger"
-                  onclick="restoreCover()"
-                  title="Restaurar portada original"
-                  type="button"
-                >
+                <button class="btn-icon-danger" onclick="restoreCover()" title="Restaurar portada original"
+                  type="button">
                   <span class="material-symbols-outlined">delete_outline</span>
                 </button>
 
@@ -252,20 +205,12 @@
 
               <div class="form-group span-2">
                 <label class="form-label">Título del Álbum *</label>
-                <input
-                  class="form-input"
-                  type="text"
-                  value="Viento de Levante &amp; Silencios"
-                />
+                <input class="form-input" type="text" value="Viento de Levante &amp; Silencios" />
               </div>
 
               <div class="form-group">
                 <label class="form-label">Artista*</label>
-                <input
-                  class="form-input"
-                  type="text"
-                  value="Silvia Pérez &amp; Cuarteto Alcarria"
-                />
+                <input class="form-input" type="text" value="Silvia Pérez &amp; Cuarteto Alcarria" />
               </div>
 
               <div class="form-group">
@@ -283,23 +228,13 @@
               <div class="form-group">
                 <label class="form-label">Género &amp; Subgénero</label>
 
-                <input
-                  class="form-input"
-                  type="text"
-                  value="Folk Ibérico Contemporáneo / Ambient"
-                />
+                <input class="form-input" type="text" value="Folk Ibérico Contemporáneo / Ambient" />
               </div>
 
               <div class="form-group">
                 <label class="form-label">Año de Edición / Prensado</label>
 
-                <input
-                  class="form-input"
-                  type="number"
-                  min="1950"
-                  max="2030"
-                  value="2024"
-                />
+                <input class="form-input" type="number" min="1950" max="2030" value="2024" />
               </div>
 
             </div>
@@ -327,12 +262,7 @@
 
                 <div class="input-currency-wrapper">
 
-                  <input
-                    class="form-input price-input"
-                    type="number"
-                    step="0.50"
-                    value="29.90"
-                  />
+                  <input class="form-input price-input" type="number" step="0.50" value="29.90" />
 
                   <span class="currency-symbol">€</span>
 
@@ -400,14 +330,8 @@
 
                 <div class="stock-input-wrapper">
 
-                  <input
-                    class="stock-input"
-                    id="stockToledo"
-                    min="0"
-                    oninput="recalcTotalStock()"
-                    type="number"
-                    value="28"
-                  />
+                  <input class="stock-input" id="stockToledo" min="0" oninput="recalcTotalStock()" type="number"
+                    value="28" />
 
                   <span class="stock-unit">UDS</span>
 
@@ -426,14 +350,8 @@
 
                 <div class="stock-input-wrapper">
 
-                  <input
-                    class="stock-input"
-                    id="stockAlbacete"
-                    min="0"
-                    oninput="recalcTotalStock()"
-                    type="number"
-                    value="12"
-                  />
+                  <input class="stock-input" id="stockAlbacete" min="0" oninput="recalcTotalStock()" type="number"
+                    value="12" />
 
                   <span class="stock-unit">UDS</span>
 
@@ -457,14 +375,8 @@
 
                 <div class="stock-input-wrapper">
 
-                  <input
-                    class="stock-input"
-                    id="stockCiudadReal"
-                    min="0"
-                    oninput="recalcTotalStock()"
-                    type="number"
-                    value="8"
-                  />
+                  <input class="stock-input" id="stockCiudadReal" min="0" oninput="recalcTotalStock()" type="number"
+                    value="8" />
 
                   <span class="stock-unit">UDS</span>
 
@@ -483,12 +395,15 @@
     </div>
 
   </main>
+  <footer-component></footer-component>
 
-<script src="../js/notifications.js"></script>
-<script src="../js/vinyl-preview.js"></script>
-<script src="../js/stock-calculator.js"></script>
-<script src="../js/app.js"></script>
-<script src="../js/script.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/vinyl-preview.js"></script>
+  <script src="../js/stock-calculator.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/script.js"></script>
+
 
 </body>
 
