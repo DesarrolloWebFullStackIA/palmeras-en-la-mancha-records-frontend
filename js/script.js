@@ -1,11 +1,51 @@
-console.log("SCRIPT.JS FOI CARREGADO");
+console.log("SCRIPT.JS cargado correctamente.");
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
+// Detección automática del entorno: local (FastAPI) o producción (Render)
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://127.0.0.1:8000/api/v1'
+    : 'https://palmeras-records-api.onrender.com/api/v1';
 
 
 // ===============================
-// GET ALBUM
+// HELPER: Form Data Builder
 // ===============================
+function toFormData(data) {
+    if (data instanceof FormData) return data;
+    const formData = new FormData();
+    for (const key in data) {
+        if (data[key] !== undefined && data[key] !== null) {
+            formData.append(key, data[key]);
+        }
+    }
+    return formData;
+}
+
+
+// ===============================
+// API: ALBUMS
+// ===============================
+
+async function getAlbums(filters = {}) {
+    try {
+        const params = new URLSearchParams();
+        if (filters.title) params.append('title', filters.title);
+        if (filters.artist) params.append('artist', filters.artist);
+        if (filters.genre) params.append('genre', filters.genre);
+        if (filters.label_id) params.append('label_id', filters.label_id);
+
+        const url = `${API_BASE_URL}/albums/${params.toString() ? '?' + params.toString() : ''}`;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(`HTTP Error ${response.status}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('Error al obtener álbumes:', error);
+        return [];
+    }
+}
 
 async function getAlbum(albumId) {
     try {
@@ -16,75 +56,56 @@ async function getAlbum(albumId) {
         }
 
         return await response.json();
-
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error getAlbum:', error);
         return null;
     }
 }
-
-
-// ===============================
-// CREATE ALBUM
-// ===============================
 
 async function createAlbum(albumData) {
     try {
+        const body = toFormData(albumData);
         const response = await fetch(`${API_BASE_URL}/albums/`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(albumData)
+            body: body
         });
 
         if (!response.ok) {
-            throw new Error('Error al crear el álbum');
+            const err = await response.json().catch(() => ({}));
+            throw new Error(err.detail || 'Error al crear el álbum');
         }
 
         return await response.json();
-
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error createAlbum:', error);
+        alert(error.message || 'No se pudo crear el álbum.');
         return null;
     }
 }
-
-
-// ===============================
-// UPDATE ALBUM
-// ===============================
 
 async function updateAlbum(albumId, albumData) {
     try {
+        const body = toFormData(albumData);
         const response = await fetch(`${API_BASE_URL}/albums/${albumId}`, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(albumData)
+            body: body
         });
 
         if (!response.ok) {
-            throw new Error('Error al actualizar el álbum');
+            const err = await response.json().catch(() => ({}));
+            throw new Error(err.detail || 'Error al actualizar el álbum');
         }
 
         return await response.json();
-
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error updateAlbum:', error);
+        alert(error.message || 'No se pudo actualizar el álbum.');
         return null;
     }
 }
 
-
-// ===============================
-// DELETE ALBUM
-// ===============================
-
 async function deleteAlbum(albumId) {
-
-    if (!confirm('¿Estás segura de que deseas eliminar este álbum?')) {
+    if (!confirm('¿Estás seguro de que deseas eliminar este álbum?')) {
         return;
     }
 
@@ -99,11 +120,31 @@ async function deleteAlbum(albumId) {
 
         alert('Álbum eliminado correctamente.');
 
-        window.location.reload();
-
+        // Si estamos en la página del catálogo, recargar lista
+        if (typeof loadAlbums === 'function') {
+            await loadAlbums();
+        } else {
+            window.location.reload();
+        }
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error deleteAlbum:', error);
         alert('No se pudo eliminar el álbum.');
+    }
+}
+
+
+// ===============================
+// API: RECORD LABELS (DISCOGRÁFICAS)
+// ===============================
+
+async function getRecordLabels() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/record-labels/`);
+        if (!response.ok) throw new Error('Error al obtener discográficas');
+        return await response.json();
+    } catch (error) {
+        console.error('Error getRecordLabels:', error);
+        return [];
     }
 }
 
@@ -113,80 +154,17 @@ async function deleteAlbum(albumId) {
 // ===============================
 
 function goToCreatePage() {
-    window.location.href = 'html/crear-album.html';
+    const isSubfolder = window.location.pathname.includes('/html/');
+    window.location.href = isSubfolder ? 'album.html' : 'html/album.html';
 }
 
-function goToEditPage() {
-    window.location.href = 'html/ediciones-albumes.html';
+function goToEditPage(albumId) {
+    const isSubfolder = window.location.pathname.includes('/html/');
+    const base = isSubfolder ? 'album.html' : 'html/album.html';
+    window.location.href = `${base}?id=${albumId}`;
 }
-function openAlbum() {
-    goToEditPage(albumId);
-}
-
 
 function goToMainMenu() {
-    window.location.href = '../index.html';
-}
-
-
-// ===============================
-// SAVE CHANGES
-// ===============================
-
-async function saveChanges() {
-
-    const params = new URLSearchParams(window.location.search);
-    const albumId = params.get('id');
-
-    if (!albumId) {
-        alert('No se encontró el ID del álbum.');
-        return;
-    }
-
-    const albumData = {
-        title: document.getElementById('albumTitle')?.value,
-        artist: document.getElementById('artist')?.value,
-        genre: document.getElementById('genre')?.value,
-        release_year: Number(
-            document.getElementById('releaseYear')?.value
-        )
-    };
-
-    const updatedAlbum = await updateAlbum(albumId, albumData);
-
-    if (updatedAlbum) {
-        alert('¡Cambios guardados exitosamente!');
-        window.location.href = '../index.html';
-    }
-}
-
-
-
-function uploadCover() {
-
-    const fileInput = document.createElement('input');
-
-    fileInput.type = 'file';
-    fileInput.accept = 'image/*';
-
-    fileInput.onchange = (event) => {
-
-        const file = event.target.files[0];
-
-        if (file) {
-            console.log('New cover selected:', file.name);
-            alert(`Carátula seleccionada: ${file.name}`);
-        }
-    };
-
-    fileInput.click();
-}
-
-
-function deleteCover() {
-
-    if (confirm('¿Estás segura de que deseas eliminar la carátula actual?')) {
-        console.log('Cover deleted.');
-        alert('Carátula eliminada correctamente.');
-    }
+    const isSubfolder = window.location.pathname.includes('/html/');
+    window.location.href = isSubfolder ? '../index.html' : 'index.html';
 }
