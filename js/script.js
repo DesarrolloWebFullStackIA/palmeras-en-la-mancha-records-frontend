@@ -2,25 +2,10 @@ console.log("SCRIPT.JS FOI CARREGADO");
 
 const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
 
-async function getAlbums() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/albums/`);
 
-        if (!response.ok) {
-            throw new Error('Error al obtener los álbumes');
-        }
-
-        const albums = await response.json();
-
-        console.log('Álbumes recibidos:', albums);
-
-        return albums;
-    } catch (error) {
-        console.error('Error:', error);
-        return [];
-    }
-}
-
+// ===============================
+// GET ALBUM
+// ===============================
 
 async function getAlbum(albumId) {
     try {
@@ -38,6 +23,10 @@ async function getAlbum(albumId) {
     }
 }
 
+
+// ===============================
+// CREATE ALBUM
+// ===============================
 
 async function createAlbum(albumData) {
     try {
@@ -62,6 +51,10 @@ async function createAlbum(albumData) {
 }
 
 
+// ===============================
+// UPDATE ALBUM
+// ===============================
+
 async function updateAlbum(albumId, albumData) {
     try {
         const response = await fetch(`${API_BASE_URL}/albums/${albumId}`, {
@@ -85,90 +78,118 @@ async function updateAlbum(albumId, albumData) {
 }
 
 
-function switchView(viewName) {
-    const catalog = document.getElementById('viewCatalog');
-    const edit = document.getElementById('viewEditAlbum');
+// ===============================
+// DELETE ALBUM
+// ===============================
 
-    if (!catalog || !edit) {
+async function deleteAlbum(albumId) {
+
+    if (!confirm('¿Estás segura de que deseas eliminar este álbum?')) {
         return;
     }
 
-    if (viewName === 'catalog') {
-        catalog.classList.remove('hidden');
-        edit.classList.add('hidden');
-
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    try {
+        const response = await fetch(`${API_BASE_URL}/albums/${albumId}`, {
+            method: 'DELETE'
         });
 
-    } else if (viewName === 'edit') {
-        catalog.classList.add('hidden');
-        edit.classList.remove('hidden');
+        if (!response.ok) {
+            throw new Error('Error al eliminar el álbum');
+        }
 
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        alert('Álbum eliminado correctamente.');
+
+        window.location.reload();
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('No se pudo eliminar el álbum.');
     }
 }
 
 
+// ===============================
+// NAVIGATION
+// ===============================
 
 function goToCreatePage() {
     window.location.href = 'html/crear-album.html';
 }
 
+
 function goToEditPage(albumId) {
     window.location.href = `html/album.html?id=${albumId}`;
 }
 
+
 function openAlbum(albumId) {
-    window.location.href = `html/album.html?id=${albumId}`;
+    goToEditPage(albumId);
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    console.log('Frontend conectado con FastAPI');
 
-    const albums = await getAlbums();
-
-    console.log('Número de álbumes:', albums.length);
-});
-
-// Funções de Ação e Navegação com verificações de segurança
-
-function voltarCatalogo() {
-    console.log("Voltando para o catálogo principal...");
-    alert("Navegando de volta ao Catálogo de Álbumes.");
+function goToMainMenu() {
+    window.location.href = '../index.html';
 }
 
-function salvarAlteracoes() {
-    console.log("Salvando alterações do álbum...");
-    alert("¡Cambios guardados exitosamente!");
-}
 
-function subirCaratula() {
-    const inputSimulado = document.createElement('input');
-    inputSimulado.type = 'file';
-    inputSimulado.accept = 'image/*';
-    inputSimulado.onchange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            console.log("Nova carátula selecionada:", file.name);
-            alert(`Carátula seleccionada: ${file.name}`);
-        }
+// ===============================
+// SAVE CHANGES
+// ===============================
+
+async function saveChanges() {
+
+    const params = new URLSearchParams(window.location.search);
+    const albumId = params.get('id');
+
+    if (!albumId) {
+        alert('No se encontró el ID del álbum.');
+        return;
+    }
+
+    const albumData = {
+        title: document.getElementById('albumTitle')?.value,
+        artist: document.getElementById('artist')?.value,
+        genre: document.getElementById('genre')?.value,
+        release_year: Number(
+            document.getElementById('releaseYear')?.value
+        )
     };
-    inputSimulado.click();
-}
 
-function eliminarCaratula() {
-    if (confirm("¿Estás segura de que deseas eliminar la carátula actual?")) {
-        console.log("Carátula eliminada.");
-        alert("Carátula eliminada correctamente.");
+    const updatedAlbum = await updateAlbum(albumId, albumData);
+
+    if (updatedAlbum) {
+        alert('¡Cambios guardados exitosamente!');
+        window.location.href = '../index.html';
     }
 }
 
-function adicionarPista() {
-    console.log("Adicionando nova pista ao tracklist...");
-    alert("Funcionalidad para añadir una nueva pista al tracklist.");
+
+
+function uploadCover() {
+
+    const fileInput = document.createElement('input');
+
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+
+    fileInput.onchange = (event) => {
+
+        const file = event.target.files[0];
+
+        if (file) {
+            console.log('New cover selected:', file.name);
+            alert(`Carátula seleccionada: ${file.name}`);
+        }
+    };
+
+    fileInput.click();
+}
+
+
+function deleteCover() {
+
+    if (confirm('¿Estás segura de que deseas eliminar la carátula actual?')) {
+        console.log('Cover deleted.');
+        alert('Carátula eliminada correctamente.');
+    }
 }
