@@ -17,173 +17,282 @@
     rel="stylesheet" />
 
   <link rel="stylesheet" href="../css/styles4.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
+  <header-component></header-component>
 
-  <body>
-    <header-component></header-component>
+  <main class="main-content">
 
-  
+    <div class="content-wrapper">
 
-    <main class="main-content">
+      <section class="archive-bar">
 
-      <div class="content-wrapper">
+        <div class="container-max flex-row-between">
 
-        <section class="archive-bar">
+          <div class="archive-titles">
 
-          <div class="container-max flex-row-between">
+            <div class="breadcrumb">
 
-            <div class="archive-titles">
+              <a class="breadcrumb-link" href="../index.html">
+                <span class="material-symbols-outlined">arrow_back</span>
+                <span>Volver al Catálogo</span>
+              </a>
 
-              <div class="breadcrumb">
+              <span class="breadcrumb-separator">/</span>
 
-                <a class="breadcrumb-link" href="../index.html">
-                  <span class="material-symbols-outlined">arrow_back</span>
-                  <span>Volver al Catálogo</span>
-                </a>
+              <span class="breadcrumb-text">Archivo Fonográfico</span>
 
-                <span class="breadcrumb-separator">/</span>
+              <span class="breadcrumb-separator">/</span>
 
-                <span class="breadcrumb-text">Archivo Fonográfico</span>
-
-                <span class="breadcrumb-separator">/</span>
-
-                <span class="badge-ref">REF: PLM-LP-205</span>
-
-              </div>
-
-              <div class="title-group">
-
-                <h1 class="main-title">
-                  Editar Álbum:
-                  <span class="title-highlight">Viento de Levante &amp; Silencios</span>
-                </h1>
-
-                <span class="badge-edition">Edición Fonográfica Oficial</span>
-
-              </div>
+              <span class="badge-ref">REF: PLM-LP-205</span>
 
             </div>
 
-            <div class="action-buttons">
+            <div class="title-group">
 
-              <button class="btn btn-secondary-subtle" onclick="confirmReset()" type="button">
-                <span class="material-symbols-outlined">restart_alt</span>
-                <span>Descartar Cambios</span>
-              </button>
+              <h1 class="main-title">
+                Editar Álbum:
+                <span class="title-highlight">Viento de Levante &amp; Silencios</span>
+              </h1>
 
-              <button class="btn btn-primary shadow-md" onclick="triggerSaveNotification()" type="button">
-                <span class="material-symbols-outlined">save</span>
-                <span>Guardar Cambios</span>
-              </button>
+              <span class="badge-edition">Edición Fonográfica Oficial</span>
 
             </div>
 
           </div>
 
-        </section>
+          <div class="action-buttons">
 
-        <div class="container-max pt-sm hidden" id="saveToast">
+            <button class="btn btn-secondary-subtle" onclick="confirmReset()" type="button">
+              <span class="material-symbols-outlined">restart_alt</span>
+              <span>Descartar Cambios</span>
+            </button>
 
-          <div class="toast-card">
-
-            <div class="toast-content">
-
-              <span class="material-symbols-outlined toast-icon">verified</span>
-
-              <div>
-                <p class="toast-title">Cambios fonográficos actualizados con éxito</p>
-
-                <p class="toast-desc">
-                  Metadatos transmitidos al CDN de Cloudinary y matriz de stock de Palmeras Records.
-                </p>
-              </div>
-
-            </div>
-
-            <button class="toast-close" onclick="dismissToast()">
-              <span class="material-symbols-outlined">close</span>
+            <button class="btn btn-primary shadow-md" onclick="triggerSaveNotification()" type="button">
+              <span class="material-symbols-outlined">save</span>
+              <span>Guardar Cambios</span>
             </button>
 
           </div>
 
         </div>
 
-        <div class="container-max grid-layout py-xl">
+      </section>
 
-          <div class="col-left">
+      <div class="container-max pt-sm hidden" id="saveToast">
 
-            <div class="card p-lg flex-col gap-md">
+        <div class="toast-card">
 
-              <div class="flex-row-between">
+          <div class="toast-content">
 
-                <div class="flex-center-gap">
-                  <span class="material-symbols-outlined text-primary">album</span>
-                  <span class="label-uppercase text-secondary">Sleeve Jacket &amp; Grooves</span>
+            <span class="material-symbols-outlined toast-icon">verified</span>
+
+            <div>
+              <p class="toast-title">Cambios fonográficos actualizados con éxito</p>
+
+              <p class="toast-desc">
+                Metadatos transmitidos al CDN de Cloudinary y matriz de stock de Palmeras Records.
+              </p>
+            </div>
+
+          </div>
+
+          <button class="toast-close" onclick="dismissToast()">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="container-max grid-layout py-xl">
+
+        <div class="col-left">
+
+          <div class="card p-lg flex-col gap-md">
+
+            <div class="flex-row-between">
+
+              <div class="flex-center-gap">
+                <span class="material-symbols-outlined text-primary">album</span>
+                <span class="label-uppercase text-secondary">Sleeve Jacket &amp; Grooves</span>
+              </div>
+
+              <span class="badge-tag">12-INCH LP</span>
+
+            </div>
+
+            <div class="vinyl-viewer group">
+
+              <div class="vinyl-disc" id="vinylDisc">
+
+                <div class="vinyl-grooves-1"></div>
+                <div class="vinyl-grooves-2"></div>
+
+                <div class="vinyl-label">
+                  <span class="material-symbols-outlined">potted_plant</span>
+                  <span class="vinyl-label-brand">PALMERAS</span>
+                  <span class="vinyl-label-rpm">33 ⅓ RPM</span>
+                  <span class="vinyl-label-stereo">STEREO</span>
+                  <div class="vinyl-spindle"></div>
                 </div>
-
-                <span class="badge-tag">12-INCH LP</span>
 
               </div>
 
-              <div class="vinyl-viewer group">
+              <div class="vinyl-cover">
 
-                <div class="vinyl-disc" id="vinylDisc">
+                <img id="coverPreview"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlcz0ImBoy2zy89-viVJEp4_WQyqsy0_KSd2IYbtMU6JM-FyVtlShoB7v9cilGnTbGV-0SzPv2L_uFeNYcAnD6XnXjJlYFCRfrOyfchhGzw4uP0rKY0l9mYYIE89TG7bcnbOsvoXBNRBY29-ZXZtoVqLuMV7FsOYRqGrYKWCBALlIIhXwZrOZMcFpj4Okqmeyt_QVXRNGJm82t3PR9qMJfeL1wsSXXD0vBDtQ8qL8f"
+                  alt="Cover artwork" />
 
-                  <div class="vinyl-grooves-1"></div>
-                  <div class="vinyl-grooves-2"></div>
-
-                  <div class="vinyl-label">
-                    <span class="material-symbols-outlined">potted_plant</span>
-                    <span class="vinyl-label-brand">PALMERAS</span>
-                    <span class="vinyl-label-rpm">33 ⅓ RPM</span>
-                    <span class="vinyl-label-stereo">STEREO</span>
-                    <div class="vinyl-spindle"></div>
-                  </div>
-
+                <div class="vinyl-cover-overlay">
+                  <span class="cover-album-title">Viento de Levante</span>
+                  <span class="cover-artist">Silvia Pérez &amp; Cuarteto Alcarria</span>
                 </div>
 
-                <div class="vinyl-cover">
+                <div class="vinyl-spine-shadow"></div>
 
-                  <img id="coverPreview"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlcz0ImBoy2zy89-viVJEp4_WQyqsy0_KSd2IYbtMU6JM-FyVtlShoB7v9cilGnTbGV-0SzPv2L_uFeNYcAnD6XnXjJlYFCRfrOyfchhGzw4uP0rKY0l9mYYIE89TG7bcnbOsvoXBNRBY29-ZXZtoVqLuMV7FsOYRqGrYKWCBALlIIhXwZrOZMcFpj4Okqmeyt_QVXRNGJm82t3PR9qMJfeL1wsSXXD0vBDtQ8qL8f"
-                    alt="Cover artwork" />
+              </div>
 
-                  <div class="vinyl-cover-overlay">
-                    <span class="cover-album-title">Viento de Levante</span>
-                    <span class="cover-artist">Silvia Pérez &amp; Cuarteto Alcarria</span>
-                  </div>
+            </div>
 
-                  <div class="vinyl-spine-shadow"></div>
+            <div class="flex-col gap-xs pt-xs">
+
+              <div class="flex-row-gap">
+
+                <label class="btn-upload flex-1">
+                  <span class="material-symbols-outlined">cloud_upload</span>
+                  <span>Subir Nueva Carátula</span>
+
+                  <input accept="image/*" class="hidden" id="coverFileInput" onchange="handleCoverChange(event)"
+                    type="file" />
+                </label>
+
+                <button class="btn-icon-danger" onclick="restoreCover()" title="Restaurar portada original"
+                  type="button">
+                  <span class="material-symbols-outlined">delete_outline</span>
+                </button>
+
+              </div>
+
+              <div class="flex-row-between text-xs px-1 text-muted">
+                <span>Resolución óptima: 3000 x 3000 px (300 DPI)</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-right">
+
+          <div class="card p-xl flex-col gap-lg">
+
+            <div class="flex-row-between">
+
+              <div class="flex-center-gap">
+                <span class="step-badge">01</span>
+                <h2 class="section-title">Datos Fonográficos</h2>
+              </div>
+
+              <span class="norm-tag">Norma Archivística ISO 28560</span>
+
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group span-2">
+                <label class="form-label">Título del Álbum *</label>
+                <input class="form-input" type="text" value="Viento de Levante &amp; Silencios" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Artista*</label>
+                <input class="form-input" type="text" value="Silvia Pérez &amp; Cuarteto Alcarria" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Sello / Productora *</label>
+
+                <select class="form-input cursor-pointer">
+                  <option selected value="la-mancha">La Mancha Fonográfica</option>
+                  <option value="iberia">Iberia Sonidera Records</option>
+                  <option value="alcarria">Alcarria Analog Sounds</option>
+                  <option value="toledo-indie">Toledo Subterráneo</option>
+                </select>
+
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Género &amp; Subgénero</label>
+
+                <input class="form-input" type="text" value="Folk Ibérico Contemporáneo / Ambient" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Año de Edición / Prensado</label>
+
+                <input class="form-input" type="number" min="1950" max="2030" value="2024" />
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="card p-xl flex-col gap-lg">
+
+            <div class="flex-row-between">
+
+              <div class="flex-center-gap">
+                <span class="step-badge">02</span>
+                <h2 class="section-title">Especificaciones &amp; PVP</h2>
+              </div>
+
+              <span class="norm-tag">Specs de Prensado</span>
+
+            </div>
+
+            <div class="form-grid-4">
+
+              <div class="form-group">
+
+                <label class="form-label">PVP (€)</label>
+
+                <div class="input-currency-wrapper">
+
+                  <input class="form-input price-input" type="number" step="0.50" value="29.90" />
+
+                  <span class="currency-symbol">€</span>
 
                 </div>
 
               </div>
 
-              <div class="flex-col gap-xs pt-xs">
+              <div class="form-group">
 
-                <div class="flex-row-gap">
+                <label class="form-label">Formato</label>
 
-                  <label class="btn-upload flex-1">
-                    <span class="material-symbols-outlined">cloud_upload</span>
-                    <span>Subir Nueva Carátula</span>
+                <select class="form-input cursor-pointer">
+                  <option selected value="12lp180">Vinilo 12" LP 180g</option>
+                  <option value="12lp140">Vinilo 12" LP 140g Standard</option>
+                  <option value="7single">Single 7" 45 RPM</option>
+                  <option value="2lp180">Doble 2xLP Gatefold 180g</option>
+                </select>
 
-                    <input accept="image/*" class="hidden" id="coverFileInput" onchange="handleCoverChange(event)"
-                      type="file" />
-                  </label>
+              </div>
 
-                  <button class="btn-icon-danger" onclick="restoreCover()" title="Restaurar portada original"
-                    type="button">
-                    <span class="material-symbols-outlined">delete_outline</span>
-                  </button>
+              <div class="form-group">
 
-                </div>
+                <label class="form-label">Acabado / Color</label>
 
-                <div class="flex-row-between text-xs px-1 text-muted">
-                  <span>Resolución óptima: 3000 x 3000 px (300 DPI)</span>
-                </div>
+                <select class="form-input cursor-pointer">
+                  <option selected value="black-virgin">Negro Virgen 180g</option>
+                  <option value="cobalt-blue">Cobalto Mancha Especial</option>
+                  <option value="translucent">Humo Translúcido</option>
+                  <option value="splatter">Splatter Azul &amp; Ocre</option>
+                </select>
 
               </div>
 
@@ -191,201 +300,85 @@
 
           </div>
 
-          <div class="col-right">
+          <div class="card p-xl flex-col gap-lg">
 
-            <div class="card p-xl flex-col gap-lg">
+            <div class="flex-row-between">
 
-              <div class="flex-row-between">
-
-                <div class="flex-center-gap">
-                  <span class="step-badge">01</span>
-                  <h2 class="section-title">Datos Fonográficos</h2>
-                </div>
-
-                <span class="norm-tag">Norma Archivística ISO 28560</span>
-
+              <div class="flex-center-gap">
+                <span class="step-badge">03</span>
+                <h2 class="section-title">Distribución de Stock Físico</h2>
               </div>
 
-              <div class="form-grid">
-
-                <div class="form-group span-2">
-                  <label class="form-label">Título del Álbum *</label>
-                  <input class="form-input" type="text" value="Viento de Levante &amp; Silencios" />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Artista*</label>
-                  <input class="form-input" type="text" value="Silvia Pérez &amp; Cuarteto Alcarria" />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Sello / Productora *</label>
-
-                  <select class="form-input cursor-pointer">
-                    <option selected value="la-mancha">La Mancha Fonográfica</option>
-                    <option value="iberia">Iberia Sonidera Records</option>
-                    <option value="alcarria">Alcarria Analog Sounds</option>
-                    <option value="toledo-indie">Toledo Subterráneo</option>
-                  </select>
-
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Género &amp; Subgénero</label>
-
-                  <input class="form-input" type="text" value="Folk Ibérico Contemporáneo / Ambient" />
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Año de Edición / Prensado</label>
-
-                  <input class="form-input" type="number" min="1950" max="2030" value="2024" />
-                </div>
-
-              </div>
+              <span class="badge-total-stock">
+                Total en Red:
+                <span id="totalStockCounter">48</span>
+                copias
+              </span>
 
             </div>
 
-            <div class="card p-xl flex-col gap-lg">
+            <div class="stock-grid">
 
-              <div class="flex-row-between">
+              <div class="stock-box">
 
-                <div class="flex-center-gap">
-                  <span class="step-badge">02</span>
-                  <h2 class="section-title">Especificaciones &amp; PVP</h2>
+                <div class="flex-row-between">
+                  <span class="stock-title">Sucursal Central Toledo</span>
+                  <span class="material-symbols-outlined text-primary">store</span>
                 </div>
 
-                <span class="norm-tag">Specs de Prensado</span>
+                <p class="stock-desc">Depósito principal &amp; archivo.</p>
 
-              </div>
+                <div class="stock-input-wrapper">
 
-              <div class="form-grid-4">
+                  <input class="stock-input" id="stockToledo" min="0" oninput="recalcTotalStock()" type="number"
+                    value="28" />
 
-                <div class="form-group">
-
-                  <label class="form-label">PVP (€)</label>
-
-                  <div class="input-currency-wrapper">
-
-                    <input class="form-input price-input" type="number" step="0.50" value="29.90" />
-
-                    <span class="currency-symbol">€</span>
-
-                  </div>
-
-                </div>
-
-                <div class="form-group">
-
-                  <label class="form-label">Formato</label>
-
-                  <select class="form-input cursor-pointer">
-                    <option selected value="12lp180">Vinilo 12" LP 180g</option>
-                    <option value="12lp140">Vinilo 12" LP 140g Standard</option>
-                    <option value="7single">Single 7" 45 RPM</option>
-                    <option value="2lp180">Doble 2xLP Gatefold 180g</option>
-                  </select>
-
-                </div>
-
-                <div class="form-group">
-
-                  <label class="form-label">Acabado / Color</label>
-
-                  <select class="form-input cursor-pointer">
-                    <option selected value="black-virgin">Negro Virgen 180g</option>
-                    <option value="cobalt-blue">Cobalto Mancha Especial</option>
-                    <option value="translucent">Humo Translúcido</option>
-                    <option value="splatter">Splatter Azul &amp; Ocre</option>
-                  </select>
+                  <span class="stock-unit">UDS</span>
 
                 </div>
 
               </div>
 
-            </div>
+              <div class="stock-box">
 
-            <div class="card p-xl flex-col gap-lg">
-
-              <div class="flex-row-between">
-
-                <div class="flex-center-gap">
-                  <span class="step-badge">03</span>
-                  <h2 class="section-title">Distribución de Stock Físico</h2>
+                <div class="flex-row-between">
+                  <span class="stock-title">Filial Albacete</span>
+                  <span class="material-symbols-outlined text-primary">storefront</span>
                 </div>
 
-                <span class="badge-total-stock">
-                  Total en Red:
-                  <span id="totalStockCounter">48</span>
-                  copias
-                </span>
+                <p class="stock-desc">Venta al público &amp; listening room.</p>
+
+                <div class="stock-input-wrapper">
+
+                  <input class="stock-input" id="stockAlbacete" min="0" oninput="recalcTotalStock()" type="number"
+                    value="12" />
+
+                  <span class="stock-unit">UDS</span>
+
+                </div>
 
               </div>
 
-              <div class="stock-grid">
+              <div class="stock-box">
 
-                <div class="stock-box">
+                <div class="flex-row-between">
 
-                  <div class="flex-row-between">
-                    <span class="stock-title">Sucursal Central Toledo</span>
-                    <span class="material-symbols-outlined text-primary">store</span>
-                  </div>
+                  <span class="stock-title">Filial Ciudad Real</span>
 
-                  <p class="stock-desc">Depósito principal &amp; archivo.</p>
-
-                  <div class="stock-input-wrapper">
-
-                    <input class="stock-input" id="stockToledo" min="0" oninput="recalcTotalStock()" type="number"
-                      value="28" />
-
-                    <span class="stock-unit">UDS</span>
-
-                  </div>
+                  <span class="material-symbols-outlined text-primary">
+                    storefront
+                  </span>
 
                 </div>
 
-                <div class="stock-box">
+                <p class="stock-desc">Reserva para coleccionistas.</p>
 
-                  <div class="flex-row-between">
-                    <span class="stock-title">Filial Albacete</span>
-                    <span class="material-symbols-outlined text-primary">storefront</span>
-                  </div>
+                <div class="stock-input-wrapper">
 
-                  <p class="stock-desc">Venta al público &amp; listening room.</p>
+                  <input class="stock-input" id="stockCiudadReal" min="0" oninput="recalcTotalStock()" type="number"
+                    value="8" />
 
-                  <div class="stock-input-wrapper">
-
-                    <input class="stock-input" id="stockAlbacete" min="0" oninput="recalcTotalStock()" type="number"
-                      value="12" />
-
-                    <span class="stock-unit">UDS</span>
-
-                  </div>
-
-                </div>
-
-                <div class="stock-box">
-
-                  <div class="flex-row-between">
-
-                    <span class="stock-title">Filial Ciudad Real</span>
-
-                    <span class="material-symbols-outlined text-primary">
-                      storefront
-                    </span>
-
-                  </div>
-
-                  <p class="stock-desc">Reserva para coleccionistas.</p>
-
-                  <div class="stock-input-wrapper">
-
-                    <input class="stock-input" id="stockCiudadReal" min="0" oninput="recalcTotalStock()" type="number"
-                      value="8" />
-
-                    <span class="stock-unit">UDS</span>
-
-                  </div>
+                  <span class="stock-unit">UDS</span>
 
                 </div>
 
@@ -399,17 +392,19 @@
 
       </div>
 
-    </main>
-    <footer-component></footer-component>
+    </div>
 
-    <script src="../js/components.js"></script>
-    <script src="../js/notifications.js"></script>
-    <script src="../js/vinyl_preview.js"></script>
-    <script src="../js/stock_calculator.js"></script>
-    <script src="../js/app.js"></script>
-    <script src="../js/script.js"></script>
+  </main>
+  <footer-component></footer-component>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/notifications.js"></script>
+  <script src="../js/vinyl_preview.js"></script>
+  <script src="../js/stock_calculator.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/script.js"></script>
 
 
-  </body>
+</body>
 
 </html>
