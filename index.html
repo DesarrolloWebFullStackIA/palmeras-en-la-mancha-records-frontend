@@ -29,40 +29,77 @@
 
     <div class="h-20 px-6 flex items-center justify-between">
 
-      <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+      <div class="flex items-center gap-3">
 
-      <div class="w-10 h-10 rounded-full overflow-hidden bg-slate-900 shrink-0">
-        <img src="img/logo.png" alt="Logo" class="w-full h-full object-cover">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+
+          <div class="w-10 h-10 rounded-full overflow-hidden bg-slate-900 shrink-0">
+            <img src="img/logo.png" alt="Logo" class="w-full h-full object-cover">
+          </div>
+
+          <div>
+            <div class="text-lg font-bold text-slate-900 leading-tight">
+              Palmeras en la Mancha
+            </div>
+
+            <div class="text-[10px] text-blue-600 font-bold uppercase tracking-wider">
+              Vinyl Records & Archive Console
+            </div>
+          </div>
+
+        </div>
+
+        <nav class="hidden md:flex items-center gap-2">
+
+          <a href="index.html" class="px-4 py-2 text-sm font-semibold text-blue-700 bg-slate-100 rounded-lg">
+            Álbumes
+          </a>
+
+          <a href="html/filiales.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
+            Gestión de Filiales
+          </a>
+
+          <a href="html/discograficas.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
+            Discográficas & Productoras
+          </a>
+
+          <a href="html/ediciones-albumes.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
+            Ediciones de Álbumes
+          </a>
+
+        </nav>
+
       </div>
 
-      <div>
-        <div class="text-lg font-bold text-slate-900 leading-tight">
-          Palmeras en la Mancha
-        </div>
-        <div class="text-[10px] text-blue-600 font-bold uppercase tracking-wider">
-          Vinyl Records & Archive Console
-        </div>
-      </div>
+      <button
+        id="menuButton"
+        onclick="toggleMobileMenu()"
+        class="block md:hidden p-2 text-slate-700"
+        type="button"
+      >
+        <span class="material-symbols-outlined">menu</span>
+      </button>
 
-      <nav class="hidden md:flex items-center gap-2">
+    </div>
 
-        <a href="index.html" class="px-4 py-2 text-sm font-semibold text-blue-700 bg-slate-100 rounded-lg">
-          Álbumes
-        </a>
+    <div id="mobileMenu" class="hidden md:hidden flex-col border-t border-slate-200 bg-white">
 
-        <a href="html/filiales.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
-          Gestión de Filiales
-        </a>
+      <a href="index.html" class="block px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100">
+        Álbumes
+      </a>
 
-        <a href="html/discograficas.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
-          Discográficas & Productoras
-        </a>
+      <a href="html/filiales.html" class="block px-6 py-3 text-sm text-slate-600 hover:bg-slate-100">
+        Gestión de Filiales
+      </a>
 
-        <a href="html/ediciones-albumes.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
-          Ediciones de Álbumes
-        </a>
+      <a href="html/discograficas.html" class="block px-6 py-3 text-sm text-slate-600 hover:bg-slate-100">
+        Discográficas & Productoras
+      </a>
 
-      </nav>
+      <a href="html/ediciones-albumes.html" class="block px-6 py-3 text-sm text-slate-600 hover:bg-slate-100">
+        Ediciones de Álbumes
+      </a>
+
     </div>
 
   </header>
@@ -79,13 +116,20 @@
             search
           </span>
 
-          <input id="catalogSearchInput" type="text" placeholder="Buscar por título, artista o discográfica..."
-            class="w-full h-11 bg-slate-50 border border-slate-200 pl-11 pr-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+          <input
+            id="catalogSearchInput"
+            type="text"
+            placeholder="Buscar por título, artista o discográfica..."
+            class="w-full h-11 bg-slate-50 border border-slate-200 pl-11 pr-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+          >
 
         </div>
 
-        <button type="button" onclick="goToCreatePage()"
-          class="h-11 px-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg flex items-center justify-center gap-2">
+        <button
+          type="button"
+          onclick="goToCreatePage()"
+          class="h-11 px-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg flex items-center justify-center gap-2"
+        >
 
           <span class="material-symbols-outlined">
             library_add
@@ -104,7 +148,6 @@
       <div class="max-w-7xl mx-auto">
 
         <div id="albumsCatalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <!-- Las tarjetas de los álbumes se cargan dinámicamente desde la API -->
         </div>
 
       </div>
@@ -114,20 +157,26 @@
   </main>
 
   <footer class="bg-white border-t border-slate-200 py-6 px-6 text-center text-xs text-slate-500">
+
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+
       <div class="flex items-center gap-2">
         <span class="font-bold text-slate-700">Palmeras en la Mancha</span>
         <span>|</span>
         <span>Sistema de Inventario &amp; Gestión Musical</span>
       </div>
+
       <div class="flex items-center gap-2 text-[11px] text-emerald-600 font-semibold bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
         <span>Cloudinary CDN Sync Active</span>
       </div>
+
       <div class="text-[11px]">
         &copy; 2026 Palmeras en la Mancha Records. Todos los derechos reservados.
       </div>
+
     </div>
+
   </footer>
 
   <script src="js/script.js"></script>
