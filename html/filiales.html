@@ -2,735 +2,249 @@
 <html lang="es">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestión de Filiales</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palmeras en la Mancha — Gestión de Filiales</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    rel="stylesheet" />
-
-  <link rel="stylesheet" href="../css/styles2.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans">
+
+  <!-- Header Componente Global -->
   <header-component></header-component>
 
-  <main class="main-content">
+  <main class="flex-1">
 
-    <div class="content-wrapper">
-
-      <div class="operational-strip">
-
-        <div class="strip-container">
-
-          <div class="strip-info">
-            <span class="pulse-dot"></span>
-            <span class="highlight-text">Red de Almacenes Regionales</span>
-            <span>/</span>
-            <span>Castilla-La Mancha Hub</span>
-            <span>/</span>
-            <span class="dark-text">Gestión Activa v2.4</span>
-          </div>
-
-          <div class="strip-metrics">
-            <span>Sincronización P2P: <strong>0.084s</strong></span>
-            <span>Protocolo: <strong>VINYL-REST-EU</strong></span>
-          </div>
-
+    <!-- Barra de Control Superior -->
+    <section class="bg-white border-b border-slate-200 px-6 py-5">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 justify-between items-center">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="material-symbols-outlined text-blue-600">store</span>
+            Red de Filiales Regionales
+          </h1>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Castilla-La Mancha Regional Hub — Distribución física de vinilos y puntos de venta
+          </p>
         </div>
 
+        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+          <div class="relative flex-1 sm:w-80">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+            <input id="branchSearchInput" type="text" placeholder="Buscar filial o ciudad..."
+              class="w-full h-10 bg-slate-50 border border-slate-200 pl-10 pr-4 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+
+          <button type="button" onclick="openNewBranchModal()"
+            class="h-10 px-4 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition">
+            <span class="material-symbols-outlined text-base">add</span>
+            Nueva Filial
+          </button>
+        </div>
       </div>
+    </section>
 
-      <div class="main-container">
-
-        <section class="view-section active" id="view-dashboard">
-
-          <div class="page-title-section">
-
-            <div class="title-block">
-
-              <div class="meta-tag">
-                <span class="tag">Infraestructura FÍSICA</span>
-                <span class="bullet">•</span>
-                <span class="meta-text">Auditoría en Curso</span>
-              </div>
-
-              <h1 class="page-title">
-                Gestión de Filiales &amp; Sedes Regionales
-              </h1>
-
-              <p class="page-subtitle">
-                Control de stock físico, almacenes y sincronización en tiempo real entre tiendas de Castilla-La Mancha.
-              </p>
-
-            </div>
-
-            <div class="action-buttons">
-
-              <button class="btn btn-primary nav-trigger" data-target="view-editor" id="btn-new-branch">
-                <span class="material-symbols-outlined">add_circle</span>
-                <span>Nueva Filial</span>
-              </button>
-
-              <nav class="main-nav">
-
-                <button class="nav-tab-btn" data-target="view-editor">
-                  <span class="material-symbols-outlined">edit_note</span>
-                  <span>Edición de Sede</span>
-                </button>
-
-              </nav>
-
-            </div>
-
+    <!-- Listado de Filiales en Grid -->
+    <section class="px-6 py-8">
+      <div class="max-w-7xl mx-auto">
+        <div id="branchesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="col-span-full py-16 text-center text-slate-500">
+            <span class="material-symbols-outlined text-4xl animate-spin text-blue-600">progress_activity</span>
+            <p class="mt-2 text-sm font-medium">Cargando filiales activas...</p>
           </div>
-
-          <div class="metrics-grid">
-
-            <div class="metric-card">
-
-              <div class="metric-header">
-                <span class="metric-label">Sedes Registradas</span>
-
-                <span class="metric-icon-box">
-                  <span class="material-symbols-outlined">storefront</span>
-                </span>
-              </div>
-
-              <div class="metric-body">
-                <span class="metric-value">3</span>
-                <span class="badge badge-success">100% Operativas</span>
-              </div>
-
-              <div class="metric-footer">
-                <span>Toledo • Albacete • Ciudad Real</span>
-                <span class="status-ok">Consistente</span>
-              </div>
-
-            </div>
-
-            <div class="metric-card">
-
-              <div class="metric-header">
-                <span class="metric-label">Volumen Consolidado</span>
-
-                <span class="metric-icon-box">
-                  <span class="material-symbols-outlined">album</span>
-                </span>
-              </div>
-
-              <div class="metric-body">
-                <span class="metric-value">1.180</span>
-                <span class="subtext">LPs &amp; Formatos Físicos</span>
-              </div>
-
-              <div class="metric-footer">
-                <span>Capacidad total: 2.500 unids.</span>
-                <span class="status-ok">47.2% Ocupación</span>
-              </div>
-
-              <div class="progress-bar-container">
-                <div class="progress-bar-fill" style="width: 47.2%"></div>
-              </div>
-
-            </div>
-
-            <div class="metric-card">
-
-              <div class="metric-header">
-                <span class="metric-label">Disponibilidad en Red</span>
-
-                <span class="metric-icon-box">
-                  <span class="material-symbols-outlined">check_circle</span>
-                </span>
-              </div>
-
-              <div class="metric-body">
-                <span class="metric-value">99.8%</span>
-                <span class="badge badge-success">SLA Óptimo</span>
-              </div>
-
-              <div class="metric-footer">
-                <span>Latencia de catalogación</span>
-                <span class="status-dark">&lt; 12ms</span>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="distribution-card">
-
-            <div class="distribution-info">
-
-              <span class="section-label">
-                Balance Intermodal de Existencias
-              </span>
-
-              <h2 class="section-title">
-                Distribución Frecuencial del Almacén
-              </h2>
-
-              <p class="section-description">
-                Proporción de prensajes audiófilos de 180g y ediciones especiales centralizadas en la red
-                castellano-manchega.
-              </p>
-
-            </div>
-
-            <div class="gauge-group">
-
-              <div class="gauge-item">
-
-                <svg class="gauge-svg" viewBox="0 0 36 36">
-
-                  <path class="gauge-bg"
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-
-                  <path class="gauge-fill fill-primary" stroke-dasharray="52.5, 100"
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-
-                </svg>
-
-                <div class="gauge-details">
-                  <span class="gauge-val">52.5%</span>
-                  <span class="gauge-lbl">Toledo Central</span>
-                </div>
-
-              </div>
-
-              <div class="gauge-item">
-
-                <svg class="gauge-svg" viewBox="0 0 36 36">
-
-                  <path class="gauge-bg"
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-
-                  <path class="gauge-fill fill-secondary" stroke-dasharray="28.8, 100"
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-
-                </svg>
-
-                <div class="gauge-details">
-                  <span class="gauge-val">28.8%</span>
-                  <span class="gauge-lbl">Albacete</span>
-                </div>
-
-              </div>
-
-              <div class="gauge-item">
-
-                <svg class="gauge-svg" viewBox="0 0 36 36">
-
-                  <path class="gauge-bg"
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-
-                  <path class="gauge-fill fill-accent" stroke-dasharray="18.7, 100"
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
-
-                </svg>
-
-                <div class="gauge-details">
-                  <span class="gauge-val">18.7%</span>
-                  <span class="gauge-lbl">Ciudad Real</span>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="section-header">
-
-            <div>
-
-              <h2 class="section-heading">
-                Detalle de Sedes y Almacenes
-              </h2>
-
-              <p class="section-subheading">
-                Inspección física de terminales, gerencias y niveles de existencias por formato sonoro.
-              </p>
-
-            </div>
-
-          </div>
-
-          <div class="branches-grid">
-
-            <div class="branch-card">
-
-              <div class="branch-card-content">
-
-                <div class="branch-header">
-
-                  <div>
-
-                    <div class="tag-group">
-                      <span class="tag-primary">Sede Matriz</span>
-                      <span class="status-online">
-                        <span class="dot-ping"></span>
-                        Online
-                      </span>
-                    </div>
-
-                    <h3 class="branch-title">
-                      Sucursal Central Toledo
-                    </h3>
-
-                    <p class="branch-address">
-                      <span class="material-symbols-outlined">location_on</span>
-                      Calle Comercio 14, 45001 Toledo
-                    </p>
-
-                  </div>
-
-                  <div class="branch-icon">
-                    <span class="material-symbols-outlined">domain</span>
-                  </div>
-
-                </div>
-
-                <div class="branch-image-wrapper">
-
-                  <img class="branch-image" alt="Interior Toledo"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjqihgznYhjyWuEoekTUEYfoNVOeeLmlCSxYLhCodBa1LSD5p0tpR7ypLcxHAGh70KYN24YCu4NnaERCmDB1ThIFOJ-vQ2F2WHxCx6RaWn6jAbrjqbw72S5vw_oNhqkQp2d730nSDuHgGS0xIChWgWwsCmUAdyKqmcj186jstFOo-OdtBUwvYgjq9VWrVRTxrwUzjl94uB4QXTe1wzMzTOqr56OAkoKXDYtvNbcIvf" />
-
-                  <div class="image-overlay"></div>
-
-                  <div class="image-caption">
-                    <span class="material-symbols-outlined">headphones</span>
-                    <span>Almacén principal y sala de escucha Hi-Fi</span>
-                  </div>
-
-                </div>
-
-                <div class="manager-strip">
-
-                  <div class="manager-info">
-
-                    <div class="avatar-initials">CM</div>
-
-                    <div class="manager-meta">
-                      <span class="meta-label">Gerente de Sede</span>
-                      <span class="manager-name">Carlos M.</span>
-                    </div>
-
-                  </div>
-
-                  <div class="sync-info">
-                    <span class="meta-label">Sincronización</span>
-                    <span class="sync-status">Tiempo Real</span>
-                  </div>
-
-                </div>
-
-                <div class="stock-total-row">
-                  <span class="stock-label">Stock Total en Tienda</span>
-                  <span class="stock-value">620 <small>LPs</small></span>
-                </div>
-
-                <div class="format-list">
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">radio_button_checked</span>
-                      Vinilos 12" LP (Audiófilo)
-                    </span>
-                    <strong>410 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">trip_origin</span>
-                      Singles 7" &amp; Maxi 45 RPM
-                    </span>
-                    <strong>115 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">star</span>
-                      Ediciones Especiales &amp; Boxsets
-                    </span>
-                    <strong>65 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">mobile_share_stack</span>
-                      Cassettes &amp; Archivo Analógico
-                    </span>
-                    <strong>30 u.</strong>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="branch-card-footer">
-
-                <button class="btn btn-muted btn-edit-tab" data-name="Sucursal Central Toledo"
-                  data-address="Calle Comercio 14, 45001 Toledo" data-manager="Carlos M." data-capacity="620"
-                  data-notes="Almacén principal y sala de escucha">
-                  <span class="material-symbols-outlined">edit_note</span>
-                  <span>Editar en Pestaña</span>
-                </button>
-
-              </div>
-
-            </div>
-
-            <div class="branch-card">
-
-              <div class="branch-card-content">
-
-                <div class="branch-header">
-
-                  <div>
-
-                    <div class="tag-group">
-                      <span class="tag-secondary">Sucursal Este</span>
-                      <span class="status-online">
-                        <span class="dot-static"></span>
-                        Online
-                      </span>
-                    </div>
-
-                    <h3 class="branch-title">
-                      Filial Albacete - Pasaje Lodares
-                    </h3>
-
-                    <p class="branch-address">
-                      <span class="material-symbols-outlined">location_on</span>
-                      Calle Mayor 22, 02001 Albacete
-                    </p>
-
-                  </div>
-
-                  <div class="branch-icon">
-                    <span class="material-symbols-outlined">store</span>
-                  </div>
-
-                </div>
-
-                <div class="branch-image-wrapper">
-
-                  <img class="branch-image" alt="Interior Albacete"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVcQFHwXjcO1zQLfYA8ehPQlLdJ1EV0lctVpsdOyh4mwb2pHUMl3n1KWPr4S0XEJYDO-D06rQyI1W65leYWTQl9bLshLn-S20RO_r08f1AQU14038Ru2n2QgzySIFNnasF5Nyta0WavvQBCONyr_tTGj20u-dQdPjtvv7TXUgOwdFtIIMvUOEJYz_0CrmAtgPag34DhQtz2ajt7EFRZB7kWKFH5Y_vxEmjBN1Gxjl4" />
-
-                  <div class="image-overlay"></div>
-
-                  <div class="image-caption">
-                    <span class="material-symbols-outlined">point_of_sale</span>
-                    <span>Punto de venta directo &amp; eventos</span>
-                  </div>
-
-                </div>
-
-                <div class="manager-strip">
-
-                  <div class="manager-info">
-
-                    <div class="avatar-initials">LG</div>
-
-                    <div class="manager-meta">
-                      <span class="meta-label">Gerente de Sede</span>
-                      <span class="manager-name">Lucía G.</span>
-                    </div>
-
-                  </div>
-
-                  <div class="sync-info">
-                    <span class="meta-label">Sincronización</span>
-                    <span class="sync-status">Hace 4 min</span>
-                  </div>
-
-                </div>
-
-                <div class="stock-total-row">
-                  <span class="stock-label">Stock Total en Tienda</span>
-                  <span class="stock-value">340 <small>LPs</small></span>
-                </div>
-
-                <div class="format-list">
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">radio_button_checked</span>
-                      Vinilos 12" LP (Audiófilo)
-                    </span>
-                    <strong>220 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">trip_origin</span>
-                      Singles 7" &amp; Maxi 45 RPM
-                    </span>
-                    <strong>70 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">star</span>
-                      Ediciones Especiales &amp; Boxsets
-                    </span>
-                    <strong>32 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">mobile_share_stack</span>
-                      Cassettes &amp; Archivo Analógico
-                    </span>
-                    <strong>18 u.</strong>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="branch-card-footer">
-
-                <button class="btn btn-muted btn-edit-tab" data-name="Filial Albacete - Pasaje Lodares"
-                  data-address="Calle Mayor 22, 02001 Albacete" data-manager="Lucía G." data-capacity="340"
-                  data-notes="Punto de venta y eventos">
-                  <span class="material-symbols-outlined">edit_note</span>
-                  <span>Editar en Pestaña</span>
-                </button>
-
-              </div>
-
-            </div>
-
-            <div class="branch-card">
-
-              <div class="branch-card-content">
-
-                <div class="branch-header">
-
-                  <div>
-
-                    <div class="tag-group">
-                      <span class="tag-secondary">Sucursal Suroeste</span>
-                      <span class="status-online">
-                        <span class="dot-static"></span>
-                        Online
-                      </span>
-                    </div>
-
-                    <h3 class="branch-title">
-                      Filial Ciudad Real - Puerta de Toledo
-                    </h3>
-
-                    <p class="branch-address">
-                      <span class="material-symbols-outlined">location_on</span>
-                      Plaza Mayor 8, 13001 Ciudad Real
-                    </p>
-
-                  </div>
-
-                  <div class="branch-icon">
-                    <span class="material-symbols-outlined">store</span>
-                  </div>
-
-                </div>
-
-                <div class="branch-image-wrapper">
-
-                  <img class="branch-image" alt="Interior Ciudad Real"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEqSVw6ku6GzfMETESmTarnaUXPbeTZSrW9oFNncJ62UOaDa_m4UoPdaOn8QmRSAabT_E4m7jEAwbCbvrzsqj062F1h-yyQY1_JK8ofudoNcD2O-EgOLMCiWs1yjzh9rSbpaFGwyqEC9Gjaz4Wr7glfa_YJcOKgBmVQHoUoM7EMBXIerr4XfckjUC5X39DZRwtC8EPC5Zs4v7lU-4Yp7Ryo2PnIWLDWhLTBWmOvnOq" />
-
-                  <div class="image-overlay"></div>
-
-                  <div class="image-caption">
-                    <span class="material-symbols-outlined">local_shipping</span>
-                    <span>Distribución express y click &amp; collect</span>
-                  </div>
-
-                </div>
-
-                <div class="manager-strip">
-
-                  <div class="manager-info">
-
-                    <div class="avatar-initials">AS</div>
-
-                    <div class="manager-meta">
-                      <span class="meta-label">Gerente de Sede</span>
-                      <span class="manager-name">Andrés S.</span>
-                    </div>
-
-                  </div>
-
-                  <div class="sync-info">
-                    <span class="meta-label">Sincronización</span>
-                    <span class="sync-status">Hace 1 min</span>
-                  </div>
-
-                </div>
-
-                <div class="stock-total-row">
-                  <span class="stock-label">Stock Total en Tienda</span>
-                  <span class="stock-value">220 <small>LPs</small></span>
-                </div>
-
-                <div class="format-list">
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">radio_button_checked</span>
-                      Vinilos 12" LP (Audiófilo)
-                    </span>
-                    <strong>140 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">trip_origin</span>
-                      Singles 7" &amp; Maxi 45 RPM
-                    </span>
-                    <strong>45 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">star</span>
-                      Ediciones Especiales &amp; Boxsets
-                    </span>
-                    <strong>20 u.</strong>
-                  </div>
-
-                  <div class="format-item">
-                    <span>
-                      <span class="material-symbols-outlined">mobile_share_stack</span>
-                      Cassettes &amp; Archivo Analógico
-                    </span>
-                    <strong>15 u.</strong>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="branch-card-footer">
-
-                <button class="btn btn-muted btn-edit-tab" data-name="Filial Ciudad Real - Puerta de Toledo"
-                  data-address="Plaza Mayor 8, 13001 Ciudad Real" data-manager="Andrés S." data-capacity="220"
-                  data-notes="Distribución express">
-                  <span class="material-symbols-outlined">edit_note</span>
-                  <span>Editar en Pestaña</span>
-                </button>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-        <section class="view-section" id="view-editor">
-
-          <div class="tab-page-header">
-
-            <button class="btn btn-muted nav-trigger" data-target="view-dashboard">
-              <span class="material-symbols-outlined">arrow_back</span>
-              <span>Volver al Panel Principal</span>
-            </button>
-
-            <div class="title-block">
-
-              <span class="meta-tag">
-                <span class="tag">Formulario Integrado</span>
-              </span>
-
-              <h1 class="page-title" id="editor-page-title">
-                Edición / Registro de Filial
-              </h1>
-
-              <p class="page-subtitle">
-                Modifica la información operativa o añade una nueva sede a la red central.
-              </p>
-
-            </div>
-
-          </div>
-
-          <div class="form-card">
-
-            <form id="branch-edit-form">
-
-              <div class="form-grid">
-
-                <div class="form-group full-width">
-                  <label for="form-branch-name">Nombre de la Filial</label>
-
-                  <input class="form-input" id="form-branch-name" placeholder="Ej: Filial Cuenca - Casas Colgadas"
-                    required type="text" />
-                </div>
-
-                <div class="form-group full-width">
-                  <label for="form-branch-address">Dirección</label>
-
-                  <input class="form-input" id="form-branch-address" placeholder="Ej: Calle Alfonso VIII 12, Cuenca"
-                    required type="text" />
-                </div>
-
-                <div class="form-group">
-                  <label for="form-branch-manager">
-                    Gerente Asignado
-                  </label>
-
-                  <input class="form-input" id="form-branch-manager" placeholder="Ej: Elena R." required type="text" />
-                </div>
-
-              </div>
-
-              <div class="form-actions">
-
-                <button class="btn btn-muted nav-trigger" data-target="view-dashboard" type="button">
-                  Cancelar
-                </button>
-
-                <button class="btn btn-primary" type="submit">
-                  Guardar Cambios y Conectar
-                </button>
-
-              </div>
-
-            </form>
-
-          </div>
-
-        </section>
-
+        </div>
       </div>
-
-    </div>
+    </section>
 
   </main>
-  <footer-component></footer-component>
-  <script src="../js/components.js"></script>
-  <div class="toast hidden" id="toast-feedback">
-    <span class="material-symbols-outlined">check_circle</span>
-    <span id="toast-message">Operación completada exitosamente</span>
+
+  <!-- Modal para Crear Nueva Filial -->
+  <div id="branchModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+          <span class="material-symbols-outlined text-blue-600 text-lg">add_business</span>
+          Añadir Nueva Filial
+        </h3>
+        <button type="button" onclick="closeNewBranchModal()" class="text-slate-400 hover:text-slate-600">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <form id="branchForm" onsubmit="handleCreateBranch(event)" class="mt-4 space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Nombre de la Sucursal <span class="text-red-500">*</span></label>
+          <input type="text" id="branchName" required placeholder="Ej: Filial Talavera de la Reina"
+            class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 outline-none">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Dirección <span class="text-red-500">*</span></label>
+          <input type="text" id="branchAddress" required placeholder="Ej: Calle San Francisco 14, Talavera"
+            class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 outline-none">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Teléfono de Contacto <span class="text-red-500">*</span></label>
+          <input type="text" id="branchPhone" required placeholder="Ej: +34 925 800 100"
+            class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 outline-none">
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
+          <button type="button" onclick="closeNewBranchModal()" class="px-4 py-2 text-slate-600 font-semibold hover:bg-slate-100 rounded-lg transition">
+            Cancelar
+          </button>
+          <button type="submit" id="btnSubmitBranch" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-sm transition">
+            Guardar Filial
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 
-  <script src="../js/api.js"></script>
-  <script src="../js/ui.js"></script>
-  <script src="../js/app.js"></script>
+  <!-- Footer Componente Global -->
+  <footer-component></footer-component>
 
+  <script src="../js/api.js"></script>
+  <script src="../js/components.js"></script>
+
+  <script>
+    let allBranches = [];
+
+    async function loadBranches() {
+      const grid = document.getElementById('branchesGrid');
+      grid.innerHTML = `
+        <div class="col-span-full py-16 text-center text-slate-500">
+          <span class="material-symbols-outlined text-4xl animate-spin text-blue-600">progress_activity</span>
+          <p class="mt-2 text-sm font-medium">Cargando filiales...</p>
+        </div>
+      `;
+
+      allBranches = await api.getBranches(true);
+      renderBranches(allBranches);
+    }
+
+    function renderBranches(branches) {
+      const grid = document.getElementById('branchesGrid');
+      if (!branches || branches.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center text-slate-400 bg-white border border-dashed border-slate-300 rounded-2xl p-8">
+            <span class="material-symbols-outlined text-5xl text-slate-300">store_mall_directory</span>
+            <h3 class="text-base font-bold text-slate-700 mt-2">No se encontraron filiales</h3>
+            <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Comienza registrando la primera sucursal regional.</p>
+            <button type="button" onclick="openNewBranchModal()"
+              class="mt-4 px-4 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition inline-flex items-center gap-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-base">add</span> Añadir Filial
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = branches.map(branch => {
+        const albumCount = branch.albums ? branch.albums.length : 0;
+        return `
+          <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-100">
+                  <span class="material-symbols-outlined text-xl">location_city</span>
+                </div>
+                <span class="text-[10px] font-mono font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                  FIL-${branch.id}
+                </span>
+              </div>
+
+              <h2 class="text-base font-bold text-slate-900 mt-3 truncate" title="${branch.name}">
+                ${branch.name}
+              </h2>
+
+              <div class="mt-3 space-y-2 text-xs text-slate-600">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-slate-400 shrink-0 mt-0.5">place</span>
+                  <span class="leading-relaxed text-slate-700">${branch.address || 'Sin dirección registrada'}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-slate-400 shrink-0">phone</span>
+                  <span class="font-mono text-slate-700">${branch.phone || 'N/A'}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <div class="flex items-center gap-1.5 text-emerald-600 font-semibold bg-emerald-50 px-2.5 py-1 rounded-full text-[11px] border border-emerald-100">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>Activa / En Línea</span>
+              </div>
+
+              <button type="button" onclick="handleDeleteBranch(${branch.id}, '${branch.name.replace(/'/g, "\\'")}')"
+                class="text-slate-400 hover:text-red-600 p-1 rounded transition" title="Eliminar filial">
+                <span class="material-symbols-outlined text-lg">delete</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Buscador en tiempo real
+    document.getElementById('branchSearchInput').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = allBranches.filter(b => 
+        b.name.toLowerCase().includes(q) || (b.address && b.address.toLowerCase().includes(q))
+      );
+      renderBranches(filtered);
+    });
+
+    // Gestión del Modal
+    function openNewBranchModal() {
+      document.getElementById('branchForm').reset();
+      document.getElementById('branchModal').classList.remove('hidden');
+    }
+
+    function closeNewBranchModal() {
+      document.getElementById('branchModal').classList.add('hidden');
+    }
+
+    async function handleCreateBranch(e) {
+      e.preventDefault();
+      const name = document.getElementById('branchName').value.trim();
+      const address = document.getElementById('branchAddress').value.trim();
+      const phone = document.getElementById('branchPhone').value.trim();
+
+      const btn = document.getElementById('btnSubmitBranch');
+      btn.disabled = true;
+      btn.textContent = 'Guardando...';
+
+      const res = await api.createBranch({ name, address, phone });
+      btn.disabled = false;
+      btn.textContent = 'Guardar Filial';
+
+      if (res) {
+        closeNewBranchModal();
+        await loadBranches();
+      }
+    }
+
+    async function handleDeleteBranch(id, name) {
+      if (!confirm(`¿Estás seguro de que deseas eliminar la filial "${name}"?`)) return;
+      const ok = await api.deleteBranch(id);
+      if (ok) {
+        await loadBranches();
+      } else {
+        alert('No se pudo eliminar la filial.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadBranches);
+  </script>
 </body>
 
 </html>
