@@ -11,7 +11,7 @@ class headerComponent extends HTMLElement {
           <img
             alt="Emblema oficial de Palmeras en la Mancha Records"
             class="brand-logo"
-            src="../images/logo.png"
+            src="../img/logo.png"
           />
 
           <div class="brand-text">
@@ -77,3 +77,7 @@ class footerComponent extends HTMLElement{
         `
     }
 }
+
+//Para definir el nombre al componente y que salte el callback
+customElements.define('header-component', headerComponent);
+customElements.define('footer-component', footerComponent);
