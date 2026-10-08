@@ -1,340 +1,256 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palmeras en la Mancha Records - Discográficas</title>
 
-    <link rel="stylesheet" href="../css/styles3.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palmeras en la Mancha — Discográficas & Productoras</title>
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-<header-component></header-component>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans">
 
-    <div class="dashboard-container">
-        
-        <div class="main-header">
-            <div class="header-left">
-                <span class="brand-subtitle">Palmeras en la Mancha Records - Gestión de Catálogo y Vinilos</span>
-                <h1 class="main-title">Discográficas, Sellos & Productoras Asociadas</h1>
-                <p class="main-description">Directorio oficial de sellos independientes, majors aliadas y consorcios de prensado bajo convenio de distribución y archivo físico de vinilo.</p>
-            </div>
+  <!-- Header Componente Global -->
+  <header-component></header-component>
 
-            <div class="header-actions">
-                <button class="btn btn-secondary">
-                    <i class="fa-solid fa-file-export"></i>
-                    Exportar Matriz
-                </button>
+  <main class="flex-1">
 
-                <button class="btn btn-primary">
-                    <i class="fa-solid fa-plus"></i>
-                    Añadir Discográfica
-                </button>
-            </div>
+    <!-- Barra de Control Superior -->
+    <section class="bg-white border-b border-slate-200 px-6 py-5">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 justify-between items-center">
+        <div>
+          <h1 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span class="material-symbols-outlined text-blue-600">album</span>
+            Discográficas, Sellos & Productoras
+          </h1>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Directorio oficial de sellos discográficos bajo convenio de distribución física de vinilo
+          </p>
         </div>
 
-        <section class="metrics-grid">
-
-            <div class="metric-card">
-                <div class="metric-header">
-                    <span class="metric-title">CONVENIOS ACTIVOS</span>
-                    <i class="fa-regular fa-handshake metric-icon"></i>
-                </div>
-
-                <div class="metric-value">
-                    24 <span class="metric-unit">Sellos Adscritos</span>
-                </div>
-
-                <div class="metric-footer">
-                    18 Nacionales / 6 Int.
-                    <span class="badge badge-green">100% Auditados</span>
-                </div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-header">
-                    <span class="metric-title">BOVEDA DE MASTERS</span>
-                    <i class="fa-solid fa-compact-disc metric-icon"></i>
-                </div>
-
-                <div class="metric-value">
-                    850 <span class="metric-unit">Matrices LACQUER</span>
-                </div>
-
-                <div class="metric-footer">
-                    Histórico Preservado
-                    <span class="badge badge-blue">99.4% OK</span>
-                </div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-header">
-                    <span class="metric-title">PRENSADO TRIMESTRAL</span>
-                    <i class="fa-solid fa-layer-group metric-icon"></i>
-                </div>
-
-                <div class="metric-value">
-                    12 <span class="metric-unit">Lanzamientos Q1</span>
-                </div>
-
-                <div class="metric-footer">
-                    En torno de corte
-                    <span class="badge badge-orange">En Trámite</span>
-                </div>
-            </div>
-
-            <div class="metric-card">
-                <div class="metric-header">
-                    <span class="metric-title">EFICIENCIA DE CADENA</span>
-                    <i class="fa-solid fa-chart-line metric-icon"></i>
-                </div>
-
-                <div class="metric-value">
-                    99.4% <span class="metric-unit">RIAA Compliant</span>
-                </div>
-
-                <div class="metric-footer">
-                    Despacho de fábrica directo
-                    <span class="badge badge-green">0.02% error</span>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="filters-bar">
-
-            <div class="search-wrapper">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-
-                <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Filtrar por nombre de discográfica, código matriz, ciudad sede o género..."
-                >
-            </div>
-
-            <div class="select-group">
-
-                <select id="filter-sede">
-                    <option value="">Sede: Todas</option>
-                    <option value="madrid">Madrid</option>
-                    <option value="cuenca">Cuenca</option>
-                    <option value="toledo">Toledo</option>
-                </select>
-
-                <select id="filter-acuerdo">
-                    <option value="">Acuerdo: Todos</option>
-                </select>
-
-                <select id="filter-catalogo">
-                    <option value="">Catálogo: Todo</option>
-                </select>
-
-                <button class="btn-icon-reset" title="Limpiar filtros">
-                    <i class="fa-solid fa-arrow-rotate-left"></i>
-                </button>
-
-            </div>
-
-        </section>
-
-        <main class="companies-grid" id="companies-container">
-
-            <article class="company-card" data-name="la mancha fonografica" data-sede="madrid">
-
-                <div class="card-top-banner banner-blue">
-
-                    <span class="banner-badge">La Mancha Fonográfica</span>
-
-                    <div class="banner-logo">
-                        <img src="/img/logo.png" alt="Logo" class="w-full h-full object-cover">
-                        <span>Viento de Levante & Silencios</span>
-                    </div>
-
-                    <span class="matrix-code">LMF-REC</span>
-
-                </div>
-
-                <div class="card-body">
-
-                    <h2 class="company-name">Viento de Levante & Silencios</h2>
-
-                    <p class="company-desc">
-                        Corazón editorial y buque insignia de Palmeras en la Mancha.
-                        Custodia y producción íntegra de reediciones...
-                    </p>
-
-                    <div class="company-stats">
-
-                        <div class="stat-item">
-                            <span class="stat-label">CATÁLOGO ACTIVO</span>
-                            <span class="stat-val">45 referencias</span>
-                        </div>
-
-                        <div class="stat-item">
-                            <span class="stat-label">PARTICIPACIÓN</span>
-                            <span class="stat-val">100% Propio</span>
-                        </div>
-
-                    </div>
-
-                    <div class="technical-spec">
-                        <strong>ESTÁNDAR PRENSADO:</strong>
-                        180g Virgin Black Vinyl / Lacquer Master
-                    </div>
-
-                </div>
-
-                <div class="card-actions">
-
-                    <button
-                        class="btn-action btn-blue-action"
-                        onclick="viewReleases('La Mancha Fonográfica')"
-                    >
-                        <i class="fa-solid fa-music"></i>
-                        Lanzamientos (45)
-                    </button>
-
-                    <button class="btn-action btn-outline-action">
-                        <i class="fa-solid fa-file-contract"></i>
-                        Convenio
-                    </button>
-
-                </div>
-
-            </article>
-
-            <article class="company-card" data-name="Llanura Modular & Eco Solar" data-sede="madrid">
-
-                <div class="card-top-banner banner-darkblue">
-
-                    <span class="banner-badge">Iberia Sonidera</span>
-
-                    <div class="banner-logo">
-                        <img src="/img/logo.png" alt="Logo" class="w-full h-full object-cover">
-                        <span>Llanura Modular & Eco Solar</span>
-                    </div>
-
-                    <span class="matrix-code">ISR-VIN</span>
-
-                </div>
-
-                <div class="card-body">
-
-                    <h2 class="company-name">Llanura Modular & Eco Solar</h2>
-
-                    <p class="company-desc">
-                        Pioneros del folk psicodélico peninsular y el neotradicionalismo ibérico contemporáneo...
-                    </p>
-
-                    <div class="company-stats">
-
-                        <div class="stat-item">
-                            <span class="stat-label">LANZAMIENTOS</span>
-                            <span class="stat-val">18 activos</span>
-                        </div>
-
-                        <div class="stat-item">
-                            <span class="stat-label">MODELO REGALÍAS</span>
-                            <span class="stat-val">70/30 Fijo</span>
-                        </div>
-
-                    </div>
-
-                    <div class="technical-spec">
-                        <strong>ACUERDO VIGENTE:</strong>
-                        Exclusividad Peninsular 2024-2027
-                    </div>
-
-                </div>
-
-                <div class="card-actions">
-
-                    <button
-                        class="btn-action btn-blue-action"
-                        onclick="viewReleases('Iberia Sonidera Records')"
-                    >
-                        <i class="fa-solid fa-music"></i>
-                        Lanzamientos (18)
-                    </button>
-
-                    <button class="btn-action btn-outline-action">
-                        <i class="fa-solid fa-gear"></i>
-                        Gestionar Contrato
-                    </button>
-
-                </div>
-
-            </article>
-
-            <article class="company-card" data-name="alcarria analog recordings" data-sede="cuenca">
-
-                <div class="card-top-banner banner-purple">
-
-                    <span class="banner-badge">COEDICIÓN PREFERENTE</span>
-
-                    <div class="banner-logo">
-                        <img src="/img/logo.png" alt="Logo" class="w-full h-full object-cover">
-                        <span>Alcarria Analog</span>
-                    </div>
-
-                    <span class="matrix-code">AAR-MES</span>
-
-                </div>
-
-                <div class="card-body">
-
-                    <h2 class="company-name">Alcarria Analog Recordings</h2>
-
-                    <p class="company-desc">
-                        Sello boutique especializado en electrónica orgánica,
-                        paisajes sonoros pastorales y minimalismo drone...
-                    </p>
-
-                    <div class="company-stats">
-
-                        <div class="stat-item">
-                            <span class="stat-label">LANZAMIENTOS</span>
-                            <span class="stat-val">12 obras</span>
-                        </div>
-
-                        <div class="stat-item">
-                            <span class="stat-label">MODELO REGALÍAS</span>
-                            <span class="stat-val">70/30 Fijo</span>
-                        </div>
-
-                    </div>
-
-                    <div class="technical-spec">
-                        <strong>ACUERDO VIGENTE:</strong>
-                        Exclusividad Peninsular 2024-2027
-                    </div>
-
-                </div>
-
-                <div class="card-actions">
-
-                    <button
-                        class="btn-action btn-blue-action"
-                        onclick="viewReleases('Iberia Sonidera Records')"
-                    >
-                        <i class="fa-solid fa-music"></i>
-                        Lanzamientos (18)
-                    </button>
-
-                    <button class="btn-action btn-outline-action">
-                        <i class="fa-solid fa-gear"></i>
-                        Gestionar Contrato
-                    </button>
-
-                </div>
-
-            </article>
-
-        </main>
-
+        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+          <div class="relative flex-1 sm:w-80">
+            <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+            <input id="labelSearchInput" type="text" placeholder="Buscar sello o país..."
+              class="w-full h-10 bg-slate-50 border border-slate-200 pl-10 pr-4 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+
+          <button type="button" onclick="openNewLabelModal()"
+            class="h-10 px-4 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition">
+            <span class="material-symbols-outlined text-base">add</span>
+            Añadir Discográfica
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid de Discográficas -->
+    <section class="px-6 py-8">
+      <div class="max-w-7xl mx-auto">
+        <div id="labelsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="col-span-full py-16 text-center text-slate-500">
+            <span class="material-symbols-outlined text-4xl animate-spin text-blue-600">progress_activity</span>
+            <p class="mt-2 text-sm font-medium">Cargando discográficas adscritas...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal para Añadir Discográfica -->
+  <div id="labelModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 animate-in fade-in zoom-in-95 duration-150">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+          <span class="material-symbols-outlined text-blue-600 text-lg">domain_add</span>
+          Nueva Discográfica / Sello
+        </h3>
+        <button type="button" onclick="closeNewLabelModal()" class="text-slate-400 hover:text-slate-600">
+          <span class="material-symbols-outlined text-xl">close</span>
+        </button>
+      </div>
+
+      <form id="labelForm" onsubmit="handleCreateLabel(event)" class="mt-4 space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Nombre del Sello <span class="text-red-500">*</span></label>
+          <input type="text" id="labelName" required placeholder="Ej: Discos La Mancha"
+            class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 outline-none">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">País de Origen <span class="text-red-500">*</span></label>
+          <input type="text" id="labelCountry" required placeholder="Ej: Spain, United States, UK"
+            class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 outline-none">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Sitio Web Oficial</label>
+          <input type="url" id="labelWebsite" placeholder="https://ejemplo.com"
+            class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 outline-none">
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
+          <button type="button" onclick="closeNewLabelModal()" class="px-4 py-2 text-slate-600 font-semibold hover:bg-slate-100 rounded-lg transition">
+            Cancelar
+          </button>
+          <button type="submit" id="btnSubmitLabel" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-sm transition">
+            Guardar Sello
+          </button>
+        </div>
+      </form>
     </div>
-<footer-component></footer-component>
-<script src="../js/components.js"></script>
+  </div>
+
+  <!-- Footer Componente Global -->
+  <footer-component></footer-component>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/components.js"></script>
+
+  <script>
+    let allLabels = [];
+
+    async function loadLabels() {
+      const grid = document.getElementById('labelsGrid');
+      grid.innerHTML = `
+        <div class="col-span-full py-16 text-center text-slate-500">
+          <span class="material-symbols-outlined text-4xl animate-spin text-blue-600">progress_activity</span>
+          <p class="mt-2 text-sm font-medium">Cargando discográficas...</p>
+        </div>
+      `;
+
+      allLabels = await api.getRecordLabels();
+      renderLabels(allLabels);
+    }
+
+    function renderLabels(labels) {
+      const grid = document.getElementById('labelsGrid');
+      if (!labels || labels.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center text-slate-400 bg-white border border-dashed border-slate-300 rounded-2xl p-8">
+            <span class="material-symbols-outlined text-5xl text-slate-300">library_music</span>
+            <h3 class="text-base font-bold text-slate-700 mt-2">No hay discográficas registradas</h3>
+            <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Añade los sellos y productoras con convenio de distribución.</p>
+            <button type="button" onclick="openNewLabelModal()"
+              class="mt-4 px-4 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition inline-flex items-center gap-1.5 shadow-sm">
+              <span class="material-symbols-outlined text-base">add</span> Añadir Discográfica
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = labels.map(label => {
+        const websiteLink = label.website
+          ? `<a href="${label.website.startsWith('http') ? label.website : 'https://' + label.website}" target="_blank" rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 hover:underline">
+               <span>${label.website.replace(/^https?:\/\//, '')}</span>
+               <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+             </a>`
+          : '<span class="text-slate-400">Sin web oficial</span>';
+
+        return `
+          <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 border border-purple-100">
+                  <span class="material-symbols-outlined text-xl">album</span>
+                </div>
+                <span class="text-[10px] font-mono font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
+                  REC-${label.id}
+                </span>
+              </div>
+
+              <h2 class="text-base font-bold text-slate-900 mt-3 truncate" title="${label.name}">
+                ${label.name}
+              </h2>
+
+              <div class="mt-3 space-y-2 text-xs text-slate-600">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-slate-400 shrink-0">public</span>
+                  <span class="font-medium text-slate-700">${label.country}</span>
+                </div>
+                <div class="flex items-center gap-2 truncate">
+                  <span class="material-symbols-outlined text-[16px] text-slate-400 shrink-0">language</span>
+                  <span class="truncate">${websiteLink}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+                Sello Asociado
+              </span>
+
+              <button type="button" onclick="handleDeleteLabel(${label.id}, '${label.name.replace(/'/g, "\\'")}')"
+                class="text-slate-400 hover:text-red-600 p-1 rounded transition" title="Eliminar discográfica">
+                <span class="material-symbols-outlined text-lg">delete</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Buscador en tiempo real
+    document.getElementById('labelSearchInput').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = allLabels.filter(l => 
+        l.name.toLowerCase().includes(q) || (l.country && l.country.toLowerCase().includes(q))
+      );
+      renderLabels(filtered);
+    });
+
+    // Gestión del Modal
+    function openNewLabelModal() {
+      document.getElementById('labelForm').reset();
+      document.getElementById('labelModal').classList.remove('hidden');
+    }
+
+    function closeNewLabelModal() {
+      document.getElementById('labelModal').classList.add('hidden');
+    }
+
+    async function handleCreateLabel(e) {
+      e.preventDefault();
+      const name = document.getElementById('labelName').value.trim();
+      const country = document.getElementById('labelCountry').value.trim();
+      const website = document.getElementById('labelWebsite').value.trim() || null;
+
+      const btn = document.getElementById('btnSubmitLabel');
+      btn.disabled = true;
+      btn.textContent = 'Guardando...';
+
+      const res = await api.createRecordLabel({ name, country, website });
+      btn.disabled = false;
+      btn.textContent = 'Guardar Sello';
+
+      if (res) {
+        closeNewLabelModal();
+        await loadLabels();
+      }
+    }
+
+    async function handleDeleteLabel(id, name) {
+      if (!confirm(`¿Estás seguro de que deseas eliminar la discográfica "${name}"?`)) return;
+      const ok = await api.deleteRecordLabel(id);
+      if (ok) {
+        await loadLabels();
+      } else {
+        alert('No se pudo eliminar la discográfica.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadLabels);
+  </script>
 </body>
+
 </html>
