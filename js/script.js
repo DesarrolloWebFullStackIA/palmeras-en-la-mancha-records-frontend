@@ -279,10 +279,170 @@ function setupCatalogSearch() {
     });
 }
 
+// ===============================
+// ALBUM FORM & CLOUDINARY UPLOAD
+// ===============================
+
+let selectedCoverFile = null;
+
+function triggerCoverUpload() {
+    const fileInput = document.getElementById('coverFileInput');
+    if (fileInput) fileInput.click();
+}
+
+function handleCoverFileSelected(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    selectedCoverFile = file;
+
+    const previewImg = document.getElementById('coverPreviewImg');
+    const defaultPlaceholder = document.getElementById('coverDefaultPlaceholder');
+
+    if (previewImg && defaultPlaceholder) {
+        previewImg.src = URL.createObjectURL(file);
+        previewImg.classList.remove('hidden');
+        defaultPlaceholder.classList.add('hidden');
+    }
+}
+
+function removeCover() {
+    selectedCoverFile = null;
+    const fileInput = document.getElementById('coverFileInput');
+    if (fileInput) fileInput.value = '';
+
+    const previewImg = document.getElementById('coverPreviewImg');
+    const defaultPlaceholder = document.getElementById('coverDefaultPlaceholder');
+
+    if (previewImg && defaultPlaceholder) {
+        previewImg.src = '';
+        previewImg.classList.add('hidden');
+        defaultPlaceholder.classList.remove('hidden');
+    }
+}
+
+async function populateRecordLabelsDropdown(selectedId = null) {
+    const select = document.getElementById('labelId');
+    if (!select) return;
+
+    const labels = await getRecordLabels();
+    if (!labels || labels.length === 0) {
+        select.innerHTML = '<option value="">Sin discográficas registradas</option>';
+        return;
+    }
+
+    select.innerHTML = `
+        <option value="">Selecciona una discográfica...</option>
+        ${labels.map(l => `<option value="${l.id}" ${Number(selectedId) === Number(l.id) ? 'selected' : ''}>${l.name} (${l.country || 'N/A'})</option>`).join('')}
+    `;
+}
+
+async function initAlbumForm() {
+    const titleEl = document.getElementById('albumTitle');
+    if (!titleEl) return; // No estamos en la página de formulario
+
+    const params = new URLSearchParams(window.location.search);
+    const albumId = params.get('id');
+
+    if (albumId) {
+        // Modo Edición
+        document.getElementById('albumPageTitle').textContent = 'Cargando Álbum...';
+        const album = await getAlbum(albumId);
+
+        if (!album) {
+            alert('No se pudo encontrar el álbum solicitado.');
+            goToMainMenu();
+            return;
+        }
+
+        document.getElementById('albumPageTitle').textContent = `Editar Álbum: ${album.title}`;
+        document.getElementById('albumBadge').textContent = 'Edición Fonográfica Oficial';
+        document.getElementById('btnSaveAlbum').innerHTML = '💾 Guardar Cambios';
+        document.getElementById('albumIdDisplay').textContent = `PLM-LP-${album.id}`;
+
+        // Rellenar campos
+        document.getElementById('albumTitle').value = album.title || '';
+        document.getElementById('artist').value = album.artist || '';
+        document.getElementById('genre').value = album.genre || '';
+        document.getElementById('releaseYear').value = album.release_year || '';
+
+        // Cargar discográficas y preseleccionar la actual
+        await populateRecordLabelsDropdown(album.label_id);
+
+        // Previsualización de carátula
+        const previewImg = document.getElementById('coverPreviewImg');
+        const defaultPlaceholder = document.getElementById('coverDefaultPlaceholder');
+        if (album.cover_image_url && previewImg && defaultPlaceholder) {
+            previewImg.src = album.cover_image_url;
+            previewImg.classList.remove('hidden');
+            defaultPlaceholder.classList.add('hidden');
+        } else if (defaultPlaceholder) {
+            document.getElementById('coverPreviewTitle').textContent = album.title;
+            document.getElementById('coverPreviewArtist').textContent = album.artist;
+        }
+    } else {
+        // Modo Creación
+        document.getElementById('albumPageTitle').textContent = 'Nuevo Álbum / Lanzamiento';
+        document.getElementById('albumBadge').textContent = 'Alta en Catálogo';
+        document.getElementById('btnSaveAlbum').innerHTML = '✨ Crear Álbum';
+        document.getElementById('albumIdDisplay').textContent = 'PLM-NUEVO';
+
+        await populateRecordLabelsDropdown();
+    }
+}
+
+async function saveChanges() {
+    const params = new URLSearchParams(window.location.search);
+    const albumId = params.get('id');
+
+    const title = document.getElementById('albumTitle')?.value.trim();
+    const artist = document.getElementById('artist')?.value.trim();
+    const labelId = document.getElementById('labelId')?.value;
+    const genre = document.getElementById('genre')?.value.trim();
+    const releaseYear = document.getElementById('releaseYear')?.value.trim();
+
+    if (!title || !artist || !labelId || !releaseYear) {
+        alert('Por favor completa todos los campos obligatorios (*): Título, Artista, Discográfica y Año.');
+        return;
+    }
+
+    const saveBtn = document.getElementById('btnSaveAlbum');
+    if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '⏳ Guardando...';
+    }
+
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('artist', artist);
+    formData.append('label_id', labelId);
+    formData.append('release_year', releaseYear);
+    if (genre) formData.append('genre', genre);
+    if (selectedCoverFile) formData.append('image', selectedCoverFile);
+
+    let result;
+    if (albumId) {
+        result = await updateAlbum(albumId, formData);
+    } else {
+        result = await createAlbum(formData);
+    }
+
+    if (result) {
+        alert(albumId ? '¡Álbum actualizado con éxito!' : '¡Álbum creado con éxito!');
+        goToMainMenu();
+    } else if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.innerHTML = albumId ? '💾 Guardar Cambios' : '✨ Crear Álbum';
+    }
+}
+
 // Inicialización automática
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('albumsCatalogGrid')) {
         loadAlbums();
         setupCatalogSearch();
+    }
+    if (document.getElementById('albumTitle')) {
+        initAlbumForm();
     }
 });
