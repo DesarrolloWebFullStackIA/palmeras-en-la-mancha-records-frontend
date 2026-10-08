@@ -1,0 +1,28 @@
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    overscroll-behavior: none;
+  }
+
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Textura simulada para los surcos del vinilo */
+.vinyl-grooves {
+  background: repeating-radial-gradient(circle, #0e131d, #0e131d 3px, #1a2232 4px, #0e131d 5px);
+}
