@@ -1,9 +1,11 @@
 console.log("SCRIPT.JS cargado correctamente.");
 
 // Detección automática del entorno: local (FastAPI) o producción (Render)
-const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-    ? 'http://127.0.0.1:8000/api/v1'
-    : 'https://palmeras-records-api.onrender.com/api/v1';
+window.API_BASE_URL = window.API_BASE_URL || (
+    (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? 'http://127.0.0.1:8000/api/v1'
+        : 'https://palmeras-records-api.onrender.com/api/v1'
+);
 
 
 // ===============================
