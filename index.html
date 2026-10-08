@@ -10,266 +10,247 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
 
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=Manrope:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet">
 
-<link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
 
-<header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-slate-200 shadow-sm">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white border-b border-slate-200 shadow-sm">
 
-  <div class="h-20 px-6 flex items-center justify-between">
+    <div class="h-20 px-6 flex items-center justify-between">
 
-    <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
 
-      <div class="w-10 h-10 rounded-full overflow-hidden bg-slate-900">
-        <img src="images/logo.png" alt="Logo" class="w-full h-full object-cover">
-      </div>
-
-      <div>
-        <div class="text-lg font-bold text-slate-900">
-          Palmeras en la Mancha
+        <div class="w-10 h-10 rounded-full overflow-hidden bg-slate-900">
+          <img src="images/logo.png" alt="Logo" class="w-full h-full object-cover">
         </div>
 
-        <div class="text-[10px] text-blue-600 font-bold uppercase tracking-wider">
-          Vinyl Records & Archive Console
+        <div>
+          <div class="text-lg font-bold text-slate-900">
+            Palmeras en la Mancha
+          </div>
+
+          <div class="text-[10px] text-blue-600 font-bold uppercase tracking-wider">
+            Vinyl Records & Archive Console
+          </div>
         </div>
-      </div>
-
-    </div>
-
-   <nav class="hidden md:flex items-center gap-2">
-
-  <a
-    href="index.html"
-    class="px-4 py-2 text-sm font-semibold text-blue-700 bg-slate-100 rounded-lg">
-    Álbumes
-  </a>
-
-  <a
-    href="html/filiales.html"
-    class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
-    Gestión de Filiales
-  </a>
-
-  <a
-    href="html/discograficas.html"
-    class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
-    Discográficas & Productoras
-  </a>
-
-  <a
-    href="html/ediciones-albumes.html"
-    class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
-    Ediciones de Álbumes
-  </a>
-
-</nav>
-  </div>
-
-</header>
-
-<main class="pt-20 min-h-screen">
-
-  <section class="bg-white border-b border-slate-200 px-6 py-4">
-
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 justify-between">
-
-      <div class="relative flex-1 max-w-xl">
-
-        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-          search
-        </span>
-
-        <input
-          id="catalogSearchInput"
-          type="text"
-          placeholder="Buscar por título, artista o discográfica..."
-          class="w-full h-11 bg-slate-50 border border-slate-200 pl-11 pr-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
 
       </div>
 
-      <button
-        type="button"
-        onclick="goToCreatePage()"
-        class="h-11 px-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg flex items-center justify-center gap-2">
+      <nav class="hidden md:flex items-center gap-2">
 
-        <span class="material-symbols-outlined">
-          library_add
-        </span>
+        <a href="index.html" class="px-4 py-2 text-sm font-semibold text-blue-700 bg-slate-100 rounded-lg">
+          Álbumes
+        </a>
 
-        + Nuevo Álbum
+        <a href="html/filiales.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
+          Gestión de Filiales
+        </a>
 
-      </button>
+        <a href="html/discograficas.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
+          Discográficas & Productoras
+        </a>
 
+        <a href="html/ediciones-albumes.html" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-900">
+          Ediciones de Álbumes
+        </a>
+
+      </nav>
     </div>
 
-  </section>
+  </header>
 
-  <section class="px-6 py-10">
+  <main class="pt-20 min-h-screen">
 
-    <div class="max-w-7xl mx-auto">
+    <section class="bg-white border-b border-slate-200 px-6 py-4">
 
-      <div id="albumsCatalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 justify-between">
 
-        <article class="album-card bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+        <div class="relative flex-1 max-w-xl">
 
-          <div
-            class="w-full aspect-square bg-slate-100 rounded-xl flex items-center justify-center cursor-pointer"
-            onclick="goToEditPage('PLM-LP-042')">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+            search
+          </span>
 
-            <div class="w-4/5 aspect-square rounded-full bg-slate-900 flex items-center justify-center shadow-lg">
+          <input id="catalogSearchInput" type="text" placeholder="Buscar por título, artista o discográfica..."
+            class="w-full h-11 bg-slate-50 border border-slate-200 pl-11 pr-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
 
-              <div class="w-20 h-20 rounded-full bg-blue-600 flex flex-col items-center justify-center text-white text-center">
+        </div>
 
-                <span class="text-[8px] font-bold">
-                  PLM-042
-                </span>
+        <button type="button" onclick="goToCreatePage()"
+          class="h-11 px-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg flex items-center justify-center gap-2">
 
-                <span class="material-symbols-outlined">
-                  album
-                </span>
+          <span class="material-symbols-outlined">
+            library_add
+          </span>
 
-                <span class="text-[7px]">
-                  33⅓ RPM
-                </span>
+          + Nuevo Álbum
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="px-6 py-10">
+
+      <div class="max-w-7xl mx-auto">
+
+        <div id="albumsCatalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+          <article class="album-card bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+
+            <div class="w-full aspect-square bg-slate-100 rounded-xl flex items-center justify-center cursor-pointer"
+              onclick="goToEditPage('PLM-LP-042')">
+
+              <div class="w-4/5 aspect-square rounded-full bg-slate-900 flex items-center justify-center shadow-lg">
+
+                <div
+                  class="w-20 h-20 rounded-full bg-blue-600 flex flex-col items-center justify-center text-white text-center">
+
+                  <span class="text-[8px] font-bold">
+                    PLM-042
+                  </span>
+
+                  <span class="material-symbols-outlined">
+                    album
+                  </span>
+
+                  <span class="text-[7px]">
+                    33⅓ RPM
+                  </span>
+
+                </div>
 
               </div>
 
             </div>
 
-          </div>
+            <div class="mt-4">
 
-          <div class="mt-4">
+              <h2 class="font-bold text-lg text-slate-900">
+                Viento de Levante & Silencios
+              </h2>
 
-            <h2 class="font-bold text-lg text-slate-900">
-              Viento de Levante & Silencios
-            </h2>
+              <p class="text-sm text-slate-600 mt-1">
+                Aurelio y La Cuadrilla de San Juan
+              </p>
 
-            <p class="text-sm text-slate-600 mt-1">
-              Aurelio y La Cuadrilla de San Juan
-            </p>
+              <p class="text-xs text-slate-500 mt-2">
+                La Mancha Fonográfica
+              </p>
 
-            <p class="text-xs text-slate-500 mt-2">
-              La Mancha Fonográfica
-            </p>
+              <p class="text-lg font-bold text-blue-600 mt-3">
+                28,00 €
+              </p>
 
-            <p class="text-lg font-bold text-blue-600 mt-3">
-              28,00 €
-            </p>
+            </div>
 
-          </div>
+            <div class="flex gap-2 mt-4">
 
-          <div class="flex gap-2 mt-4">
+              <button type="button" onclick="goToEditPage('PLM-LP-042')"
+                class="flex-1 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold">
 
-            <button
-              type="button"
-              onclick="goToEditPage('PLM-LP-042')"
-              class="flex-1 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold">
+                Editar
 
-              Editar
+              </button>
 
-            </button>
+              <button type="button" onclick="deleteAlbum('PLM-LP-042')"
+                class="flex-1 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-semibold">
 
-            <button
-              type="button"
-              onclick="deleteAlbum('PLM-LP-042')"
-              class="flex-1 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-semibold">
+                Eliminar
 
-              Eliminar
+              </button>
 
-            </button>
+            </div>
 
-          </div>
+          </article>
 
-        </article>
+          <article class="album-card bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
 
-        <article class="album-card bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+            <div class="w-full aspect-square bg-slate-100 rounded-xl flex items-center justify-center cursor-pointer"
+              onclick="goToEditPage('PLM-LP-089')">
 
-          <div
-            class="w-full aspect-square bg-slate-100 rounded-xl flex items-center justify-center cursor-pointer"
-            onclick="goToEditPage('PLM-LP-089')">
+              <div class="w-4/5 aspect-square rounded-full bg-slate-900 flex items-center justify-center shadow-lg">
 
-            <div class="w-4/5 aspect-square rounded-full bg-slate-900 flex items-center justify-center shadow-lg">
+                <div
+                  class="w-20 h-20 rounded-full bg-blue-600 flex flex-col items-center justify-center text-white text-center">
 
-              <div class="w-20 h-20 rounded-full bg-blue-600 flex flex-col items-center justify-center text-white text-center">
+                  <span class="text-[8px] font-bold">
+                    PLM-089
+                  </span>
 
-                <span class="text-[8px] font-bold">
-                  PLM-089
-                </span>
+                  <span class="material-symbols-outlined">
+                    album
+                  </span>
 
-                <span class="material-symbols-outlined">
-                  album
-                </span>
+                  <span class="text-[7px]">
+                    33⅓ RPM
+                  </span>
 
-                <span class="text-[7px]">
-                  33⅓ RPM
-                </span>
+                </div>
 
               </div>
 
             </div>
 
-          </div>
+            <div class="mt-4">
 
-          <div class="mt-4">
+              <h2 class="font-bold text-lg text-slate-900">
+                Llanura Modular & Eco Solar
+              </h2>
 
-            <h2 class="font-bold text-lg text-slate-900">
-              Llanura Modular & Eco Solar
-            </h2>
+              <p class="text-sm text-slate-600 mt-1">
+                Sintetizadores de La Alcarria
+              </p>
 
-            <p class="text-sm text-slate-600 mt-1">
-              Sintetizadores de La Alcarria
-            </p>
+              <p class="text-xs text-slate-500 mt-2">
+                Iberia Sonidera
+              </p>
 
-            <p class="text-xs text-slate-500 mt-2">
-              Iberia Sonidera
-            </p>
+              <p class="text-lg font-bold text-blue-600 mt-3">
+                34,00 €
+              </p>
 
-            <p class="text-lg font-bold text-blue-600 mt-3">
-              34,00 €
-            </p>
+            </div>
 
-          </div>
+            <div class="flex gap-2 mt-4">
 
-          <div class="flex gap-2 mt-4">
 
-            <button
-              type="button"
-              onclick="goToEditPage('PLM-LP-089')"
-              class="flex-1 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold">
+              <button type="button" onclick="goToEditPage()"
+                class="flex-1 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold">
+                Editar
+              </button>
+              <button type="button" onclick="deleteAlbum('PLM-LP-089')"
+                class="flex-1 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-semibold">
 
-              Editar
+                Eliminar
 
-            </button>
+              </button>
 
-            <button
-              type="button"
-              onclick="deleteAlbum('PLM-LP-089')"
-              class="flex-1 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-semibold">
+            </div>
 
-              Eliminar
+          </article>
 
-            </button>
-
-          </div>
-
-        </article>
+        </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
+  </main>
 
-</main>
-
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
+
 </html>
