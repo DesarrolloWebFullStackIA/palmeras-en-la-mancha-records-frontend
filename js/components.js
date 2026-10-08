@@ -34,27 +34,6 @@ class headerComponent extends HTMLElement {
 
       <div class="header-divider">
         <nav class="nav-tabs" id="navTabs">
-          <a class="nav-link ${isCat ? 'active' : ''}" href="${catalogHref}">Catálogo</a>
-          <a class="nav-link ${isFil ? 'active' : ''}" href="${filialesHref}">Filiales</a>
-          <a class="nav-link ${isDisc ? 'active' : ''}" href="${discograficasHref}">Discográficas &amp; Productoras</a>
-          <a class="nav-link ${isEdic ? 'active' : ''}" href="${edicionesHref}">Ediciones de Álbumes</a>
-        </nav>
-      </div>
-
-      <div class="header-actions">
-
-        <div class="select-wrapper hidden md:block">
-          <select class="branch-select">
-            <option value="toledo">Sucursal Central - Toledo</option>
-            <option value="albacete">Filial Albacete</option>
-            <option value="ciudad-real">Filial Ciudad Real</option>
-          </select>
-          <span class="material-symbols-outlined select-arrow">expand_more</span>
-        </div>
-      </div>
-
-      <div class="header-divider">
-        <nav class="nav-tabs" id="navTabs">
           <a class="nav-link" href="../index.html">Catálogo</a>
           <a class="nav-link" href="filiales.html">Filiales</a>
           <a class="nav-link" href="discograficas.html">Discográficas &amp; Productoras</a>
