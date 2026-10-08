@@ -168,3 +168,121 @@ function goToMainMenu() {
     const isSubfolder = window.location.pathname.includes('/html/');
     window.location.href = isSubfolder ? '../index.html' : 'index.html';
 }
+
+
+// ===============================
+// CATALOG RENDERING & SEARCH
+// ===============================
+
+function renderAlbumCard(album) {
+    const labelName = album.record_label?.name || 'Sello Independiente';
+    const coverHtml = album.cover_image_url
+        ? `<img src="${album.cover_image_url}" alt="${album.title}" class="w-full h-full object-cover rounded-xl">`
+        : `
+          <div class="w-4/5 aspect-square rounded-full bg-slate-900 flex items-center justify-center shadow-lg">
+            <div class="w-20 h-20 rounded-full bg-blue-600 flex flex-col items-center justify-center text-white text-center">
+              <span class="text-[8px] font-bold">PLM-${album.id}</span>
+              <span class="material-symbols-outlined text-base">album</span>
+              <span class="text-[7px]">33⅓ RPM</span>
+            </div>
+          </div>
+        `;
+
+    return `
+      <article class="album-card bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+        <div>
+          <div class="w-full aspect-square bg-slate-100 rounded-xl flex items-center justify-center cursor-pointer overflow-hidden relative"
+               onclick="goToEditPage(${album.id})">
+            ${coverHtml}
+            ${album.genre ? `<span class="absolute top-2 right-2 bg-slate-900/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full backdrop-blur-sm">${album.genre}</span>` : ''}
+          </div>
+
+          <div class="mt-4">
+            <h2 class="font-bold text-lg text-slate-900 truncate" title="${album.title}">
+              ${album.title}
+            </h2>
+            <p class="text-sm text-slate-600 mt-0.5 truncate">
+              ${album.artist}
+            </p>
+            <div class="flex items-center justify-between text-xs text-slate-500 mt-2">
+              <span class="truncate">${labelName}</span>
+              <span class="font-semibold text-slate-700">${album.release_year || ''}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-2 mt-4 pt-3 border-t border-slate-100">
+          <button type="button" onclick="goToEditPage(${album.id})"
+            class="flex-1 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold transition flex items-center justify-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">edit</span>
+            Editar
+          </button>
+          <button type="button" onclick="deleteAlbum(${album.id})"
+            class="py-2 px-3 bg-red-50 hover:bg-red-600 text-red-600 hover:text-white rounded-lg text-sm font-semibold transition flex items-center justify-center"
+            title="Eliminar álbum">
+            <span class="material-symbols-outlined text-[16px]">delete</span>
+          </button>
+        </div>
+      </article>
+    `;
+}
+
+async function loadAlbums(query = '') {
+    const grid = document.getElementById('albumsCatalogGrid');
+    if (!grid) return;
+
+    grid.innerHTML = `
+        <div class="col-span-full py-16 text-center text-slate-500">
+            <span class="material-symbols-outlined text-4xl animate-spin text-blue-600">progress_activity</span>
+            <p class="mt-2 text-sm font-medium">Cargando catálogo musical...</p>
+        </div>
+    `;
+
+    const filters = {};
+    if (query && query.trim()) {
+        filters.title = query.trim();
+    }
+
+    const albums = await getAlbums(filters);
+
+    if (!albums || albums.length === 0) {
+        grid.innerHTML = `
+            <div class="col-span-full py-16 text-center text-slate-400 bg-white border border-dashed border-slate-300 rounded-2xl p-8">
+                <span class="material-symbols-outlined text-5xl text-slate-300">library_music</span>
+                <h3 class="text-base font-bold text-slate-700 mt-2">No se encontraron álbumes</h3>
+                <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+                    ${query ? `No hay resultados para "${query}".` : 'El catálogo está vacío actualmente.'}
+                </p>
+                <button type="button" onclick="goToCreatePage()"
+                    class="mt-4 px-4 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition inline-flex items-center gap-1.5 shadow-sm">
+                    <span class="material-symbols-outlined text-[16px]">add_circle</span>
+                    Añadir Nuevo Álbum
+                </button>
+            </div>
+        `;
+        return;
+    }
+
+    grid.innerHTML = albums.map(renderAlbumCard).join('');
+}
+
+function setupCatalogSearch() {
+    const searchInput = document.getElementById('catalogSearchInput');
+    if (!searchInput) return;
+
+    let debounceTimer;
+    searchInput.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            loadAlbums(e.target.value);
+        }, 300);
+    });
+}
+
+// Inicialización automática
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('albumsCatalogGrid')) {
+        loadAlbums();
+        setupCatalogSearch();
+    }
+});
