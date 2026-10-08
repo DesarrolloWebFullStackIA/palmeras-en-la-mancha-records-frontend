@@ -582,3 +582,14 @@ function initAdvancedFilters() {
         }
     });
 }
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        menu.classList.add('flex');
+    } else {
+        menu.classList.remove('flex');
+        menu.classList.add('hidden');
+    }
+}

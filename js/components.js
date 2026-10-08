@@ -15,44 +15,78 @@ class headerComponent extends HTMLElement {
     const isDisc = path.includes('discograficas.html');
     const isEdic = path.includes('ediciones-albumes.html') || path.includes('album.html');
 
-    this.innerHTML = `
-      <header class="main-header">
-        <div class="header-container">
-          <div class="brand-group">
-            <a href="${catalogHref}" class="brand-logo-wrapper" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px;">
-              <img
-                alt="Emblema oficial de Palmeras en la Mancha Records"
-                class="brand-logo"
-                src="${logoSrc}"
-              />
-              <div class="brand-text">
-                <span class="brand-title">Palmeras en la Mancha Records</span>
-              </div>
-            </a>
-          </div>
+  this.innerHTML =  `
+  <header class="main-header">
+    <div class="header-container">
 
-          <div class="header-divider">
-            <nav class="nav-tabs" id="navTabs">
-              <a class="nav-link ${isCat ? 'active' : ''}" href="${catalogHref}">Catálogo</a>
-              <a class="nav-link ${isFil ? 'active' : ''}" href="${filialesHref}">Filiales</a>
-              <a class="nav-link ${isDisc ? 'active' : ''}" href="${discograficasHref}">Discográficas &amp; Productoras</a>
-              <a class="nav-link ${isEdic ? 'active' : ''}" href="${edicionesHref}">Ediciones de Álbumes</a>
-            </nav>
+      <div class="brand-group">
+        <a href="${catalogHref}" class="brand-logo-wrapper" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px;">
+          <img
+            alt="Emblema oficial de Palmeras en la Mancha Records"
+            class="brand-logo"
+            src="${logoSrc}"
+          />
+          <div class="brand-text">
+            <span class="brand-title">Palmeras en la Mancha Records</span>
           </div>
+        </a>
+      </div>
 
-          <div class="header-actions">
-            <div class="select-wrapper">
-              <select class="branch-select">
-                <option value="toledo">Sucursal Central - Toledo</option>
-                <option value="albacete">Filial Albacete</option>
-                <option value="ciudad-real">Filial Ciudad Real</option>
-              </select>
-              <span class="material-symbols-outlined select-arrow">expand_more</span>
-            </div>
-          </div>
+      <div class="header-divider">
+        <nav class="nav-tabs" id="navTabs">
+          <a class="nav-link ${isCat ? 'active' : ''}" href="${catalogHref}">Catálogo</a>
+          <a class="nav-link ${isFil ? 'active' : ''}" href="${filialesHref}">Filiales</a>
+          <a class="nav-link ${isDisc ? 'active' : ''}" href="${discograficasHref}">Discográficas &amp; Productoras</a>
+          <a class="nav-link ${isEdic ? 'active' : ''}" href="${edicionesHref}">Ediciones de Álbumes</a>
+        </nav>
+      </div>
+
+      <div class="header-actions">
+
+        <div class="select-wrapper hidden md:block">
+          <select class="branch-select">
+            <option value="toledo">Sucursal Central - Toledo</option>
+            <option value="albacete">Filial Albacete</option>
+            <option value="ciudad-real">Filial Ciudad Real</option>
+          </select>
+          <span class="material-symbols-outlined select-arrow">expand_more</span>
         </div>
-      </header>
-    `;
+
+        <button
+          id="menuButton"
+          onclick="toggleMobileMenu()"
+          class="block md:hidden p-2 text-gray-700"
+          type="button"
+        >
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden flex-col border-t border-gray-200 bg-white">
+
+      <a href="${catalogHref}" class="block px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+        Catálogo
+      </a>
+
+      <a href="${filialesHref}" class="block px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+        Filiales
+      </a>
+
+      <a href="${discograficasHref}" class="block px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+        Discográficas &amp; Productoras
+      </a>
+
+      <a href="${edicionesHref}" class="block px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100">
+        Ediciones de Álbumes
+      </a>
+
+    </div>
+
+  </header>
+`;
   }
 }
 
