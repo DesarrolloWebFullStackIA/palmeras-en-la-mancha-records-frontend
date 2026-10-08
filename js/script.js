@@ -116,13 +116,10 @@ function goToCreatePage() {
     window.location.href = 'html/crear-album.html';
 }
 
-
-function goToEditPage(albumId) {
-    window.location.href = `html/album.html?id=${albumId}`;
+function goToEditPage() {
+    window.location.href = 'html/ediciones-albumes.html';
 }
-
-
-function openAlbum(albumId) {
+function openAlbum() {
     goToEditPage(albumId);
 }
 
