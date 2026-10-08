@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="css/style.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -30,25 +30,17 @@
 
       <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
 
-      <div class="w-10 h-10 rounded-full overflow-hidden bg-slate-900">
+      <div class="w-10 h-10 rounded-full overflow-hidden bg-slate-900 shrink-0">
         <img src="img/logo.png" alt="Logo" class="w-full h-full object-cover">
       </div>
 
       <div>
-        <div class="text-lg font-bold text-slate-900">
+        <div class="text-lg font-bold text-slate-900 leading-tight">
           Palmeras en la Mancha
         </div>
-
-        <div>
-          <div class="text-lg font-bold text-slate-900">
-            Palmeras en la Mancha
-          </div>
-
-          <div class="text-[10px] text-blue-600 font-bold uppercase tracking-wider">
-            Vinyl Records & Archive Console
-          </div>
+        <div class="text-[10px] text-blue-600 font-bold uppercase tracking-wider">
+          Vinyl Records & Archive Console
         </div>
-
       </div>
 
       <nav class="hidden md:flex items-center gap-2">
@@ -119,6 +111,23 @@
     </section>
 
   </main>
+
+  <footer class="bg-white border-t border-slate-200 py-6 px-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-slate-700">Palmeras en la Mancha</span>
+        <span>|</span>
+        <span>Sistema de Inventario &amp; Gestión Musical</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] text-emerald-600 font-semibold bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Cloudinary CDN Sync Active</span>
+      </div>
+      <div class="text-[11px]">
+        &copy; 2026 Palmeras en la Mancha Records. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
 
   <script src="js/script.js"></script>
 

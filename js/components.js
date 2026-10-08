@@ -1,83 +1,93 @@
-//connectedCallback es un metodo de web component, se ejecuta automaticamente cuando carga la web
+// connectedCallback es un metodo de web component, se ejecuta automaticamente cuando carga la web
 
 class headerComponent extends HTMLElement {
   connectedCallback() {
+    const isRoot = !window.location.pathname.includes('/html/');
+    const logoSrc = isRoot ? 'img/logo.png' : '../img/logo.png';
+    const catalogHref = isRoot ? 'index.html' : '../index.html';
+    const filialesHref = isRoot ? 'html/filiales.html' : 'filiales.html';
+    const discograficasHref = isRoot ? 'html/discograficas.html' : 'discograficas.html';
+    const edicionesHref = isRoot ? 'html/ediciones-albumes.html' : 'ediciones-albumes.html';
+
+    const path = window.location.pathname;
+    const isCat = isRoot || path.endsWith('index.html');
+    const isFil = path.includes('filiales.html');
+    const isDisc = path.includes('discograficas.html');
+    const isEdic = path.includes('ediciones-albumes.html') || path.includes('album.html');
+
     this.innerHTML = `
-        <header class="main-header">
-    <div class="header-container">
+      <header class="main-header">
+        <div class="header-container">
+          <div class="brand-group">
+            <a href="${catalogHref}" class="brand-logo-wrapper" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 12px;">
+              <img
+                alt="Emblema oficial de Palmeras en la Mancha Records"
+                class="brand-logo"
+                src="${logoSrc}"
+              />
+              <div class="brand-text">
+                <span class="brand-title">Palmeras en la Mancha Records</span>
+              </div>
+            </a>
+          </div>
 
-      <div class="brand-group">
-        <div class="brand-logo-wrapper">
-          <img
-            alt="Emblema oficial de Palmeras en la Mancha Records"
-            class="brand-logo"
-            src="../img/logo.png"
-          />
+          <div class="header-divider">
+            <nav class="nav-tabs" id="navTabs">
+              <a class="nav-link ${isCat ? 'active' : ''}" href="${catalogHref}">Catálogo</a>
+              <a class="nav-link ${isFil ? 'active' : ''}" href="${filialesHref}">Filiales</a>
+              <a class="nav-link ${isDisc ? 'active' : ''}" href="${discograficasHref}">Discográficas &amp; Productoras</a>
+              <a class="nav-link ${isEdic ? 'active' : ''}" href="${edicionesHref}">Ediciones de Álbumes</a>
+            </nav>
+          </div>
 
-          <div class="brand-text">
-            <span class="brand-title">Palmeras en la Mancha Records</span>
+          <div class="header-actions">
+            <div class="select-wrapper">
+              <select class="branch-select">
+                <option value="toledo">Sucursal Central - Toledo</option>
+                <option value="albacete">Filial Albacete</option>
+                <option value="ciudad-real">Filial Ciudad Real</option>
+              </select>
+              <span class="material-symbols-outlined select-arrow">expand_more</span>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="header-divider">
-        <nav class="nav-tabs" id="navTabs">
-          <a class="nav-link" href="../index.html">Catálogo</a>
-          <a class="nav-link" href="filiales.html">Filiales</a>
-          <a class="nav-link" href="discograficas.html">Discográficas &amp; Productoras</a>
-          <a class="nav-link active" href="ediciones-albumes.html">Ediciones de Álbumes</a>
-        </nav>
-      </div>
-
-      <div class="header-actions">
-        <div class="select-wrapper">
-          <select class="branch-select">
-            <option value="toledo">Sucursal Central - Toledo</option>
-            <option value="albacete">Filial Albacete</option>
-            <option value="ciudad-real">Filial Ciudad Real</option>
-          </select>
-
-          <span class="material-symbols-outlined select-arrow">expand_more</span>
-        </div>
-      </div>
-
-    </div>
-  </header>
-        `
+      </header>
+    `;
   }
 }
 
-class footerComponent extends HTMLElement{
-    connectedCallback(){
-        this.innerHTML = `
-        <footer class="main-footer">
+class footerComponent extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <footer class="main-footer">
+        <div class="footer-container">
+          <div class="footer-brand">
+            <span class="footer-title">Palmeras en la Mancha</span>
+            <span class="footer-divider">|</span>
+            <span class="footer-subtitle">
+              Sistema de Inventario &amp; Gestión Musical
+            </span>
+          </div>
 
-    <div class="footer-container">
+          <div class="footer-sync">
+            <span class="pulse-dot"></span>
+            <span>Cloudinary CDN Sync Active</span>
+          </div>
 
-      <div class="footer-brand">
-        <span class="footer-title">Palmeras en la Mancha</span>
-        <span class="footer-divider">|</span>
-        <span class="footer-subtitle">
-          Sistema de Inventario &amp; Gestión Musical
-        </span>
-      </div>
-
-      <div class="footer-sync">
-        <span class="pulse-dot"></span>
-        <span>Cloudinary CDN Sync Active</span>
-      </div>
-
-      <div class="footer-copy">
-        © 2026 Palmeras en la Mancha Records. Todos los derechos reservados.
-      </div>
-
-    </div>
-
-  </footer>
-        `
-    }
+          <div class="footer-copy">
+            © 2026 Palmeras en la Mancha Records. Todos los derechos reservados.
+          </div>
+        </div>
+      </footer>
+    `;
+  }
 }
 
-//Para definir el nombre al componente y que salte el callback
-customElements.define('header-component', headerComponent);
-customElements.define('footer-component', footerComponent);
+// Para definir el nombre al componente y que salte el callback
+if (!customElements.get('header-component')) {
+  customElements.define('header-component', headerComponent);
+}
+
+if (!customElements.get('footer-component')) {
+  customElements.define('footer-component', footerComponent);
+}
